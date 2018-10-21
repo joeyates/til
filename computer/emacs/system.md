@@ -12,3 +12,4 @@
 ## Formatting
 
 * indent-tabs-mode (default: t) - Use tabs when indenting?
+* tab-width (default: 8) - Distance between tab stops.
