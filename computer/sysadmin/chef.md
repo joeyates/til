@@ -1,0 +1,183 @@
+# chef-solo
+
+Create site cookbook:
+
+```shell
+knife cookbook create NAME -o DIRECTORY
+```
+
+# Data Bags
+
+Dump data bag with standard knife:
+
+```
+$ knife data bag show {{foo}} {{bar}} --local-mode --secret-file=data_bag_key
+```
+
+# Cookbook
+
+## Update client
+
+```
+curl -LO https://chef.io/chef/install.sh
+chmod 0755 install.sh
+./install.sh -v 13.8.3 # or other version
+```
+
+## Do/skip if a file exists
+
+```
+some_resource "foo" do
+  not_if { ::File.exist?(some_path) }
+end
+```
+
+## System Info
+
+list chef defaults for machine:
+
+```
+$ ohai
+```
+
+Important attributes:
+
+* platform_family
+* platform
+* platform_version
+
+debian
+  ubuntu
+    16.04
+    18.04
+mac_os_x
+
+## Do logging
+
+```ruby
+log 'some text'
+```
+
+## List data bags
+
+```ruby
+DataBag.list
+```
+
+## Show info hidden by 'sensitive' resources
+
+Monkey-patch Chef::Resource so that `sensitive` is always `false`:
+
+```ruby
+class Chef
+  class Resource
+     def sensitive(arg=nil)
+       set_or_return(:sensitive, arg, :kind_of => [ TrueClass, FalseClass ])
+       false
+     end
+  end
+end
+```
+
+# Attributes
+
+Delayed interpolation
+
+# attributes/default.rb
+default['version'] = '1.0'
+default['url'] = "https://download/%{version}"
+# recipes/default.rb
+remote_file '/tmp/app.zip' do
+source node['url'] % {
+version: node['version']
+}
+end
+        
+# Standard resources
+
+## `cookbook_file`
+
+Install a file from file/default
+
+## cron
+
+Attributes:
+* month
+* weekday - 0-6 or :monday ... :sunday
+* day - day of month
+* hour
+* minute
+* time: :annually, :daily, :hourly, :midnight, :monthly, :reboot, :weekly, or :yearly
+
+## file
+
+Create a file directly, supplying content
+
+```ruby
+file {path} do
+  content {content}
+  user
+  group
+  mode
+end
+```
+
+## script (bash, etc)
+
+```
+bash "{name}" do
+  code ""
+end
+```
+
+* action: `:run`*|`:nothing`
+* code: the code to be executed
+
+## template
+
+Use a template (by default under 'templates/default') to create a file.
+
+# notifies
+
+Notify a service:
+
+```ruby
+notifies :restart, 'service[{service name}]', :delayed
+```
+
+Notify a Bash script:
+
+```
+{resource} do
+   notifies :run, "bash[foo]"
+end
+
+bash "foo" do
+  action :nothing
+  code ""
+end
+```
+
+# Testing
+
+## Vagrant
+
+set up Vagrant and obtain desired base image
+
+add Vagrantfile to chef repo
+
+```ruby
+Vagrant.configure("2") do |config|
+  config.vm.provision "chef_solo" do |chef|
+    chef.add_recipe "my_recipe"
+    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
+    chef.data_bags_path = "data_bags"
+    chef.json = {
+      "apache" => {
+        "listen_address" => "0.0.0.0"
+      }
+    }
+  end
+end
+```
+        
