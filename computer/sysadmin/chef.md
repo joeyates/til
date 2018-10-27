@@ -46,11 +46,13 @@ Important attributes:
 * platform
 * platform_version
 
+```
 debian
   ubuntu
     16.04
     18.04
 mac_os_x
+```
 
 ## Do logging
 
@@ -72,19 +74,30 @@ DataBag.list
 default["foo"] = 123
 ```
 
-# Attributes
+Set if unset:
 
-Delayed interpolation
+```ruby
+default_unless["foo"] = 123
+```
 
-# attributes/default.rb
+## Delayed interpolation
+
+* attributes/default.rb
+
+```ruby
 default['version'] = '1.0'
 default['url'] = "https://download/%{version}"
-# recipes/default.rb
+```
+
+* recipes/default.rb
+
+```ruby
 remote_file '/tmp/app.zip' do
-source node['url'] % {
-version: node['version']
-}
+  source node['url'] % {
+    version: node['version']
+  }
 end
+```
         
 # Standard resources
 
