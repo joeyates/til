@@ -64,19 +64,12 @@ log 'some text'
 DataBag.list
 ```
 
-## Show info hidden by 'sensitive' resources
+# Attributes
 
-Monkey-patch Chef::Resource so that `sensitive` is always `false`:
+## Defaults
 
 ```ruby
-class Chef
-  class Resource
-     def sensitive(arg=nil)
-       set_or_return(:sensitive, arg, :kind_of => [ TrueClass, FalseClass ])
-       false
-     end
-  end
-end
+default["foo"] = 123
 ```
 
 # Attributes
