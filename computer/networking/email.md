@@ -4,11 +4,20 @@ Use only ipv4:
 ```
 CLIENT_OPTIONS(`Family=inet')
 ```
-SPF
+
+# Anti Spam
+
+## SPF
+
 http://www.openspf.org/
+
 DNS record:
+
+```
                          type  value
     domain.  ttl_seconds SPF   "v=spf1 ip4:ipv4 ip6:ipv6 -all"
+```
+
 Indicate an IPv4 is good, without blocking other IPs:
 ```
     "v=spf1 ip4:ipv4"
@@ -38,7 +47,7 @@ For non-TLS connections:
 Authentication is Base64 encoded, both in server prompts and
 client replies.
 
-Before try to authenticate, get Base64 versions of username and password:
+Before trying to authenticate, get Base64 versions of username and password:
 
 ```
 ruby -rbase64 -e "puts Base64.encode64('my_username)"
