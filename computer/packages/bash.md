@@ -29,9 +29,32 @@ Perform expansion, without other commands:
 : {command}
 ```
 
-# Condifions ("Tests")
+# Conditions ("Tests")
 
-## `-e`: File exists
+[Files](http://tldp.org/LDP/abs/html/fto.html):
+
+* `-d` - is a directory
+* `-e` - exists
+* `-f` - is a file
+* `-s` - is not zero size
+
+Integers:
+
+* `-eq` - equal
+* `-ne` - not equal
+* `-gt` - greater than
+
+Strings:
+
+* `=` - equal
+* `==` - equal
+* `<` - less than (ASCII ordering)
+* `-z` - is zero length
+* `-n` - is not zero length
+
+Examples:
+
+File exists:
 
 ```
 if [ -e "$FILENAME" ]
@@ -48,9 +71,6 @@ then
   ...
 fi
 ```
-
-## `-eq`: Integers equal
-## `==`: Strings equal
 
 # for
 
