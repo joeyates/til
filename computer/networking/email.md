@@ -42,6 +42,16 @@ echo "body" | mail -s "subject" address
 
 For non-TLS connections:
 
+```shell
+$ telnet <mail server> <port>
+```
+
+For TLS:
+
+```shell
+$ openssl s_client -debug -starttls smtp -crlf -connect <mail server>:<port>
+```
+
 ### Note about Base64
 
 Authentication is Base64 encoded, both in server prompts and
@@ -50,7 +60,8 @@ client replies.
 Before trying to authenticate, get Base64 versions of username and password:
 
 ```
-ruby -rbase64 -e "puts Base64.encode64('my_username)"
+ruby -rbase64 -e "puts Base64.encode64('my_username')"
+ruby -rbase64 -e "puts Base64.encode64('my_password)"
 ```
 
 Server prompts:
@@ -58,14 +69,18 @@ Server prompts:
 VXNlcm5hbWU6 - 'Username:'
 UGFzc3dvcmQ6 - 'Password:'
 
-For TLS:
+### Interacting with the SMTP Server
 
-openssl s_client -debug -starttls smtp -crlf -connect localhost:25
-
-EHLO email.beniculturali.it
-
-Check the auth types supported.
-
-For `AUTH LOGIN`:
-
-AUTH LOGIN
+* `HELO <hostname>` - initiate conversation. It seems that <hostname> can be
+  any FQDN.
+* `EHLO <mail server>` - extended Hello. Server sends a list of its
+  capabilities.
+* `STARTTLS`
+* `AUTH LOGIN` - initiate 'login' authentication (or check if it's supported)
+* `MAIL FROM:<email address>` - start composing a new email and set
+  sender's address
+* `RCPT TO:<email address>` - set recipient's address
+* `DATA` - start sending email body. The server accepts input up to the
+  first `<crlf>.<crlf>` sequence. The email is sent when data entry
+  concludes.
+* `QUIT`
