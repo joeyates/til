@@ -14,58 +14,6 @@ Dump data bag with standard knife:
 $ knife data bag show {{foo}} {{bar}} --local-mode --secret-file=data_bag_key
 ```
 
-# Cookbook
-
-## Update client
-
-```
-curl -LO https://chef.io/chef/install.sh
-chmod 0755 install.sh
-./install.sh -v 13.8.3 # or other version
-```
-
-## Do/skip if a file exists
-
-```
-some_resource "foo" do
-  not_if { ::File.exist?(some_path) }
-end
-```
-
-## System Info
-
-list chef defaults for machine:
-
-```
-$ ohai
-```
-
-Important attributes:
-
-* platform_family
-* platform
-* platform_version
-
-```
-debian
-  ubuntu
-    16.04
-    18.04
-mac_os_x
-```
-
-## Do logging
-
-```ruby
-log 'some text'
-```
-
-## List data bags
-
-```ruby
-DataBag.list
-```
-
 # Attributes
 
 ## Defaults
@@ -98,7 +46,7 @@ remote_file '/tmp/app.zip' do
   }
 end
 ```
-        
+
 # Standard resources
 
 ## `cookbook_file`
