@@ -10,6 +10,12 @@ Rails.logger.formatter = Logger::Formatter.new
 
 # ActiveRecord
 
+## Configuration
+
+Environment variables:
+
+* DATABASE_URL postgres://<username>:<password>@<host>:<port>/<dbname>
+
 ## Cookbook
 
 ### Disable ActiveRecord logging
