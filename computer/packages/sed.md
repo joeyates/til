@@ -32,9 +32,9 @@ sed -i -r 's#this#this\/that#' *.slim
 
 ## Recursive replace
 
-sed -i -r "s#{{match}}#{{replacement}}#" {{file glob}}
+sed -i -r "s#{{match}}#{{replacement}}#g" {{file glob}}
 
-find {{directory}} -type f -name '{{file glob}}' -print0 | xargs -0 sed -i -r "s#{{match}}#{{replacement}}#" '{}' ';'
+find {{directory}} -type f -name '{{file glob}}' -print0 | xargs -0 sed -i -r "s#{{match}}#{{replacement}}#g" '{}' ';'
 
 Captures:
 
