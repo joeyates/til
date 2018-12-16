@@ -72,6 +72,18 @@ then
 fi
 ```
 
+# case
+
+```
+case "$foo" in
+  bar)
+     ...
+     ;;
+  *)
+     ...
+esac
+```
+
 # for
 
 ## numerical loop over range
