@@ -1,0 +1,39 @@
+﻿AREL
+* Documentation
+* Repository
+Arel::Attributes::Attribute
+For operators, see Arel::Predications
+Arel::Predications
+* lt
+* lteq
+* gt
+* gteq
+Join:
+relation.join(photos).on(users[:id].eq(photos[:user_id]))
+Arel::Table
+instance methods:
+* order(:field_name)
+ActiveRecord
+Cookbook
+Connect without Rails
+require 'sqlite3'
+require 'active_record'
+
+
+ActiveRecord::Base.establish_connection(
+ :adapter => 'sqlite3',
+ :database => 'test.db'
+)
+Query without Rails
+???
+Cookbook
+Get a Clean ActiveRecord::Relation for a Model
+model.scoped
+OR Query
+        where(arel_table[:field1].eq(value1).or(arel_table[:field2].eq(value2))
+NOT Query
+        where(arel_table[:field].not_eq(value))
+Query on joined fields
+Model.joins(:association).where(joined_table: {field: value})...
+Stop 'ActiveRecord::ReadOnlyRecord' on joins
+        relation.readonly(false)
