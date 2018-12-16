@@ -70,13 +70,13 @@ Info:
 man req
 ```
 
-Create Interactively:
+## Create Interactively
 
 ```
 openssl req -new -key server.key -out server.csr
 ```
 
-Directly:
+## Directly
 ```
 openssl req -new \
   -subj '/type_code=value0/type1=value1/type2=...' \
@@ -84,7 +84,42 @@ openssl req -new \
   -out server.csr
 ```
 
-### Types:
+## Create from config file
+
+The config:
+
+```
+[req]
+prompt = no
+distinguished_name = dn
+req_extensions     = req_ext
+
+[dn]
+CN = www.example.com
+O = The Organization
+OU = The Office or division
+L = The city
+ST = The US state, UK County, etc
+C = The 2-letter country code
+
+[ req_ext ]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1   = xxx.example.it
+```
+
+```shell
+$ openssl genrsa -out ./certificate.key 4096
+$ openssl \
+  req \
+  -config certificate.csr.conf \
+  -new \
+  -key ./certificate.key \
+  -out ./certificate.csr
+```
+
+## Field Types
 
 * Country Name
   * 2 letter code
