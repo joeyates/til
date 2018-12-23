@@ -352,6 +352,8 @@ http://www.zprod.org/PG/machines/bbcMicroInterface.htm
 
 ### Transmission
 
+http://www.bbcbasic.co.uk/bbcbasic/manual/annexe.html
+
 ```
     5 MODE 0
    10 *FX 203,50,0
