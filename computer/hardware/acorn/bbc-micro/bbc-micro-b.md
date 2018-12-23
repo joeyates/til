@@ -26,7 +26,7 @@ Boot !BOOT program from disk: SHIFT + F12 ? Shift + BREAK
 * `*DUMP <afsp>` - print file contents in hex
 * `*EXEC <fsp>` - run a Basic program from disk
 * `*LIST <fsp>` - print file contents with line numbers
-* `*LOAD <filename>` - load a Basci file
+* `*LOAD <filename>` - load a Basic file
 * `*RUN <fsp>` - run a machine code file from disk
 * `*SAVE <filename> <start> <end> <execute adress> [<reload address>]` -
   save a section of memory
@@ -66,6 +66,8 @@ Output columns:
 
 * filename specifier: :<drive>.<dir>.<filename>
 * filename length is between 1 and 7 characters
+
+http://bbcbasic.co.uk/bbcbasic/manual/opsys1.html
 
 # BBC Basic
 
@@ -195,7 +197,7 @@ All other variables a declared with `DIM`
 * RIGHT$() - 
 * RND - 
 * RENUMBER - Change the numbering of the proram's lines
-* SAVE - 
+* SAVE "<filename>" - Save current program to current drive
 * SGN - 
 * SIN - 
 * SQR - 
@@ -349,6 +351,13 @@ RTS      --- 6
 ### Version 4
 
 http://www.zprod.org/PG/machines/bbcMicroInterface.htm
+
+# Copying
+
+## Program to BBC micro
+
+* save with windows newlines
+* cat <file> > /dev/ttyUSB0
 
 ### Transmission
 
