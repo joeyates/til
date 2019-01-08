@@ -3,7 +3,20 @@
 Write image to SD card:
 
 ```
-$ sudo dd bs=4M if=2018-10-09-raspbian-stretch.img of=/dev/sdX conv=fsync
+$ sudo dd if=2018-10-09-raspbian-stretch.img of=/dev/mmcblk0 bs=1M status=progress && sync
+```
+
+## User
+
+* username: pi
+* password: raspberry
+
+## SSH
+
+Create a file named `ssh` on the boot partition.
+
+```
+$ ssh pi@raspberrypi.local
 ```
 
 ## Modify Image
