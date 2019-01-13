@@ -1,45 +1,3 @@
-# Sendmail
-
-Use only ipv4:
-```
-CLIENT_OPTIONS(`Family=inet')
-```
-
-# Anti Spam
-
-## SPF
-
-http://www.openspf.org/
-
-DNS record:
-
-```
-                         type  value
-    domain.  ttl_seconds SPF   "v=spf1 ip4:ipv4 ip6:ipv6 -all"
-```
-
-Indicate an IPv4 is good, without blocking other IPs:
-```
-    "v=spf1 ip4:ipv4"
-```
-
-# Cookbook
-
-## Send email from the command line
-
-With sendmail:
-
-```
-echo {body} | sendmail {address}
-```
-
-With mail:
-```
-echo "body" | mail -s "subject" address
-```
-
-## Debug SMTP
-
 For non-TLS connections:
 
 ```shell
@@ -52,7 +10,7 @@ For TLS:
 $ openssl s_client -debug -starttls smtp -crlf -connect <mail server>:<port>
 ```
 
-### Note about Base64
+# Note about Base64
 
 Authentication is Base64 encoded, both in server prompts and
 client replies.
@@ -69,7 +27,7 @@ Server prompts:
 VXNlcm5hbWU6 - 'Username:'
 UGFzc3dvcmQ6 - 'Password:'
 
-### Interacting with the SMTP Server
+# Interacting with the SMTP Server
 
 * `HELO <hostname>` - initiate conversation. It seems that <hostname> can be
   any FQDN.
