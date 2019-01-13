@@ -1,7 +1,8 @@
-# Transmission
+# Copying
 
 http://mdfs.net/Software/Comms/
-http://www.bbcbasic.co.uk/bbcbasic/manual/annexe.html
+
+# Transmission
 
 ```
     5 MODE 0
@@ -48,3 +49,8 @@ Notes:
   * negative arguments are reads
   * ADVAL 1-4 are analogue channels
 * `*FX 2` - reset keyboard as input channel
+
+## Copy a Program to BBC micro
+
+* save with windows newlines
+* cat <file> > /dev/ttyUSB0

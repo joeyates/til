@@ -26,6 +26,8 @@ Boot !BOOT program from disk: SHIFT + F12 ? Shift + BREAK
 
 # Files
 
+Note: file names seem to be case-insensitive when read.
+
 * `*CLOSE` - close all files
 * `*DUMP <afsp>` - print file contents in hex
 * `*EXEC <fsp>` - run a Basic program from disk
@@ -36,11 +38,20 @@ Boot !BOOT program from disk: SHIFT + F12 ? Shift + BREAK
   save a section of memory
 * `*SPOOL` - close a file opened by `*SPOOL <fiename>`
 * `*SPOOL <fsp>` - opens a file for plain output
+  * can be used to save plain text program listings
+* `*TYPE <fsp>` - print out file contents
 * `*WIPE <fsp>` - delete a file
+
+```
+*LOAD <program>
+*SPOOL PLAIN
+LIST
+*SPOOL
+```
 
 ## Keyboard
 
-* `*KEY <numnber> <text>` - program a function key
+* `*KEY <number> <text>` - program a function key
 
 ## *EX
 
@@ -72,4 +83,3 @@ Output columns:
 * filename length is between 1 and 7 characters
 
 http://bbcbasic.co.uk/bbcbasic/manual/opsys1.html
-

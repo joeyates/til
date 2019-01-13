@@ -11,6 +11,10 @@
 * http://bbc.nvg.org/doc/BBCUserGuide-1.00.pdf
 * http://primrosebank.net/computers/bbc/documents/BBCMicroUserGuide.pdf
 
+## Reviews
+
+* https://www.stairwaytohell.com/articles/cr-BBCMicro-CToday.html
+
 ## Motherboard
 
 * http://8bs.com/inbbc.htm
@@ -20,9 +24,6 @@
 * http://chrisacorns.computinghistory.org.uk/docs/Acorn/Manuals/Acorn_DiscSystemUGI2.pdf
 * http://primrosebank.net/computers/bbc/documents/Acorn_DiscSystemUGI2.pdf
 
-# Copying
+# Programs
 
-## Program to BBC micro
-
-* save with windows newlines
-* cat <file> > /dev/ttyUSB0
+http://archive.retro-kit.co.uk/bbc.nvg.org/software.php3.html
