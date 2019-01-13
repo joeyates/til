@@ -58,3 +58,33 @@ mix phoenix.routes
 Models are structs.
 
 Changesets, see Ecto.Changeset
+
+# Cookbook
+
+## Create a project
+
+Optionally update Hex:
+
+mix local.hex
+
+Install Phoenix as an archive
+
+mix archive.install hex phx_new <version>
+
+Create the project
+
+mix phx.new <name>
+
+Create the database
+
+mix ecto.create
+
+## Run the development server
+
+mix phx.server
+
+The server runs on port 4000
+
+Run under Iex
+
+iex -S mix phx.server
