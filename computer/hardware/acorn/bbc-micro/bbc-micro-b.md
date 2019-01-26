@@ -10,6 +10,7 @@
 * http://mdfs.net/Software/BBC/
 * http://bbc.nvg.org/doc/BBCUserGuide-1.00.pdf
 * http://primrosebank.net/computers/bbc/documents/BBCMicroUserGuide.pdf
+* http://8bs.com/hints/hints.htm
 
 ## Reviews
 

@@ -6,21 +6,55 @@ Lines of text that start with `*` are passed to the operating system.
 * `*HELP <subsystem>` - list commands provided by subsystem
 * `*HELP <command>` - show help on commands
 
+# DFS - Disk File System
+
+## Watford DFS
+
+* Density: 40 or 80 tracks
+* Numbering: primary - 0, 2
+* Max Files per drive: 31
+
+## File Specifiers
+
+Files are specified by drive, directory and filename (an 'fsp'):
+
+```
+:{{drive}}.{{directory}}.{{filename}}
+```
+
+Initial Defaults:
+* drive: 0
+* directory: $
+
+## AFSP
+
+Commands like `*INFO` accept fsps with wildcards ('afsp's):
+
+* `#` - single character
+* `*` - any number of characters
+
 # Operating System
 
 * `*FX` - call `OSBYTE`
 
 # Disks
 
+* `*.` - abbreviation of `*CAT`
 * ??? - list disks
-* `*DISK <number>` - select drive by number
+* `*DISK <number>` - ???
+* `*DRIVE <number>` - select drive by number
 * `*DIR <directory>` - set the current directory
-* `*CAT` - list drive contents
+* `*CAT [:{{number}}]` - list drive contents
 * `*EX <directory>` - list detailed file information for a directory
+  (can't get this to work)
 * `*FORM [40|80]` - format disk
-* `*FREE <number>` - show free space on drive (defaults to current drive)
+* `*FREE <number>` - show free space on drive
+  (defaults to current drive)
+  (can't get this to work)
 * `*INFO <afsp>` - list detailed drive contents
 * `*TITLE <title>` - sets a disk's title
+
+* `*EDIT` - open watford drive tools
 
 Boot !BOOT program from disk: SHIFT + F12 ? Shift + BREAK
 
@@ -42,13 +76,6 @@ Note: file names seem to be case-insensitive when read.
 * `*TYPE <fsp>` - print out file contents
 * `*WIPE <fsp>` - delete a file
 
-```
-*LOAD <program>
-*SPOOL PLAIN
-LIST
-*SPOOL
-```
-
 ## Keyboard
 
 * `*KEY <number> <text>` - program a function key
@@ -64,8 +91,6 @@ LIST
 Output: see `*INFO`
 
 ## *INFO
-
-* `afsp` - file specifier, accepts `#` and `*` as wildcards
 
 Output columns:
 
