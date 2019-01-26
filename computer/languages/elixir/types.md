@@ -120,6 +120,8 @@ kl[:k] # => 1
 
 Keyword.keyword?(value) - is `value` a keyword list?
 
+* `Keyword.keys({{keyword list}})` - get keys
+
 # Map
 
 * `is_map/1`
