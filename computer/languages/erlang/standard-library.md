@@ -55,3 +55,15 @@ Param is type:
 # ets - Erlang Term Storage
 
 Store data in the runtime system.
+
+# inets
+
+## Cookbook
+
+Serve directory contents
+
+* use 'text/html' as default MIME type
+* redirect to /foo/ from /foo
+* serve /foo/index.html for /foo/
+
+erl -s inets -eval 'inets:start(httpd,[{server_name,"localhost"},{document_root, "."},{server_root, "."},{port, 8000},{mime_type,"text/html"},{mime_types,[{"ht","text/html"},{"htm","text/html"},{"js","text/javascript"},{"css","text/css"},{"gif","image/gif"},{"jpg","image/jpeg"},{"jpeg","image/jpeg"},{"png","image/png"}]},{directory_index, ["index.html"]}]).'
