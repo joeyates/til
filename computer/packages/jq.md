@@ -21,13 +21,15 @@
 
 ## Array Filters And Methods
 
-* `| map(filter)` - the result of runninf the filter against each item
+* `| map(filter)` - the result of running the filter against each item
 * `| length` - the length
 * `| sort` - the items sorted
 * `| unique` - return each unique item once
 * `| first` - the first item
 * `| last` - the last item
 * `[n]` - the nth item
+* `.[x:y]` - select a range
+* `.= {"key1", "key2"}` - return an object with only the indicated keys
 
 # Example queries
 
