@@ -64,9 +64,10 @@ Note: file names seem to be case-insensitive when read.
 
 * `*CLOSE` - close all files
 * `*DUMP <afsp>` - print file contents in hex
-* `*EXEC <fsp>` - run a Basic program from disk
+* `*EXEC <fsp>` - read in plain text from disk as if via keyboard
 * `*LIST <fsp>` - print file contents with line numbers
 * `*LOAD <filename>` - load a Basic file
+* `*RENAME <fsp> <fsp>`
 * `*RUN <fsp>` - run a machine code file from disk
 * `*SAVE <filename> <start> <end> <execute adress> [<reload address>]` -
   save a section of memory
