@@ -11,3 +11,10 @@
 = foo :bar,
   ciao: "hello"
 ```
+
+## Interpolate values into `javascript:`
+
+```
+javascript:
+  const foo = '#{@foo}`
+```

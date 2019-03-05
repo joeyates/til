@@ -7,11 +7,30 @@ $ sudo docker run postgres:10
 Make available on host:
 
 ```shell
-sudo docker run -p 127.0.0.1:5432:5432 postgres:10
+docker run --publish 5432:5432 postgres:10
+```
+
+```
+psql -h 127.0.0.1 -U postgres
 ```
 
 Persist the data:
 
 ```shell
-sudo docker run --mount source=pg10,target=/var/lib/postgres postgres:10
+docker run --mount source=pg10,target=/var/lib/postgres postgres:10
+```
+
+```shell
+docker run --publish 5432:5432 \
+  --volume pg10:/var/lib/postgresql/data \
+  postgres:10
+```
+
+Fatser testing with an in-memory database:
+
+```
+docker run --publish 5432:5432 \
+  --mount type=tmpfs,destination=/var/lib/postgresql/data \
+  postgres:10 \
+  -c fsync=off
 ```

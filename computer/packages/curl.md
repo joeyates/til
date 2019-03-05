@@ -23,6 +23,13 @@ multiple values:
 --data "key_1=value1&..."
 ```
 
+# POST JSON
+
+```
+--header "Content-Type: application/json" \
+--data '{...}'
+```
+
 # GET request with query parameters:
 
 ```
