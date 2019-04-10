@@ -72,7 +72,9 @@ then
 fi
 ```
 
-# case
+# Structures
+
+## case
 
 ```
 case "$foo" in
@@ -84,7 +86,7 @@ case "$foo" in
 esac
 ```
 
-# for
+## for
 
 ## numerical loop over range
 
@@ -94,4 +96,16 @@ for i in {1..20}; do echo $i; done
 
 ## Convert a series of image files
 
+```
 for file in *.CR2; do convert "${file}" "${file/%.CR2/.jpg}"; done
+```
+
+## while
+
+```
+while true
+do
+  echo "Hi"
+  sleep 1
+done
+```
