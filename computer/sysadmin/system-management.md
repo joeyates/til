@@ -15,6 +15,10 @@ To upgrade from old, unsupported distributions, use 'old-releases.ubuntu.com'
 * `aptitude update` - fetch updated versions of package lists
 * `aptitude install `*package* - install **or update** a package
 
+```
+aptitude install package=version
+```
+
 List files contained in a package:
 
 ```
