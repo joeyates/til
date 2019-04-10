@@ -32,7 +32,7 @@ Reference style
 [reference id]: URL "Optional title"
 ```
 
-Within a document:
+Inline:
 
 ```markdown
 [Link text](#target_id)
