@@ -1,7 +1,14 @@
+# Configuration
+
+/etc/gitlab/gitlab-secrets.json
+/etc/gitlab/gitlab.rb
+
+# Cookbook
+
 # GitLab repo grep
 
 /var/opt/gitlab/git-data/repositories
-git grep -i -n --before-context 2 --after-context 2 #{query} 
+git grep -i -n --before-context 2 --after-context 2 #{query}
 
 ## Find by file name
 
