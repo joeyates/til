@@ -106,7 +106,7 @@ curl -T "application/x-www-form-urlencoded" -p data_file url
 Send HTTP AUTH
 
 ```
-curl -u username:passwd {URL}
+curl --user username:passwd {URL}
 ```
 
 Call a socket (curl >= 7.40)
