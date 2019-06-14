@@ -2,8 +2,10 @@
 
 rubocop --auto-correct --only {{cop name}}
 
-# Disable a cop in a file
+# Disable a cop for a section of a file
 
 ```ruby
 # rubocop:disable Metrics/LineLength
+...
+# rubocop:enable Metrics/LineLength
 ```
