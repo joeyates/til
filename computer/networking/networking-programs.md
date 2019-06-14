@@ -94,6 +94,7 @@ $ echo "{{the public key}} | ssh-keygen -lf -
 ## `.ssh/config`
 
 Structure:
+
 ```
 global settings
 Host pattern
@@ -108,17 +109,22 @@ Host pattern1[ pattern2...]
   StrictHostKeyChecking
   LocalCommand - command to execute locally after connect
 ```
+
 Wildcard parameters:
 * %d - user's home
 
 Don't add new entries to known_hosts:
+
 ```
 UserKnownHostsFile /dev/null
 ```
+
 Don't check against known hosts:
+
 ```
 StrictHostKeyChecking no
 ```
+
 patterns
 name - a hostname
 ip_address
@@ -144,15 +150,20 @@ Host alias
 ```
 
 ### Remote commands
-```
+
+```sh
 $ ssh host -- command
 ```
+
 Run a remote command in a directory
-```
+
+```sh
 $ ssh host 'sh -c "cd path && command"'
 ```
+
 Run multiple commands (via a remote shell):
-```
+
+```sh
 $ ssh host "sh -c 'COMMAND && COMMAND ...'"
 ```
 
@@ -168,12 +179,14 @@ $ ssh -nNT -R remote_port:localhost:local_port remote_host
 ```
 
 ### Tunnel to a Remote Port
-```
+
+```sh
 $ ssh -L local_port:remote_port remote_host
 ```
 
 ### Kill a Connection
-```
+
+```sh
 ~.
 ```
 

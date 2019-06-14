@@ -15,7 +15,8 @@ If a line is repeated, don't add it to history
 
 ## set default value
 
-Return first parameter if set, otherwise the supplied value: 
+Return first parameter if set, otherwise the supplied value:
+
 ```
 ${1:-foo};
 ```
