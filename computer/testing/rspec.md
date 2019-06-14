@@ -11,7 +11,35 @@ expect(object).to have_received(:method).with(*parameters)
 
 ## Cookbook
 
-Checking successive calls and their parameters
+## Change ordering
+
+```ruby
+  config.register_ordering(:global) do |items|
+    items.sort_by do |group|
+      case group.metadata[:type]
+      when :feature then 3
+      when :controller then 2
+      when :model  then 1
+      else 4
+      end
+    end
+  end
+```
+
+This will only run if no ordering is specified in any loaded configuration
+file.
+
+Run as follows:
+
+```shell
+$ rspec --options xx --color --format documentation --require spec_helper
+```
+
+The `xxx` is a fake to avoid loading global or local configurations.
+
+# Cookbook
+
+## Checking successive calls and their parameters
 
 ```ruby
 expect(:foo).to receive(:bar).with(1).ordered
