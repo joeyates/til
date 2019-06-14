@@ -179,3 +179,17 @@ psql -f /usr/share/postgresql/8.4/contrib/pg_trgm.sql
 ```
 select * from my_table where my_jsonb_field @> '{"foo": "bar"}'::jsonb;
 ```
+
+# JSON Output
+
+```psql
+\pset format unaligned
+\t on
+select json_agg(u) from users u;
+```
+
+# Output to File
+
+```psql
+\o {{filename}}
+```
