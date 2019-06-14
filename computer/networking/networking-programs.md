@@ -159,8 +159,12 @@ $ ssh host "sh -c 'COMMAND && COMMAND ...'"
 ### Expose a Local Port to Inbound Traffic
 
 i.e. create a reverse tunnel.
-```
-$ ssh -nNT -R remote_port:local_port remote_host
+
+* remote_port - the port opened on the remote computer
+* local_port - the post that sshd listens to on your computer
+
+```sh
+$ ssh -nNT -R remote_port:localhost:local_port remote_host
 ```
 
 ### Tunnel to a Remote Port
