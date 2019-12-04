@@ -25,7 +25,7 @@ Use SSH private key:
 Resume incomplete uploads
 
 ```
-... -partial ...
+... --partial ...
 ```
 
 Show progress bar

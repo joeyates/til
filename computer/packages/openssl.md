@@ -241,9 +241,9 @@ Get key modulus
 openssl x509 -noout -modulus -in certificate | openssl md5
 ```
 
-## SSL Cookbook
+# Cookbook
 
-### Install Certificate on nginx
+## Install Certificate on nginx
 
 Check site cert modulus matches private key modulus (see above)
 Concatenate, in order, the site cert, intermediate certs and the root cert
@@ -252,7 +252,7 @@ Concatenate, in order, the site cert, intermediate certs and the root cert
 cat site.crt int1.crt root.crt > site.bundle.crt
 ```
 
-### Create a self-signed key and certificate
+## Create a self-signed key and certificate
 
 Set these:
 
