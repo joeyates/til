@@ -107,6 +107,12 @@ From compressed:
 gzip -cd $DATABASE_DUMP | psql -U $DATABASE_USER $DATABASE
 ```
 
+# Tables
+
+```
+CREATE TABLE {{name}} ({{field}} {{type}}[, ...]);
+```
+
 ## Data Manipulation
 
 Update based on a 'join':
@@ -183,16 +189,28 @@ psql -f /usr/share/postgresql/8.4/contrib/pg_trgm.sql
 select * from my_table where my_jsonb_field @> '{"foo": "bar"}'::jsonb;
 ```
 
+# Output to File
+
+```psql
+\o {{filename}}
+```
+
+# CSV Output
+
+```psql
+\copy {{table}} to {{filename}} csv header
+\copy ({{query}}) to {{filename}} csv header
+```
+
+```sql
+COPY {{table}} TO {{filename}} DELIMITER ',' CSV HEADER;
+COPY ({{query}}) TO {{filename}} DELIMITER ',' CSV HEADER;
+```
+
 # JSON Output
 
 ```psql
 \pset format unaligned
 \t on
 select json_agg(u) from users u;
-```
-
-# Output to File
-
-```psql
-\o {{filename}}
 ```
