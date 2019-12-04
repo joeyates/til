@@ -91,6 +91,7 @@ for 2 chicken breasts + 6 thighs
 # Bombay aloo
 
 ## Ingredients
+
 * potatoes
 * onions cut into big cubes
 * fresh tomatoes
@@ -99,6 +100,7 @@ for 2 chicken breasts + 6 thighs
 * ghee
 
 ## Instructions
+
 * cut potatoes into big cubes
 * boil, drain when still very firm
 * warm ghee
@@ -108,6 +110,7 @@ for 2 chicken breasts + 6 thighs
 * add sliced tomato
 
 # Brinjal curry
+
 * cut aubergines into long slices
 * wash removing black water
 * salt and purge over kitchen paper
