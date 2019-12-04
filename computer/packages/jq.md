@@ -18,6 +18,7 @@
 
 * `| keys`
 * `| keys_unsorted`
+* `select(condition)`
 
 ## Array Filters And Methods
 
