@@ -68,3 +68,7 @@ end
 
 Project reloader (for development)
 * source: https://github.com/herenowcoder/reprise
+
+# shorter_maps
+
+Elixir sigil for ES6 style object initialization (+destructuring)
