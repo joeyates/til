@@ -39,3 +39,7 @@ Resume and show progress
 ```
 ... -P ...
 ```
+
+# Download a remote file, allowing resumation
+
+rsync --progress --partial root@{{domain}}:{{pathname}} .
