@@ -1,6 +1,8 @@
 # CSV
 
-require 'csv'
+```ruby
+require "csv"
+```
 
 ## `options` Hash
 
@@ -18,8 +20,7 @@ require 'csv'
 ### Write
 
 ```ruby
-require 'csv'
-CSV.open(file_name, 'w') do |csv|
+CSV.open(file_name, "w") do |csv|
   csv << array
 end
 ```
@@ -34,14 +35,15 @@ end
 ### Read a doc in a non-standard encoding
 
 ```ruby
-CSV.open(file_name, 'rb:ENCODING_NAME') ...
+CSV.open(file_name, "rb:ENCODING_NAME") ...
 ```
 
 # Digest
 
 ```ruby
-require 'digest/sha1'
-require 'digest/md5'
+require "digest/sha1"
+require "digest/md5"
+
 Digest::SHA1.hexdigest(string)
 ```
 
