@@ -267,3 +267,7 @@ DOMAIN=
 ```
 openssl req -nodes -new -newkey rsa:$KEY_BITS -subj "/C=$COUNTRY/ST=$STATE/O=$ORGANISATION/CN=$DOMAIN" -x509 -keyout server.key -out server.cert
 ```
+
+## Create a CA for self-signed certificates
+
+...
