@@ -25,18 +25,21 @@ CREATE USER name WITH CREATEDB [CREATEUSER] [[ENCRYPTED] PASSWORD 'password'];
 
 ## Replication user
 
-REATE USER rep REPLICATION LOGIN CONNECTION LIMIT 1 ENCRYPTED PASSWORD 'yourpassword';
+```sql
+CREATE USER rep REPLICATION LOGIN CONNECTION LIMIT 1 ENCRYPTED PASSWORD 'yourpassword';
+```
 
 Via command line (usually as postgres):
+
 ```shell
-createuser --createdb --encrypted --no-superuser --no-createrole <NAME>
+$ createuser --createdb --encrypted --no-superuser --no-createrole <NAME>
 ```
 
 ## Passwords
 
-Passwords
 By default user passwords are stored in plain text.
-Passwords can be md5 encrypted.
+
+Passwords can be MD5 encrypted.
 If ENCRYPTED is specified, the supplied password is md5 encrypted in the db,
 If the supplied password is already md5 encrypted, the ENCRYPTED parameter is ignored.
 
