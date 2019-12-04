@@ -51,6 +51,9 @@ Most map systems comprise two elements:
 
 * by default, tiles are 256x256 pixels
 
+Example tile:
+https://a.tile.openstreetmap.org/9/253/167.png
+
 # Mapnik
 
 * mapnik - Open source mapping toolkit
@@ -79,7 +82,7 @@ Most map systems comprise two elements:
 * Docker compose
 * postgis
 * kosmtik
-  * .kosmtik-config.yml - the "carto poject"
+  * .kosmtik-config.yml - the "carto project"
   * localconfig.json
 
 ## Resources
