@@ -1,4 +1,4 @@
-# Cookbook
+# docker
 
 ## Build
 
@@ -48,21 +48,80 @@ $ docker system prune
 
 # Containers
 
-## Running containers
+## List Running containers
 
 ```
 $ docker ps
 ```
 
-## All containers
+## List All containers
 
 ```
 $ docker ps --all
 ```
 
-## Remove container
+## Connect to a Running Container
+
+```
+docker attach {{id}}
+```
+
+Detach: CTRL-p CTRL-q
+
+## Remove Container
 
 $ docker rm {{id}}
+
+# Cookbook
+
+## See Logs
+
+```sh
+$ docker-compose logs -f
+```
+
+## Copy a Docker Image to Another Machine
+
+On source machine:
+
+```sh
+$ docker save --output {{image output pathname}} {{image}}
+```
+
+```sh
+$ docker load --input {{image pathname}}
+```
+
+## Get the Container ID
+
+```
+container_id=$(docker ps --all | grep -P {{regex}} | cut -d ' ' -f 1)
+```
+
+## Remove Containers with Matching a Pattern
+
+```sh
+docker rm $(docker ps --all | grep -P '{{regex}}' | cut -d ' ' -f 1)
+```
+
+## Remove Images Matching a Pattern
+
+```sh
+docker rmi $(docker images | grep -P '{{regex}}' | tr -s ' ' | cut -d ' ' -f 3)
+```
+
+## List containers using a volume
+
+```sh
+$ docker ps -a --filter volume={{NAME}}
+```
+
+## Copy a Volume
+
+```sh
+docker volume create --name {{NEW}}
+docker run --rm -i -t -v $OLD:/from -v $NEW:/to alpine ash -c "cd /from ; cp -av . /to"
+```
 
 # Dockerfile
 
@@ -75,7 +134,15 @@ ENV <key> <value>
 ENV <key>=<value> <key2>=<value2>
 ```
 
+## [FROM](https://docs.docker.com/engine/reference/builder/#from)
+
 # Docker Compose
+
+Start
+
+```
+docker-compose up
+```
 
 Compose file:
 
