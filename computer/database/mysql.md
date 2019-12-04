@@ -150,3 +150,9 @@ Show result fields vertically:
 ```
 SELECT * FROM foo\G
 ```
+
+# Docker
+
+docker run --publish 3306:3306 mysql:5.7
+
+docker run --publish 3306:3306 --env=MYSQL_ALLOW_EMPTY_PASSWORD=1  mysql:5.7
