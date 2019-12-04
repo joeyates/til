@@ -88,3 +88,20 @@ The server runs on port 4000
 Run under Iex
 
 iex -S mix phx.server
+
+## Debugging
+
+In liveview sigils:
+
+```elixir
+~L"""
+<div><%= inspect(assigns, [pretty: true, width: 0]) %></div>
+"""
+```
+
+In Slime templates:
+
+```slim
+pre
+  = inspect(@search, [pretty: true, width: 0])
+```
