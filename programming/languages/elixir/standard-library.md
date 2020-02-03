@@ -209,6 +209,18 @@ cond raises an error if none of the conditions evaluates as true.
 
 http://elixir-lang.org/docs/stable/elixir/Kernel.SpecialForms.html
 
+# Regex
+
+## Captures
+
+Pass a function as the second parameter:
+
+```elixir
+lower_camel = Regex.replace(~r/_([a-z])/, "words_in_snake_case", fn _, t -> String.upcase(t) end)
+```
+
+Function defined with &() do *not* receive numbered captures.
+
 # Stream
 
 * timer
