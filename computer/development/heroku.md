@@ -24,7 +24,9 @@ restore_options << " -p #{port}" if port
 ```shell
 $ heroku pg:backups:capture -r {{remote}}
 $ heroku pg:backups:download -r {{remote}} --output {{dump_pathname}}
-`pg_restore \
+$ psql
+postgres=# create database {{name}}_development;
+$ pg_restore \
   --verbose --clean --no-acl --no-owner \
   #{restore_options} \
   #{dump_pathname}`
