@@ -243,6 +243,16 @@ openssl x509 -noout -modulus -in certificate | openssl md5
 
 # Cookbook
 
+## Create a Fullchain certificate
+
+Discover the CA
+
+$ echo | openssl s_client -connect www.ilgrandemuseodelduomo.it:443 -servername www.ilgrandemuseodelduomo.it 2>/dev/null | openssl x509 -text
+
+Check online for the issuer certificate
+
+...
+
 ## Install Certificate on nginx
 
 Check site cert modulus matches private key modulus (see above)
