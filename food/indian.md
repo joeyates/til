@@ -72,6 +72,7 @@ for 2 chicken breasts + 6 thighs
 * salt and freshly ground black pepper
 
 ## Instructions
+
 * Wash lentils until water runs clear
 * Add water
 * Bring to boil, and remove froth
