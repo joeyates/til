@@ -17,6 +17,10 @@ require "csv"
 
 ## Cookbook
 
+### Read progressively
+
+CSV.foreach("path/to/file.csv", **options) do |row|
+
 ### Write
 
 ```ruby
@@ -25,7 +29,7 @@ CSV.open(file_name, "w") do |csv|
 end
 ```
 
-### Parse a file
+### Parse a string
 
 ```
 CSV.parse({{string}}, {{options}}) do |row|
@@ -35,7 +39,7 @@ end
 ### Read a doc in a non-standard encoding
 
 ```ruby
-CSV.open(file_name, "rb:ENCODING_NAME") ...
+CSV.parse(file_name, "rb:ENCODING_NAME") ...
 ```
 
 # Digest
