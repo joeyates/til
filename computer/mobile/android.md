@@ -1,14 +1,6 @@
-# adb "Android Debug Bridge"
-
-Commands:
-
-* devices - list connected devices
-* push - copy file to device
-* pull copy file from device
+# Debugging
 
 start the emulator (from command line) with -writable-system
-
-# Debugging
 
 In Chrome on connected Desktop:
 chrome://inspect/
