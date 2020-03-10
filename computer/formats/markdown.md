@@ -24,20 +24,29 @@
 
 # Links
 
-Reference style
+## Inline
 
 ```markdown
-[Link text][reference id]
-
-[reference id]: URL "Optional title"
+* [Text](URL)
+* [Text](URL Title)
+* [Text](relative path)
 ```
 
-Inline:
+## Create a Target
 
 ```markdown
 [Link text](#target_id)
 
 <h1 id="target_id">Foo</h1>
+```
+
+## Reference style
+
+```markdown
+* [Link text][reference id (case insensitive)]
+* [reference id (case insensitive)]
+
+[reference id]: URL "Optional title"
 ```
 
 # Tables (GFM)
