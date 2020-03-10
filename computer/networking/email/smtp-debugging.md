@@ -37,7 +37,7 @@ UGFzc3dvcmQ6 - 'Password:'
 * `AUTH LOGIN` - initiate 'login' authentication (or check if it's supported)
 * `MAIL FROM:<email address>` - start composing a new email and set
   sender's address
-* `RCPT TO:<email address>` - set recipient's address
+* `rcpt to:<email address>` - set recipient's address
 * `DATA` - start sending email body. The server accepts input up to the
   first `<crlf>.<crlf>` sequence. The email is sent when data entry
   concludes.
