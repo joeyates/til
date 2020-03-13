@@ -2,12 +2,6 @@
 
 ## Cookbook
 
-### Ubuntu Distribution Upgrade
-
-`do-release-upgrade`
-
-To upgrade from old, unsupported distributions, use 'old-releases.ubuntu.com'
-
 # Package management
 
 ## Debian Family: apt-get, aptitude
