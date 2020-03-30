@@ -3,6 +3,12 @@
 /etc/gitlab/gitlab-secrets.json
 /etc/gitlab/gitlab.rb
 
+# Ruby gem
+
+https://narkoz.github.io/gitlab/
+https://github.com/NARKOZ/gitlab
+https://www.rubydoc.info/gems/gitlab
+
 # Cookbook
 
 # GitLab repo grep
