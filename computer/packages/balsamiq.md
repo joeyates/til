@@ -2,7 +2,9 @@
 
 ## Linux
 
-use Wine64
+use Wine
+
+export WINEARCH=win32
 
 ### Fonts
 
