@@ -164,6 +164,10 @@ PGCLUSTER={{version}}/{{cluster}}
 #host:port:database:user:password
 ```
 
+## Check if Server Requires SSL
+
+psql "sslmode=require" {{database name}}
+
 # Extensions
 
 * install:
