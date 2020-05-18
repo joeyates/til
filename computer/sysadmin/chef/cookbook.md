@@ -18,7 +18,7 @@ end
 
 list chef defaults for machine:
 
-```
+```sh
 $ ohai
 ```
 
