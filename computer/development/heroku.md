@@ -31,3 +31,8 @@ $ pg_restore \
   #{restore_options} \
   #{dump_pathname}`
 ```
+# Deploy with API Key
+
+Get API key from https://dashboard.heroku.com/account
+
+git remote add origin https://heroku:$HEROKU_API_KEY@git.heroku.com/{{project}}.git
