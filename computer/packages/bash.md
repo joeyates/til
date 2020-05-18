@@ -11,6 +11,11 @@ If a line is repeated, don't add it to history
 (...commands)
 ```
 
+# Arguments
+
+* $@ - all arguments
+* $# - argument count
+
 # Variables
 
 ## set default value
@@ -29,6 +34,16 @@ Perform expansion, without other commands:
 ```
 : {command}
 ```
+
+# `[...]`
+
+Requires spaces between arguments
+
+# `[[...]]`
+
+Does not reuire spaces between arguments
+
+Requires spaces between arguments
 
 # Conditions ("Tests")
 
