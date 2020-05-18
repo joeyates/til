@@ -1,18 +1,39 @@
 # Documentation
 
-$ mix help release
+https://hexdocs.pm/mix/Mix.Tasks.Release.html
 
-* https://hexdocs.pm/phoenix/releases.html
+$ mix help release
 
 http://blog.plataformatec.com.br/2019/05/updating-hex-pm-to-use-elixir-releases/
 
-# Files
+# Details
+
+## Embedded mode
+
+Releases run in "embedded" mode - all modules are preloaded, avoiding
+the load time associated with "interactive" mode.
+(See https://erlang.org/doc/system_principles/system_principles.html#code-loading-strategy)
+
+## No Source Code
+
+## No `mix`
+
+# Configuration
+
+## `config/prod.exs`
+
+Provides compile-time configuration
 
 ## `config/releases.exs`
 
-Run-time configuration is picked up via `config/releases.exs`
+Provides run-time configuration - principally
+allows loading of environment variables, via
 
-Put all `System.get_env("FOO")` in `config/releases.exs`
+```elixir
+System.get_env("FOO")
+```
+
+The file is:
 
 * Copied to the release,
 * Executed when the system starts,
@@ -35,15 +56,59 @@ config :my_app, MyApp.Repo,
   url: database_url
 ```
 
-### Configuration
+## `mix.exs`
 
-The path is controlled by `:runtime_config_path`
+Configuration is placed under `:releases` under `project`.
+
+```elixir
+def project() do
+  [
+    default_release: {{name}}, # optional
+    releases: [
+      {{release name}}: [
+        ...
+      ]
+    ]
+  ]
+end
+```
+
+This section is optional, and is used only to override defaults.
+
+* `:applications` - applications to start
+  * `{{app name}}`: `:permanent*|:transient|:temporary|:load|:none`
+* `:include_executables_for`: `[:unix,...]`
+* `:strip_beams`: `true*|false` - strip debug info?
+* `:runtime_config_path` - The path of the runtime configuration file
+  Default: `config/releases.exs`
+
+## `rel` directory
+
+Can be used to override defaults.
+
+```sh
+mix release.init
+```
+
+Creates
+
+rel/vm.args.eex - static Erlang VM config
+rel/env.sh.eex - dynamic VM settings and environment access
+rel/env.bat.eex - Windows only?
+
 
 # Create a Release
 
 ```sh
 $ MIX_ENV=prod mix release
 ```
+
+# Extra files
+
+Other files can be added to a relase via two mechanisms:
+
+* Overlays
+* Steps
 
 # Running Locally
 

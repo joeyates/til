@@ -130,6 +130,7 @@ Keyword.keyword?(value) - is `value` a keyword list?
 * map["key"] # => value
 * map[:key] # => value
 * map.key # => value
+* `%{%{a: 1, b: 2} | a: 42}` # => %{a: 42, b: 2}
 
 # String
 

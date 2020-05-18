@@ -2,7 +2,9 @@
 
 Add a project generator command:
 
-mix archive.install hex phx_new 1.4.9
+```
+mix archive.install hex phx_new 1.5.0-rc.0
+```
 
 # Project Structure
 
