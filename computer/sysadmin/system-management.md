@@ -87,6 +87,9 @@ Repetition:
 # System time
 
 ## ntp
+
+apt-get install ntp
+
 Manually force time correction:
 
 ```
