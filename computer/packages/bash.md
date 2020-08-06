@@ -16,6 +16,14 @@ If a line is repeated, don't add it to history
 * $@ - all arguments
 * $# - argument count
 
+# Text
+
+## HEREDOC
+
+<<DELIMITER
+...
+DELIMITER
+
 # Variables
 
 ## set default value
@@ -124,4 +132,20 @@ do
   echo "Hi"
   sleep 1
 done
+```
+
+# Scripts
+
+## Shebang
+
+Use `env` to get the correct path of the command:
+
+```sh
+#!/usr/bin/env bash
+```
+
+## Error handling
+
+```sh
+set -euo pipefail
 ```

@@ -42,7 +42,7 @@ Install "Password Store"
 
 cat ~/.password-store/.gpg-id
 
-gpg --export-secret-key [the_id] > keys.asc
+gpg --export-secret-key --armor [the_id] > keys.asc
 
 copy directly to phone via USB cable
 

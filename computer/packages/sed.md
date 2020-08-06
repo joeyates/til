@@ -18,6 +18,12 @@ Replacing:
 
 # Cookbook
 
+## Single File Global Replace
+
+```
+sed -ir "###g"
+```
+
 ## Extended regex replace in multiple files
 
 ```
@@ -39,9 +45,3 @@ find {{directory}} -type f -name '{{file glob}}' -print0 | xargs -0 sed -i -r "s
 Captures:
 
 find -type f -print0 | xargs -0 sed -i -r "s#([a-z]+)#\\1\\1#"
-
-Relace all occurences (global replace):
-
-```
-sed -ir "###g"
-```

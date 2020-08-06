@@ -36,8 +36,14 @@ Show progress bar
 
 Resume and show progress
 
-```
+```sh
 ... -P ...
+```
+
+Remove destination files not present in source
+
+```sh
+... --delete ...
 ```
 
 # Download a remote file, allowing resumation
