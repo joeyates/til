@@ -64,8 +64,8 @@ System info:
 ```
 FASTBOOT MODE
 PRODUCT_NAME - bullhead
-VARIANT - ...
-HW VERSION -  rev ...
+VARIANT - bullhead LGH791F 32GB
+HW VERSION -  rev_1.0
 BOOTLOADER VERSION - ...
 BASEBAND VERSION - ...
 CARRIER INFO - ...
@@ -74,6 +74,22 @@ SIGNING - production
 SECURE BOOT - enabled
 DEVICE STATE - locked
 ```
+
+$ fastboot getvar version-bootloader
+version-bootloader: BHZ32c
+$ fastboot getvar version-baseband
+version-baseband: M8994F-2.6.42.5.03
+$ fastboot getvar serialno
+serialno: 00dc249921494351
+$ fastboot getvar product
+product: bullhead
+
+$ fastboot oem device-info preflash
+...
+(bootloader)    Device tampered: false
+(bootloader)    Device unlocked: true
+(bootloader)    off-mode-charge: true
+(bootloader)    Display panel:
 
 ## Unlock bootloader
 

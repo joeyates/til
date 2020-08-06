@@ -1,31 +1,10 @@
-# Debugging
+# Apps
 
-start the emulator (from command line) with -writable-system
+## F-Droid
 
-In Chrome on connected Desktop:
-chrome://inspect/
-
-Launch app
-
-Click 'Inspect'
-
-## Java Code
-
-```java
-Log.i("Some tag", "Some text");
-```
-
-On desktop:
-
-```
-$ adb logcat > {some file}
-```
-
-Tail output.
-
-## Permissions
-
-https://cordova.apache.org/docs/en/latest/guide/platforms/android/plugin.html#android-permissions
+* Download from https://f-droid.org/
+* Copy apk to Internal storage
+* Open Files
 
 # Bluetooth
 
@@ -39,5 +18,9 @@ $ adb pull /sdcard/btsnoop_hci.log
 # USB Tethering
 
 ```
+adb shell
 settings put global tether_dun_required 0
 ```
+
+Without root, results in error:
+Security exception: Permission denial: writing to settings requires:android.permission.WRITE_SECURE_SETTINGS
