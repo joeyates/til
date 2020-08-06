@@ -88,3 +88,16 @@ foos.each do |foo|
   Rake.application.rake_require "tasks/foo"
   Rake.application.invoke_task "foo:bar"
 end
+```
+
+# sidekiq
+
+Introspect
+
+require 'sidekiq/api'
+# List workers
+Sidekiq::Workers.new.each { |_process_id, _thread_id, worker| p worker }
+# List queues
+Sidekiq::Queue.all.each { |queue| p queue.name };
+# List jobs
+Sidekiq::Queue.all.each { |queue| queue.each { |job | p job } };
