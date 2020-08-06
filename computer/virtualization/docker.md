@@ -134,7 +134,13 @@ ENV <key> <value>
 ENV <key>=<value> <key2>=<value2>
 ```
 
+## EXPOSE
+
+Manage ports
+
 ## [FROM](https://docs.docker.com/engine/reference/builder/#from)
+
+## VOLUME
 
 # Docker Compose
 
