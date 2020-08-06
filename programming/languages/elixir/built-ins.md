@@ -122,6 +122,7 @@ Keyword.keyword?(value) - is `value` a keyword list?
 
 * `Keyword.keys({{keyword list}})` - get keys
 * update: Keyword.put(list, key, value)
+* Keyword.has_key?(list, key)
 
 # Map
 

@@ -52,6 +52,40 @@ Types:
 
 # Control structures
 
+## case - match against a value
+
+```
+case {expression} do
+  {value} -> {expression}
+  _ -> {the default}
+end
+```
+
+## cond - check a series of conditions
+
+```
+cond do
+  {condition} ->
+    ...
+end
+```
+
+cond raises an error if none of the conditions evaluates as true.
+
+http://elixir-lang.org/docs/stable/elixir/Kernel.SpecialForms.html
+
+## with
+
+```elixir
+with {{match}} <- {{expression}},
+     {{match1}} <- {{expression1}}
+do
+  {{expression}}
+else
+   {{match}} -> {{expression}}
+end
+```
+
 ## functions
 
 ```

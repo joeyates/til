@@ -113,6 +113,12 @@ Also, `Mix.Config` can be used to set values.
 * zip/1
 * zip/2
 
+## reduce
+
+```elixir
+reduce(enumerable, fn el, acc -> ...; acc end)
+```
+
 # ExUnit
 
 See `testing.md`
@@ -186,28 +192,6 @@ x = 2
 * ^=/2
   * the 'pin' operator,
   * does not rebind, just matches.
-
-* case - match against a value
-
-```
-case {expression} do
-  {value} -> {expression}
-  _ -> {the default}
-end
-```
-
-* cond - check a series of conditions
-
-```
-cond do
-  {condition} ->
-    ...
-end
-```
-
-cond raises an error if none of the conditions evaluates as true.
-
-http://elixir-lang.org/docs/stable/elixir/Kernel.SpecialForms.html
 
 # Regex
 

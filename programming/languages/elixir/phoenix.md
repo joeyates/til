@@ -67,10 +67,11 @@ Optionally update Hex:
 
 ```
 mix local.hex
+```
 
 Check latest release:
 
-https://github.com/phoenixframework/phoenix/release```
+https://github.com/phoenixframework/phoenix/tags
 
 Install Phoenix as an archive
 
