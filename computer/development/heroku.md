@@ -10,18 +10,20 @@ $ wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
 2. Login
 
-```shell
+```sh
 $ heroku login
 ```
 
-# Copy Database
+# Cookbook
+
+## Copy Database
 
 restore_options = "-d #{database}"
 restore_options << " -h #{host}" if host
 restore_options << " -U #{user}" if user
 restore_options << " -p #{port}" if port
 
-```shell
+```sh
 $ heroku pg:backups:capture -r {{remote}}
 $ heroku pg:backups:download -r {{remote}} --output {{dump_pathname}}
 $ psql
@@ -31,6 +33,15 @@ $ pg_restore \
   #{restore_options} \
   #{dump_pathname}`
 ```
+
+## Get Heroku dump as plain SQL
+
+$ heroku config:get DATABASE_URL -r production
+#          USER PASSWORD HOST      DATABASE
+postgres://uXXX:pYYYYYYY@ZZZZ:5432/dAAAAAAA
+
+heroku run 'PGPASSWORD={{PASSWORD}} pg_dump --inserts --no-owner --clean -h {{HOST}} -U {{USER}} {{DATABASE}}' -r production > production.sql
+
 # Deploy with API Key
 
 Get API key from https://dashboard.heroku.com/account
