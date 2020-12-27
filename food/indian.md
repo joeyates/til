@@ -119,6 +119,10 @@ for 2 chicken breasts + 6 thighs
 * add aubergines and fry till brown
 * add one tomato, salt and some water
 
-# Preparation
+## Preparation
 
 * fry for 10'
+
+## Notes
+
+Don't use ghee - it makes the dish to sweet and gooey.
