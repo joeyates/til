@@ -1,3 +1,11 @@
+# Nextcloud Dokku
+
+https://github.com/dionysio/dokku-nextcloud (4 commits, 1 start, 20181119)
+https://github.com/BynariStar/dokku-nextcloud
+https://github.com/Neamar/dokku-nextcloud (fork of BynariStar)
+
+https://hub.docker.com/_/nextcloud
+
 # NextCloudPi
 
 https://ownyourbits.com/nextcloudpi/
@@ -84,6 +92,27 @@ Go to https://nextcloudpi.local:4443
 log in
 
 Click on 'run' to run the setup wizard.
+
+# Management
+
+Use
+
+```sh
+/var/www/html/occ {{command}}
+```
+
+## Commands
+
+https://docs.nextcloud.com/server/15/admin_manual/configuration_server/occ_command.html
+
+config:list - list enabled apps
+app:disable {{app}}
+
+# twofactor_totp
+
+Force disable:
+
+nextcloud=> update oc_twofactor_providers set enabled = 0;
 
 # Site
 

@@ -25,14 +25,14 @@ Under app deployment, choose "Deploy from Github/Bitbucket/Gitlab"
 Create deploy key, copy public to GL
 
 Set repo info
-Copy deoply private key
+Copy deploy private key
 Create
 Copy webhook to GL
 
 # Comparison with Dokku
 
 CapRover shares services (like database servers) between applications
-reducing overehead.
+reducing overhead.
 
 But, if different versions of services are required by different applications,
 this advantage disappears.

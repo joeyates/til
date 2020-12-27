@@ -1,7 +1,3 @@
-https://cinc.sh/
-https://gitlab.com/cinc-project
-http://downloads.cinc.sh/files/stable/cinc/15.8.23/ubuntu/18.04/
-
 https://knife-zero.github.io/
 
 # chef-solo
