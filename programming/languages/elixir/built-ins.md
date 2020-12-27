@@ -115,6 +115,8 @@ Find item in List:
 
 # Keyword list
 
+https://hexdocs.pm/elixir/Keyword.html
+
 kl = [k: 1, n: 2]
 kl[:k] # => 1
 
@@ -123,6 +125,7 @@ Keyword.keyword?(value) - is `value` a keyword list?
 * `Keyword.keys({{keyword list}})` - get keys
 * update: Keyword.put(list, key, value)
 * Keyword.has_key?(list, key)
+* Keywords.merge(kw1, kw2)
 
 # Map
 

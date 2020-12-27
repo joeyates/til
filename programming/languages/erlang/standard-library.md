@@ -58,6 +58,16 @@ Store data in the runtime system.
 
 # inets
 
+# io
+
+Print to stdout:
+
+io:format("~s~n", [SOME_VALUE])
+
+Format as a string:
+
+`io_lib:format("~p", [SOME_VALUE])`
+
 ## Cookbook
 
 Serve directory contents

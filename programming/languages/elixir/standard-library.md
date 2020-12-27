@@ -50,7 +50,6 @@ Also, `Mix.Config` can be used to set values.
 * find_value/3
 * flat_map/2
 * flat_map_reduce/3
-* group_by/2
 * group_by/3
 * intersperse/2
 * into/2
@@ -109,6 +108,8 @@ Also, `Mix.Config` can be used to set values.
 * uniq_by/2
 * unzip/1
 * with_index/1
+
+list |> Enum.with_index |> Enum.map(fn {item, index} ...)
 * with_index/2
 * zip/1
 * zip/2
