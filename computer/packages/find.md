@@ -2,32 +2,32 @@
 
 List all files in and below this path:
 
-```shell
+```sh
 find
 ```
 
 ...non-recursive:
-```shell
+```sh
 -maxdepth 1
 ```
 
 ...by name:
-```shell
+```sh
 find -name NAME
 ```
 
 ..by partial name:
-```shell
+```sh
 find -name "*MATCH*"
 ```
 
 ..case insensitive:
-```shell
+```sh
 find -iname "*MATCH*"
 ```
 
 ...exclude files with a certain path component
-```shell
+```sh
 -not -wholename '*match*'
 ```
 
@@ -48,13 +48,13 @@ find -iname "*MATCH*"
 * `time` days
 
 ...files modified &gt;4 1/2 days ago:
-```shell
+```sh
 -mtime +4.5
 ```
 
 ...files modified &lt;3 minutes ago
 
-```shell
+```sh
 -mmin -3
 ```
 
@@ -62,7 +62,7 @@ find -iname "*MATCH*"
 
 ...files modified more recently than FOO
 
-```shell
+```sh
 -newercc FOO
 ```
 
@@ -90,13 +90,13 @@ At least one file permissions bit matches the supplied value:
 
 ...execute a command on each result:
 
-```shell
+```sh
 -exec {{command}} '{}' ';'
 ```
 
 ...pipe results to xargs:
 
-```shell
+```sh
 find -name NAME -print0 | xargs -0 ...
 ```
 
@@ -113,12 +113,13 @@ find -mmin -10 -print0 | xargs -0 ls -ldtr
 ## Chaining alternatives
 
 Find all matching files:
-```shell
+
+```sh
 find -name '*.html' -o -name '*.htm'
 ```
 
 Find all non-matching files:
 
-```shell
+```sh
 find -name '*.html' -prune -o -name '*.htm' -prune -o -type d -o -print
 ```

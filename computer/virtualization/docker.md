@@ -74,12 +74,6 @@ $ docker rm {{id}}
 
 # Cookbook
 
-## See Logs
-
-```sh
-$ docker-compose logs -f
-```
-
 ## Copy a Docker Image to Another Machine
 
 On source machine:
@@ -123,6 +117,12 @@ docker volume create --name {{NEW}}
 docker run --rm -i -t -v $OLD:/from -v $NEW:/to alpine ash -c "cd /from ; cp -av . /to"
 ```
 
+## Copy files into a container
+
+```sh
+docker cp {{file or directory}} {{container}}:{{destination path}}
+```
+
 # Dockerfile
 
 ## ENV
@@ -160,3 +160,11 @@ docker-compose.yml
 * build - how to create the image for the service
   * context - path to a directory with a Dockerfile
   * dockerfile - the (non-standard) name of the dockerfile (default: Dockerfile)
+
+## Cookbook
+
+## See Logs
+
+```sh
+$ docker-compose logs -f
+```

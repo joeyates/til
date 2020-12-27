@@ -3,19 +3,23 @@
 Create a user *without* a home directory:
 
 ```
-# useradd username
+# useradd {{username}}
 ```
 
 Create a user with a home directory:
 
 ```
-# useradd --create-home username
+# useradd --create-home {{username}}
 ```
+
 ...specifying shell:
+
 ```
 # useradd --create-home --shell=/path/to/shell username
 ```
+
 ...with additional groups:
+
 ```
 # useradd --groups other,groups ...
 ```
@@ -23,15 +27,17 @@ Create a user with a home directory:
 ## Query
 
 List users' shells (Mac OS X):
+
 ```
-    # dscl . -list /Users UserShell
+# dscl . -list /Users UserShell
 ```
 
 ## Delete
 
 Delete a user:
+
 ```
-    # userdel username
+# userdel username
 ```
 
 ## Modify

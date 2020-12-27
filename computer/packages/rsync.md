@@ -16,6 +16,10 @@ Specify a remote user for SSH:
 ... -e "ssh -l username" ...
 ```
 
+Push:
+$ rsync -av -e "ssh -l {{username}} /path/to/directory/ {{host}}:/path/to/directory/
+
+
 Use SSH private key:
 
 ```
@@ -38,6 +42,12 @@ Resume and show progress
 
 ```sh
 ... -P ...
+```
+
+Trial run/dry run:
+
+```sh
+--dry-run
 ```
 
 Remove destination files not present in source
