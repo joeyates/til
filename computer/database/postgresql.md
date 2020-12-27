@@ -89,13 +89,20 @@ No data:
 `--schema-only`
 
 Dump and compress:
-`pg_dump -U USER DATABASE | gzip -c > DATABASE.sql.gz`
+
+```
+pg_dump -U USER DATABASE | gzip -c > DATABASE.sql.gz
+```
 
 ## Restore
+
+From an SQL dump:
 
 ```sql
 $ psql -U {user-name} -d {desintation_db} -f {dumpfilename.sql}
 ```
+
+From a binary dump:
 
 ```shell
 $ pg_restore -U {{user name}} -d {db name} --clean --no-owner {filename}
