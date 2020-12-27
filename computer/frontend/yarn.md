@@ -6,12 +6,30 @@
 yarn upgrade {{name}}@{{version}}
 ```
 
-# Cookbook
+# Global
 
-## Install a Global Package
+Install
 
 ```
 yarn global add {{package}}
+```
+
+Uninstall
+
+```
+yarn global remove {{package}}
+```
+
+List
+
+```sh
+yarn global list
+```
+
+Install path
+
+```
+yarn config get prefix
 ```
 
 ## Add a Package Specifying a ~ version restriction
@@ -21,3 +39,7 @@ yarn global add {{package}}
 but without the version limitation
 yarn add webpack@2.7.0 --tilde --dev
 ```
+
+# Publish a package
+
+Use `np`

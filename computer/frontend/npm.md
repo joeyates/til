@@ -1,29 +1,27 @@
-# package.json
+# Global Packages
 
-## Cookbook
+Install
 
-### Use a local dependency
-
-```
-  "scripts": {
-    "preinstall": "npm install /path/to/package/",
-  },
-  "dependencies": {
-    "package": "*",
-  },
+```sh
+npm install -g {{package}}
 ```
 
-### Use a package on GitHub
-
-```
-  "dependencies": {
-    "package": "github-user/package"
-  }
+```sh
+npm uninstall -g {{package}}
 ```
 
-Specify branch:
+List
+
+Indicate installation path and libraries installed:
+
+```sh
+$ npm list -g
 ```
-  "dependencies": {
-    "package": "github-user/package#branch"
-  }
-```
+
+Info:
+
+* `npm root -g` - Path to global node_modules directory
+
+# Publish a package
+
+Use `np`
