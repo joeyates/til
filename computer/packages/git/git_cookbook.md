@@ -93,3 +93,14 @@ git rebase --continue
 $ git commit --fixup={{SHA1}}
 $ git rebase -i --autosquash
 ```
+
+# Remove a Directory from History
+
+git filter-branch --force --index-filter "git rm --cached --ignore-unmatch -r {{path}}" --prune-empty --tag-name-filter cat -- --all
+git push origin --force --all
+
+Clean locally:
+
+git for-each-ref --format="delete %(refname)" refs/original | git update-ref --stdin
+git reflog expire --expire=now --all
+git gc --prune=now
