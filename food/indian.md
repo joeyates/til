@@ -40,12 +40,14 @@ for 2 chicken breasts + 6 thighs
 = 30 tsp spice!
 
 ## Alternatives:
+
 * 3 tsp mustard
 * 3 tsp cayenne pepper
 * 3 tsp coriander
 * 3 tsp fennel
 
 ## TRS Tandoori Masala
+
 * 60g TRS Tandoori Masala
 * 500g yogurt
 * 2 chicken breasts + 6 thighs
