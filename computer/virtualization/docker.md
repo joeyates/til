@@ -60,13 +60,19 @@ $ docker ps
 $ docker ps --all
 ```
 
-## Connect to a Running Container
+## Connect to a Running Container's std in/out/err:
 
 ```
 docker attach {{id}}
 ```
 
 Detach: CTRL-p CTRL-q
+
+## Launch a process in a Running Container
+
+```sh
+docker exec {{id}}
+```
 
 ## Remove Container
 
@@ -142,29 +148,8 @@ Manage ports
 
 ## VOLUME
 
-# Docker Compose
-
-Start
-
-```
-docker-compose up
-```
-
-Compose file:
-
-https://docs.docker.com/compose/compose-file/compose-file-v2
-
-docker-compose.yml
-
-* image - the image to use for the service
-* build - how to create the image for the service
-  * context - path to a directory with a Dockerfile
-  * dockerfile - the (non-standard) name of the dockerfile (default: Dockerfile)
-
-## Cookbook
-
-## See Logs
+# Logs
 
 ```sh
-$ docker-compose logs -f
+docker logs {{container}}
 ```
