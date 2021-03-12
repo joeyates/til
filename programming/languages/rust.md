@@ -1,0 +1,37 @@
+# Low-level Basics
+
+Compile source code with `rustc`
+
+# Cargo
+
+See [file](rust/cargo)
+
+# Language Basics
+
+`fn main()` is the entry point.
+Lines ("statements"/"expressions") end with `;`
+`//` is used for single-line comments.
+Declare variables with `let`.
+Variables are immutable by default.
+`let mut` declares a mutable variable.
+
+# Libraries
+
+`use {{library}}` allows use of a library via it's name (without
+  a namespace).
+
+# Types
+
+`::` indicates an 'associated function', called a 'static method'
+  in other languages.
+
+# Preludes
+
+The automatically `use`-d prelude:
+https://doc.rust-lang.org/std/prelude/index.html#prelude-contents
+
+# Macros
+
+Rust has macros.
+
+Macro namess end in `!`
