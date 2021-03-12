@@ -281,3 +281,43 @@ openssl req -nodes -new -newkey rsa:$KEY_BITS -subj "/C=$COUNTRY/ST=$STATE/O=$OR
 ## Create a CA for self-signed certificates
 
 ...
+
+#####################
+
+Create a client certificate via a CA...
+
+Generate pkey
+
+openssl genrsa -aes256 -passout pass:changeme -out ca.pass.key 2048
+
+Remove pwd:
+
+openssl rsa -in ca.pass.key -out ca.key
+
+Create CA cert:
+
+openssl req -new -subj "/C=IT/ST=Toscana/O=MyOrg/CN=MyOrgTestDomain" -x509 -days 3650 -key ca.key -out ca.pem
+
+Generate client key:
+
+openssl genrsa -aes256 -passout pass:changeme -out client.pass.key 2048
+
+Remove client key password:
+
+openssl rsa -in client.pass.key -out client.key
+
+Generate client CSR:
+
+openssl req -new -subj "/C=IT/ST=Toscana/O=MyOrg/CN=MyOrgTestDomain" -key client.key -out client.csr
+
+Generate client certificate
+
+openssl x509 -req -days 3650 -in client.csr -CA ca.pem -CAkey ca.key -set_serial 01 -out client.pem
+
+Create a full chain certificate
+
+cat client.key client.pem ca.pem > client.full.pem
+
+Generate pfx
+
+openssl pkcs12 -export -out client.full.pfx -inkey client.key -in client.full.pem -certfile ca.pem
