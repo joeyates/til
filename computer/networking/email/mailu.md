@@ -92,6 +92,7 @@ Logs:
 ```sh
 docker-compose logs -f front
 docker-compose logs -f webmail
+docker-compose logs -f smtp # debug email reception
 ```
 
 Access shell
