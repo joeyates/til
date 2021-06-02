@@ -17,10 +17,19 @@ $ sudo dd if={{image pathname}} of=/dev/mmcblk0 bs=4M status=progress conv=fsync
 raspi-config
 ```
 
-# Set up wireless Networking
+Creates files:
 
-Here we create a configuration file for wpa_supplicant
-on the `/boot` partition.
+* firstBoot.sh
+* everyBoot.sh
+
+# Configuration Files
+
+The `/boot` partition can have files modified that
+are copied into the system image on startup.
+
+## Wireless Networking
+
+Creates /boot/wpa_supplicant.conf
 
 This is copied to `/etc/wpa_supplicant/wpa_supplicant.conf` by
 `/etc/systemd/system/multi-user.target.wants/raspberrypi-net-mods.service`
@@ -66,6 +75,8 @@ Log in with:
 ```sh
 $ ssh pi@raspberrypi.local
 ```
+
+Password: raspberry
 
 # Hostname
 
