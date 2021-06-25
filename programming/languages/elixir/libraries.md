@@ -1,7 +1,3 @@
-# dotenv
-
-* source: https://github.com/avdi/dotenv_elixir
-
 # ecto
 
 ## Ecto.Changeset

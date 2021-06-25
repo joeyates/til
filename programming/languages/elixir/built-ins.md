@@ -8,15 +8,15 @@
 * float
 * function
 * integer: `1`, `0x1F`
-* list: `[1, 2, 3]`
+* List: `[1, 2, 3]`
 * keyword list: (list of 2-ples with atom keys)
    `[{:a, 1}, {:b, 2}]`
    `[a: 1, b: 2]`
-* map: `%{a: 1}`
+* Map: `%{a: 1}`
 * PID
 * Port
 * Reference
-* string: `"text"`
+* String: `"text"`
 * struct: %Foo{name: "bar"}
 * tuple: `{1, 2, 3}`
 
@@ -109,8 +109,15 @@ Get nth item:
 ```
 
 Find item in List:
+
+```
+Enum.find(list, fn item -> item.foo == :bar end)
 ```
 
+Make a List of n items:
+
+```
+List.duplicate(1, 10)
 ```
 
 # Keyword list
@@ -136,6 +143,13 @@ Keyword.keyword?(value) - is `value` a keyword list?
 * map.key # => value
 * `%{%{a: 1, b: 2} | a: 42}` # => %{a: 42, b: 2}
 
+# Regex
+
+* named_captures/2
+* replace
+* run
+* scan
+
 # String
 
 * double quotes,
@@ -145,7 +159,7 @@ Keyword.keyword?(value) - is `value` a keyword list?
 ## Literals
 
 * double quoted: `"Hello"`
-* interpolation n double quoted: `"#{...}"`
+* interpolation in double quoted: `"#{...}"`
 * binary strings: `<<44>>`, `<<0x2c>>`
 
 ## Functions
@@ -168,9 +182,18 @@ foo1 = %Foo{bar: "Hello"}
 ```
 
 Access members via '.':
+
 ```
 IO.puts foo1.bar
 ```
+
+Update
+
+%SomeStruct{struct | key: :value}
+
+with key checking
+
+struct!(%SomeStruct{}, key: :value)
 
 # Tuple
 

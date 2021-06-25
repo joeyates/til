@@ -194,6 +194,10 @@ x = 2
   * the 'pin' operator,
   * does not rebind, just matches.
 
+# Logger
+
+Logger.disable(self())
+
 # Regex
 
 ## Captures
