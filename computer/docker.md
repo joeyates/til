@@ -8,8 +8,14 @@ $ docker build {{url}}
 
 ## Build from local Dockerfile
 
+```sh
+docker build .
 ```
-docker build - < Dockerfile
+
+## Build from local Dockerfile with tag
+
+```sh
+docker build --tag {{user}}/{{name}}:{{tag}} .
 ```
 
 ## Run Docker
@@ -130,6 +136,8 @@ docker cp {{file or directory}} {{container}}:{{destination path}}
 ```
 
 # Dockerfile
+
+## ARG
 
 ## ENV
 
