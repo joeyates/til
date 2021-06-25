@@ -14,6 +14,12 @@ Install
 yarn global add {{package}}
 ```
 
+Install a local package
+
+```sh
+yarn global add file:$PWD
+```
+
 Uninstall
 
 ```
