@@ -52,3 +52,15 @@ Examples:
 * `||`
 * `-`
 * `#-`
+
+# Length
+
+select array_dims(ARRAY[$${"number":"1"}$$::jsonb, $${"number":"2"}$$::jsonb]);
+ array_dims
+------------
+ [1:2]
+
+select array_length(ARRAY[$${"number":"1"}$$::jsonb, $${"number":"2"}$$::jsonb], 1);
+ array_length
+--------------
+            2
