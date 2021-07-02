@@ -1,38 +1,53 @@
-# list public keys
+# public keys
 
-```
-s gpg --list-public-keys
-```
+list:
 
-# list secret keys
-
-```
-$ gpg --list-secret-keys
+```sh
+$ gpg2 --list-public-keys
 ```
 
-# revoke a key
+add:
 
-```
-$ gpg --gen-revoke {{key id}} > key_revocation.asc
-$ gpg --import {{key_revocation.asc}}
-$ gpg --keyserver pgp.mit.edu --send-keys {{key id}}
+```sh
+$ gpg2 --import {{key}}
 ```
 
-# delete secret key
+delete:
 
-```
-$ gpg --delete-secret-keys {{key id}}
-```
-
-# delete public key
-
-```
-$ gpg --delete-key {{key id}}
+```sh
+$ gpg2 --delete-key {{key id}}
 ```
 
-# gpg2
+# secret keys
 
-# Create a fully configured key
+list:
+
+```sh
+$ gpg2 --list-secret-keys
+```
+
+revoke:
+
+```sh
+$ gpg2 --gen-revoke {{key id}} > key_revocation.asc
+$ gpg2 --import {{key_revocation.asc}}
+$ gpg2 --keyserver pgp.mit.edu --send-keys {{key id}}
+```
+
+delete:
+
+```sh
+$ gpg2 --delete-secret-keys {{key id}}
+```
+
+# encrypt
+
+```sh
+$ gpg2 --output {{output file}} --encrypt --recipient {{key id}} {{file}}
+
+# Cookbook
+
+## Create a fully configured key
 
 gpg2 --full-gen-key
 
