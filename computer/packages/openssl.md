@@ -41,7 +41,7 @@ openssl genrsa -des3 -out encrypted.key number_of_bits
 
 Get Info
 ```
-openssl pkey -text -in key
+openssl pkey -text -in {{key}}
 ```
 
 Remove Password
@@ -59,7 +59,7 @@ openssl rsa -in unencrypted.key -des3 -out encrypted.key
 Get modulus
 
 ```
-openssl rsa -noout -modulus -in key_file | openssl md5
+openssl rsa -noout -modulus -in {{key_file}} | openssl md5
 ```
 
 # CSR
@@ -218,7 +218,8 @@ echo | openssl s_client -connect $DOMAIN:443 -servername $DOMAIN 2>/dev/null | o
 ### Check Certificate Expiry
 
 ```
-echo | openssl s_client -connect {{domain}}:443 -servername {{domain}} 2>/dev/null | openssl x509 -noout -dates
+DOMAIN={{domain}}
+echo | openssl s_client -connect $DOMAIN:443 -servername $DOMAIN 2>/dev/null | openssl x509 -noout -dates
 ```
 
 The output:
@@ -238,7 +239,7 @@ Server certificate
 Get key modulus
 
 ```
-openssl x509 -noout -modulus -in certificate | openssl md5
+openssl x509 -noout -modulus -in {{certificate}} | openssl md5
 ```
 
 # Cookbook
