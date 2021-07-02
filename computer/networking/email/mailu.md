@@ -100,3 +100,16 @@ Access shell
 ```sh
 docker-compose exec front bash
 ```
+
+# Cookbook
+
+Force TLS renewal
+
+cd /var/mailu
+docker-compose down
+rm -rf certs
+docker-compose -p mailu up
+
+if docker proxies keep running
+
+rm /var/lib/docker/network/files/local-kv.db
