@@ -5,8 +5,8 @@ It uses TOML files for configuration.
 
 # Project Creation
 
-```
-cargo new {{project name}}
+```sh
+$ cargo new {{project name}}
 ```
 
 Creates:
@@ -20,16 +20,16 @@ Creates:
 
 Build a debug executable:
 
-```
-cargo build
+```sh
+$ cargo build
 ```
 
-builds an executable as `target/{{environment}}/{{project name}}`
+builds the executable as `target/{{environment}}/{{project name}}`
 
 Build a release version:
 
-```
-cargo build --release
+```sh
+$ cargo build --release
 ```
 
 # Dependencies
@@ -46,14 +46,14 @@ Any Cargo build will download new dependencies
 
 # Run the project
 
-```
-cargo run
+```sh
+$ cargo run
 ```
 
 # Check the Program
 
-```
-cargo check
+```sh
+$ cargo check
 ```
 
 Checking is faster than building!
