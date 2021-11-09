@@ -57,9 +57,9 @@ for 2 chicken breasts + 6 thighs
 * Marinade 24h
 * Cook 250c for 25/30'
 
-# Tarka dahl
+# Tarka dhal
 
-* 500g chana dal (yellow dried split peas), rinsed until the water runs clear
+* 500g chana dhal (yellow dried split peas), rinsed until the water runs clear
 * 1.8l water
 * 6 tbsp ghee
 * 2 tbsp cumin seeds
@@ -67,7 +67,7 @@ for 2 chicken breasts + 6 thighs
 * 6-8 whole green chilies, pricked with a knife
 * 4cm piece fresh ginger, peeled and cut into thin strips
 * 6 garlic cloves, peeled and left whole
-* 6 tomatoes
+* 6 tomatoes (or tomatoes and yellow pepper)
 * 1.5 tsp ground turmeric
 * 1.5 tsp garam masala
 * 3 tsp ground coriander
