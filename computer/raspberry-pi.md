@@ -1,4 +1,4 @@
-# Raspbian
+# Installation
 
 Write image to SD card:
 
@@ -6,30 +6,52 @@ Write image to SD card:
 $ sudo dd if={{image pathname}} of=/dev/mmcblk0 bs=4M status=progress conv=fsync && sync
 ```
 
+# Information Sources
+
+* /proc/device-tree/model - the Raspberry Pi model
+
+# Raspbian
+
 # User
 
 * username: pi
 * password: raspberry
-
-# General configuration via Raspberry Pi Shell
-
-```sh
-raspi-config
-```
-
-Creates files:
-
-* firstBoot.sh
-* everyBoot.sh
 
 # Configuration Files
 
 The `/boot` partition can have files modified that
 are copied into the system image on startup.
 
-## Wireless Networking
+* /boot/cmdline.txt - Linux Kernel parameters
+* /boot/config.txt - various settings
+* /boot/ssh - if present, sshd is enabled
+* /boot/wpa_supplicant.conf
 
-Creates /boot/wpa_supplicant.conf
+## /boot/cmdline.txt
+
+https://elinux.org/RPi_cmdline.txt
+
+Set a static IP address:
+
+```txt
+ip={{an IP address}}
+```
+
+Original /boot/cmdline.txt
+
+```
+console=serial0,115200 console=tty1 root=PARTUUID=738a4d67-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait quiet init=/usr/lib/raspi-config/init_resize.sh
+```
+
+After first boot:
+
+```
+console=serial0,115200 console=tty1 root=PARTUUID=738a4d67-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait
+```
+
+## /boot/wpa_supplicant.conf
+
+Used to configure wireless networking
 
 This is copied to `/etc/wpa_supplicant/wpa_supplicant.conf` by
 `/etc/systemd/system/multi-user.target.wants/raspberrypi-net-mods.service`
@@ -58,7 +80,9 @@ network={
 }
 ```
 
-# SSH
+## /boot/ssh
+
+When present, the sshd daemon is enabled
 
 Insert the SD card in a computer.
 
@@ -78,19 +102,8 @@ $ ssh pi@raspberrypi.local
 
 Password: raspberry
 
-# Hostname
+# General configuration via Raspberry Pi Shell
 
-https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=184248
-https://gitlab.com/JimDanner/pi-boot-script
-
-Original /boot/cmdline.txt
-
-```
-console=serial0,115200 console=tty1 root=PARTUUID=738a4d67-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait quiet init=/usr/lib/raspi-config/init_resize.sh
-```
-
-After first boot:
-
-```
-console=serial0,115200 console=tty1 root=PARTUUID=738a4d67-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait
+```sh
+raspi-config
 ```

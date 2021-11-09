@@ -1,3 +1,7 @@
+# Project
+
+https://github.com/pi-hole/pi-hole.git
+
 # Prerequisites
 
 Install Raspbian
@@ -12,6 +16,10 @@ https://docs.pi-hole.net/main/basic-install/
 # Update
 
 pihole updatePihole
+
+# Admin Web UI
+
+https://github.com/pi-hole/AdminLTE.git
 
 # TODO
 

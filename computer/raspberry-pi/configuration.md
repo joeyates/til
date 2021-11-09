@@ -1,1 +1,9 @@
-https://gist.github.com/andrewgho/b9b6ec50f7eac7dd50ff48932cccb910
+# Hardware
+
+Disable internal bluetooth on Raspberry Pi 3
+
+in /boot/config.txt
+
+```
+dtoverlay=pi3-disable-bt
+```
