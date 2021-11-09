@@ -2,6 +2,11 @@
 
 https://redis.io/topics/data-types
 
+## string
+
+* SET -
+* GET -
+
 ## list
 
 Commands:

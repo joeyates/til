@@ -1,14 +1,42 @@
 # Install
 
+Choose a tag: https://github.com/dokku/dokku/tags
+
+export DOKKU_TAG={{vn.nn.nn}}
+wget https://raw.githubusercontent.com/dokku/dokku/$DOKKU_TAG/bootstrap.sh
+bash bootstrap.sh
+
+# Create Apps
+
+* Clone Git repo of Dokku application
+* Add git remote
+
+git remote add dokku dokku@{{hostname}}:{{app name}}
+
 # Commands
 
 apps
 
-    apps:list
+    apps:clone {{old-app}} {{new-app}}
     apps:create {{app}}
-    apps:report {{app}} - show app info
+    apps:destroy {{app}}
+    apps:exists {{app}}
+    apps:list
+    apps:lock {{app}} - stop new deploys
+    apps:locked {{app}}
+    apps:rename {{old-app}} {{new-app}}
+    apps:report [{{app}}] - show app info
+    apps:unlock {{app}}
 
-buildpacks - TODO
+buildpacks
+
+    buildpacks:add [--index 1] <app> <buildpack>  Add new app buildpack while inserting into list of buildpacks if necessary
+    buildpacks:clear <app>                        Clear all buildpacks set on the app
+    buildpacks:list <app>                         List all buildpacks for an app
+    buildpacks:remove <app> <buildpack>           Remove a buildpack set on the app
+    buildpacks:report [<app>] [<flag>]            Displays a buildpack report for one or more apps
+    buildpacks:set [--index 1] <app> <buildpack>  Set new app buildpack at a given position defaulting to the first buildpack if no index is specified
+
 certs - TODO
 checks - TODO
 cleanup - TODO
@@ -17,9 +45,22 @@ config
 
     config {{app}} - list app environment variables
     config:show {{app}} - same as `config`
-    config:set {{app}} {{NAME}}={{VALUE}} [{{NAME2}}={{VALUE2}}]
+    config:set [--no-restart] {{app}} {{NAME}}={{VALUE}} [{{NAME2}}={{VALUE2}}]
+    config:set {{app}} {{NAME}}={{VALUE}} [{{NAME2}}={{VALUE2}} ...]
+    config:unset {{app}} {{NAME}} [{{NAME2}} ...]
 
-docker-options - TODO
+docker-options
+
+Phases are:
+
+* build
+* deploy
+* run
+
+    docker-options:add <app> <phase(s)> OPTION      Add Docker option to app for phase (comma separated phase list)
+    docker-options:clear <app> [phase(s)]           Clear a docker options from application with an optional phase (comma separated phase list)
+    docker-options:remove <app> <phase(s)> OPTION   Remove Docker option from app for phase (comma separated phase list)
+    docker-options:report [<app>] [<flag>]          Displays a docker options report for one or more apps
 
 domains
 
@@ -38,6 +79,9 @@ domains
 enter
 
     enter {{app}} - connect to container
+    enter {{app}} {{container type}} - connect to container
+    enter {{app}} --container-id {{container id}} - connect to container
+    enter {{app}} --container-id {{container id}} {{command}} - run command in container
 
 events - TODO
 git - TODO
@@ -68,7 +112,9 @@ plugin
 
 proxy
 
-    proxy:ports {{app}}
+    proxy:ports {{app}} - list configured ports
+    dokku proxy:ports-add $DOKKU_APP https:443:{{internal port}}
+    dokku proxy:ports-remove $DOKKU_APP https:443:{{internal port}}
 
 ps - container processes
 
@@ -90,15 +136,19 @@ run
     run [ --env KEY=VALUE | -e KEY=VALUE ] <app> <cmd>  # Run a command in a new container using the current application image
 
 scheduler-docker-local - TODO
-shell - TODO
+
+shell
+
+    dokku shell[:COMMAND] - Spawn a dokku shell
+
 ssh-keys - TODO
 
 storage
 
-    storage:list
+    storage:list {{app}
     storage:mount {{app}} {{host path}}:{{container path}}  - map host directories to app directories
-    storage:report
-    storage:unmount
+    storage:report [{{app}}]
+    storage:unmount {{app}} {{host path}}:{{container path}}
 
 taks - TODO
 tar - TODO

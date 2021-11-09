@@ -1,3 +1,9 @@
+# Keywords
+
+## switch
+
+Can be replaced with an Object literal
+
 # Modules
 
 * import
@@ -38,7 +44,7 @@ arg => {
 }
 ```
 
-...with on expression (returning result):
+...with one expression (returning result):
 
 ```
 arg => expression;
@@ -96,6 +102,7 @@ http://www.w3.org/html/wg/drafts/html/master/infrastructure.html#transferable-ob
 (this is deprecated, use the function object)
 
 * Function object in functions:
+
 ```javascript
 Foo.prototype.bar = function() {
   console.log(this.bar);

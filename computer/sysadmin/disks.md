@@ -32,5 +32,9 @@ mkfs -t ext4 PARTITION
 ## Mount a disk
 
 ```shell
-mount -t TYPE DEVICE MOUNT_POINT
+mount -t TYPE DEVICE MOUNT_POINT OPTIONS
 ```
+
+# fstab
+
+{{device}} {{mount point}} {{type}} {{defaults}} {{??}} {{??}}

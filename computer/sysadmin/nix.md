@@ -62,7 +62,7 @@ Note: the /nix directory disappeared after a reboot
 * $HOME/.nix-profile/bin/ - symlinks to installed packages
 * /nix - store and var
 
-#nix-shell
+# nix-shell
 
 Create a shell:
 

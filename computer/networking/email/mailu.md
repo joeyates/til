@@ -103,13 +103,17 @@ docker-compose exec front bash
 
 # Cookbook
 
-Force TLS renewal
+## Force TLS renewal
 
+```console
 cd /var/mailu
 docker-compose down
 rm -rf certs
 docker-compose -p mailu up
+```
 
-if docker proxies keep running
+The logging for front_1 should show a letsencrypt confirmation
+
+## If docker proxies keep running
 
 rm /var/lib/docker/network/files/local-kv.db

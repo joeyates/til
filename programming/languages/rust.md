@@ -25,7 +25,9 @@ Variables are immutable by default.
 `::` indicates an 'associated function', called a 'static method'
   in other languages.
 
-# Preludes
+# Prelude
+
+The "Prelude" is the list of libraries that are automatically imported.
 
 The automatically `use`-d prelude:
 https://doc.rust-lang.org/std/prelude/index.html#prelude-contents
@@ -34,4 +36,15 @@ https://doc.rust-lang.org/std/prelude/index.html#prelude-contents
 
 Rust has macros.
 
-Macro namess end in `!`
+Macro names end in `!`
+
+# Cookbook
+
+## Dump structs
+
+1. Ensure the struct has the Debug trait defined
+2. Use `println!`:
+
+```rust
+println!("{:?}", my_struct);
+```

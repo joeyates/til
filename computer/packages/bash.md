@@ -8,7 +8,7 @@ If a line is repeated, don't add it to history
 # Subshells
 
 ```
-(...commands)
+$(...commands)
 ```
 
 # Arguments
@@ -45,13 +45,9 @@ Perform expansion, without other commands:
 
 # `[...]`
 
-Requires spaces between arguments
 
 # `[[...]]`
 
-Does not reuire spaces between arguments
-
-Requires spaces between arguments
 
 # Conditions ("Tests")
 
@@ -118,11 +114,13 @@ esac
 for i in {1..20}; do echo $i; done
 ```
 
-## Convert a series of image files
+## loop over files
 
 ```
-for file in *.CR2; do convert "${file}" "${file/%.CR2/.jpg}"; done
+for file in {{GLOB PATTERN}}; do COMMAND; done
 ```
+
+Use "${file}" to avoid problems with spaces in file names.
 
 ## while
 
@@ -132,6 +130,13 @@ do
   echo "Hi"
   sleep 1
 done
+```
+
+# functions
+
+```sh
+foo() {
+}
 ```
 
 # Scripts
@@ -148,4 +153,10 @@ Use `env` to get the correct path of the command:
 
 ```sh
 set -euo pipefail
+```
+
+```sh
+set -e
+set -u
+set -o pipefail
 ```

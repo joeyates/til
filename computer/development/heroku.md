@@ -16,7 +16,7 @@ $ heroku login
 
 # Cookbook
 
-## Copy Database
+## Copy Database from Heroku to Local
 
 restore_options = "-d #{database}"
 restore_options << " -h #{host}" if host
@@ -33,6 +33,15 @@ $ pg_restore \
   #{restore_options} \
   #{dump_pathname}`
 ```
+
+## Copy Database from one Heroku App to Another
+
+```sh
+heroku pg:backups:capture -r {{remote}}
+heroku pg:backups:restore `heroku pg:backups:url -r {{source remote}}` DATABASE_URL -r {{target remote}}
+```
+
+add `--confirm` to skip manual confirmation
 
 ## Get Heroku dump as plain SQL
 

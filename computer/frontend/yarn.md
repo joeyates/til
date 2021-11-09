@@ -38,6 +38,20 @@ Install path
 yarn config get prefix
 ```
 
+# Cookbook
+
+## Install in a directory dofferent ot the current directory
+
+```sh
+yarn --cwd 'assets'
+```
+
+## Query the installed version of a package
+
+```sh
+yarn why {{package}}
+```
+
 ## Add a Package Specifying a ~ version restriction
 
 ```
@@ -46,6 +60,6 @@ but without the version limitation
 yarn add webpack@2.7.0 --tilde --dev
 ```
 
-# Publish a package
+## Publish a package
 
 Use `np`

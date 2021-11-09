@@ -23,8 +23,5 @@ IO.puts "foo: #{inspect(foo)}"
 :debugger.start()
 :int.ni({{module}}) # prepare a module for debugging
 :int.break({{module}}, {{line}})
-```
-
-
 
 http://erlang.org/doc/apps/debugger/debugger_chapter.html

@@ -42,12 +42,18 @@ Add to Cargo.toml
 
 Version can be exact ("1.1.0") or use caret or tilde
 
-Any Cargo build will download new dependencies
+Running any Cargo build will download new dependencies.
 
 # Run the project
 
 ```sh
 $ cargo run
+```
+
+...with arguments
+
+```sh
+$ cargo run -- ARG1 [ARG2]
 ```
 
 # Check the Program

@@ -47,3 +47,10 @@ vim $(brew --prefix)/Library/Taps/homebrew/homebrew-core/Formula/qt@5.5.rb
 # comment out line 25 "depends_on :macos => :mountain_lion"
 arch -arm64 brew install qt@5.5
 brew link qt5 --force
+
+# DNS
+
+dig ignores local modifications
+Lookup DNS **including** overrides in /private/ects/hosts:
+
+dscacheutil -q host -a name {{HOST}}

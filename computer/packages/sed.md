@@ -1,6 +1,7 @@
 * `-e {{script}}` - script to run
 * `-i` - in-place substitution
 * `-r` - extended regexp
+* - E - extended regular expressions
 
 # Scripting
 
@@ -15,6 +16,10 @@ Matching:
 Replacing:
 
 * insert capture: `\1`
+
+# Matches
+
+
 
 # Cookbook
 
@@ -40,7 +45,7 @@ sed -i -r 's#this#this\/that#' *.slim
 
 sed -i -r "s#{{match}}#{{replacement}}#g" {{file glob}}
 
-find {{directory}} -type f -name '{{file glob}}' -print0 | xargs -0 sed -i -r "s#{{match}}#{{replacement}}#g" '{}' ';'
+find {{directory}} -type f -name '{{file glob}}' -print0 | xargs -0 -I{} sed -i -r "s#{{match}}#{{replacement}}#g" '{}'
 
 Captures:
 

@@ -26,3 +26,9 @@ Mix.Project.config[:app]
 deps_path = Mix.Project.config[:deps_path]
 app_path = Path.dirname(deps_path)
 ```
+
+# Open the Inspector
+
+```
+iex> :observer.start()
+```

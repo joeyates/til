@@ -80,6 +80,12 @@ Detach: CTRL-p CTRL-q
 docker exec {{id}}
 ```
 
+Pass environment variables:
+
+```sh
+docker exec -e {{NAME}}={{VALUE}} {{CONTAINER}} {{COMMAND}}
+```
+
 ## Remove Container
 
 $ docker rm {{id}}
@@ -161,3 +167,13 @@ Manage ports
 ```sh
 docker logs {{container}}
 ```
+
+# docker network
+
+List networks:
+
+docker network ls
+
+Get info about a network:
+
+docker network inspect NETWORK

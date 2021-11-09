@@ -41,7 +41,14 @@ Examples:
 
 ## Conditions
 
+* `?`
+
+```sql
+SELECT address FROM places p where p.address->'city' ? 'London;
+```
+
 * `@>`
+
 * `<@`
 * `?`
 * `?|`

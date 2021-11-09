@@ -45,3 +45,7 @@ Connect via psql
 ```sh
 $ dokku postgres:connect {{SERVICE}}
 ```
+
+Backup to a file
+
+???

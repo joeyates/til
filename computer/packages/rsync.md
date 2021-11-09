@@ -1,6 +1,15 @@
 # parameters
 
+* -a, --archive - archive mode (same as -rlptgoD)
+* -r, --recursive
+* -l, --links - copy symlinks
+* -p, --perms - preserve permissions
+* -t, --times - preserve times
+* -o, --owner - preserve owner
+* -g, --group - preserve group
+* -D - (same as --devices --specials)
 * `--exclude=pattern` - skip matching files
+* -n, --dry-run - don't write anything, just simulate
 
 # Cookbook
 
@@ -10,6 +19,12 @@ Make a local copy of a directory:
 $ rsync -av remote.host:/path/to/directory/ /path/to/directory/
 ```
 
+Ignore difference is ownership:
+
+```
+-a --no-owner
+```
+
 Specify a remote user for SSH:
 
 ```
@@ -17,8 +32,10 @@ Specify a remote user for SSH:
 ```
 
 Push:
-$ rsync -av -e "ssh -l {{username}} /path/to/directory/ {{host}}:/path/to/directory/
 
+```
+$ rsync -av -e "ssh -l {{username}} /path/to/directory/ {{host}}:/path/to/directory/
+```
 
 Use SSH private key:
 
@@ -56,6 +73,8 @@ Remove destination files not present in source
 ... --delete ...
 ```
 
-# Download a remote file, allowing resumation
+# Download a remote file, allowing resumption
 
-rsync --progress --partial root@{{domain}}:{{pathname}} .
+```console
+rsync --progress --partial {{user}}@{{domain}}:{{pathname}} .
+```

@@ -1,124 +1,40 @@
-# Nextcloud Dokku
+# Installation Methods
 
-https://github.com/dionysio/dokku-nextcloud (4 commits, 1 start, 20181119)
-https://github.com/BynariStar/dokku-nextcloud
-https://github.com/Neamar/dokku-nextcloud (fork of BynariStar)
+* Traditional (php + db on server)
+* Raspberry Pi
+* Docker
+* Dokku
+
+## Docker
 
 https://hub.docker.com/_/nextcloud
 
-# NextCloudPi
-
-https://ownyourbits.com/nextcloudpi/
-https://ownyourbits.com/downloads/NextCloudPi_RPi_12-20-19/
-
-49daa57367c8d9748bda291bf51f60bf  torrent/NextCloudPi_RPi_12-20-19/NextCloudPi_RPi_12-20-19.tar.bz2
-
-https://docs.nextcloudpi.com/en/how-to-install-nextcloudpi/
-
-tar xf ...
-export DEVICE=/dev/mmcblk0
-sudo dd bs=4M if=NextCloudPi_XX-XX-XX.img of=$DEVICE conv=fsync status=progress
-
-gparted/gnome-disks: resize rootfs partition to fill available space
-
-## wifi
-
-mount rootfs partition
-
-```
-echo "country={{MY COUNTRY}}" | sudo tee --append /media/$(whoami)/rootfs/etc/wpa_supplicant/wpa_supplicant.conf
-```
-
-```sh
-sudo wpa_passphrase {{ssid}} {{passphrase}} | sudo tee --append /media/$(whoami)/rootfs/etc/wpa_supplicant/wpa_supplicant.conf
-```
-
-Test:
-
-```
-ping nextcloudpi.local
-```
-
-## ssh access
-
-mount boot partition
-
-```sh
-sudo touch /media/$(whoami)/boot/ssh
-```
-
-mount rootfs partition
-
-```sh
-export PI_HOME=/media/$(whoami)/rootfs/home/pi
-sudo mkdir $PI_HOME/.ssh
-sudo chmod 0700 $PI_HOME/.ssh
-cat ~/.ssh/id_rsa.pub | sudo tee $PI_HOME/.ssh/authorized_keys
-sudo chmod 0600 $PI_HOME/.ssh/authorized_keys
-sudo chown -R 1000 $PI_HOME/.ssh
-```
-
-Test:
-
-Start the Pi
-
-```
-ssh pi@nextcloudpi.local
-```
-
-## Change pi user password
-
-```
-ssh pi@nextcloudpi.local
-passwd
-```
-
-Initial password is `raspberry`
-
-# Configuration
-
-https://docs.nextcloudpi.com/en/how-to-configure-nextcloudpi/
-
-First: visit web UI (https is forced, certificate is self-signed)
-
-Copy generated passwords for user 'ncp'
-For some reason it presents 2 passwords
-
-Click on Activate
-...wait
-
-Go to https://nextcloudpi.local:4443
-
-log in
-
-Click on 'run' to run the setup wizard.
-
-# Management
+# Management Via occ
 
 Use
 
 ```sh
+export PATH=/var/www/html:$PATH
 /var/www/html/occ {{command}}
 ```
 
-## Commands
+## occ Commands
 
 https://docs.nextcloud.com/server/15/admin_manual/configuration_server/occ_command.html
 
-config:list - list enabled apps
-app:disable {{app}}
+* config:list - list enabled apps
+* app:disable {{app}}
 
-# twofactor_totp
+# Backup
 
-Force disable:
+## PostgreSQL
 
-nextcloud=> update oc_twofactor_providers set enabled = 0;
+???
 
-# Site
+# PHP Configuration
 
-https://nextcloudpi.local:4443/ - Web panel
+https://docs.nextcloud.com/server/21/admin_manual/configuration_files/big_file_upload_configuration.html#configuring-your-web-server
 
-https://nextcloudpi.local/ - Next cloud
 
 # Manual Configuration
 
@@ -130,22 +46,47 @@ ncp-config
 * ncp-admin - set ncp user's password
 * nc-passwd - set password for NextCloudPi Panel
 
-## files
+# Upgrading
 
-* configuration: /var/www/nextcloud/config/config.php
+Upgrades need to go via each major release
+
+## Via Tarball
+
+* Backup
+
+This is untested:
+
+download tarball
+docker cp {{TARBALL}} nextcloud.web.1:/var/www/
+docker exec -u www-data -ti nextcloud.web.1 bash
+cd /var/www
+tar xf {{TARBALL}}
+
+# Internals
+
+## Configuration Files
+
+* configuration: $NEXTCLOUD_ROOT/config/config.php
+
+## Status
+
 * log: /var/log/ncp.log
 
-## database
+## Database
 
-```
+Manually create admin user:
+
+```mysql
 CREATE USER 'ncadmin'@'localhost' IDENTIFIED BY 'XXXXXXXXXXXXXX';
 CREATE DATABASE IF NOT EXISTS nextcloud CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 GRANT ALL PRIVILEGES on nextcloud.* to 'ncadmin'@'localhost';
 FLUSH privileges;
 ```
 
-# Ansible
+# Apps
 
-https://github.com/ReinerNippes/nextcloud
+## twofactor_totp
 
-https://jgoutin.github.io/ansible_home/
+Force disable:
+
+nextcloud=> update oc_twofactor_providers set enabled = 0;

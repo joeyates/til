@@ -20,6 +20,21 @@
 * struct: %Foo{name: "bar"}
 * tuple: `{1, 2, 3}`
 
+# Sigils
+
+Sigils are `~` + a character + `/ | " ' ( [ { ,` + content + `/ | " ' ) ] }`
+
+* ~c[...] - Char list
+* ~D[YYY-MM-DD] - Date
+* ~N[] - NaiveDateTime (i.e. without a time zone)
+* ~r[] - Regular expression
+* ~s[...] - String, with `#{}` interpolation
+* ~S[...] - String, without interpolation
+* ~T[nn:nn:nn.n] - Time
+* ~U[] - DateTime
+* ~w[...] - List of Strings (split by spaces)
+* ~w[...]a - List of Atoms (split by spaces)
+
 # Atom
 
 * `is_atom/1`
