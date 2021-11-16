@@ -17,7 +17,7 @@
 * Port
 * Reference
 * String: `"text"`
-* struct: %Foo{name: "bar"}
+* struct: (see separate file)
 * tuple: `{1, 2, 3}`
 
 # Sigils
@@ -186,29 +186,7 @@ Keyword.keyword?(value) - is `value` a keyword list?
 
 # Struct
 
-A named map with specific keys and default values.
-
-```
-defmodule Foo do
-  defstruct bar: "Default", baz: nil
-end
-
-foo1 = %Foo{bar: "Hello"}
-```
-
-Access members via '.':
-
-```
-IO.puts foo1.bar
-```
-
-Update
-
-%SomeStruct{struct | key: :value}
-
-with key checking
-
-struct!(%SomeStruct{}, key: :value)
+See separate file.
 
 # Tuple
 
