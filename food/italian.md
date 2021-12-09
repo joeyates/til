@@ -1,10 +1,20 @@
 # Pasta alla norma
 
-* fare una pumarola all'aglio
-* fare le melanzane
+* aglio
+* olio d'oliva
+* passata di pomodoro
+* una melanzana
+* basilico (optional)
+
+* Fare una pumarola
+* Tagliare le melanzane
   * a fette tonde e fini
   * o a cubetti
-* friggere le melanzane
+* Friggere le melanzane
+* Asciugare bene le melanzane
+* Combinare la pumarola alla pasta
+* Aggiungere le melanzane nel piatto
+* Coprire di ricotta salata grattugiata grossa
 
 # Pasta alla puttanesca
 
