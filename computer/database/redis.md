@@ -2,6 +2,11 @@
 
 https://redis.io/topics/data-types
 
+## any
+
+* DEL
+* UNLINK
+
 ## string
 
 * SET -
@@ -11,12 +16,12 @@ https://redis.io/topics/data-types
 
 Commands:
 
-* llen {key}} - length of list
-* lpush - add to start
-* rpush {{key}} {{items}} - add to end
-* lrange {{key}} {{start}} {{end or negative offset from end}}
+* LLEN {key}} - length of list
+* LPUSH - add to start
+* RPUSH {{key}} {{items}} - add to end
+* LRANGE {{key}} {{start}} {{end or negative offset from end}}
 
-## zset - sorted set
+## ZSET - sorted set
 
 Commands:
 https://redis.io/commands#sorted_set
