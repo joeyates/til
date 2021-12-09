@@ -175,3 +175,9 @@ dokku postgres:connect {{db name}}
 
 Application
 dokku ps:restart {{app}}
+
+# Use 'main' as the Git deploy Branch
+
+```shell
+dokku git:set $DOKKU_APP deploy-branch main
+```
