@@ -69,6 +69,9 @@ arg => ({foo: "bar"})
 
 Methods:
 * indexOf
+* [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+
+Array.reduce((acc, value) => ...return acc)
 
 # Date
 

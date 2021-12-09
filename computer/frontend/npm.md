@@ -22,6 +22,15 @@ Info:
 
 * `npm root -g` - Path to global node_modules directory
 
-# Publish a package
+# Local Development
+
+
+```
+npm install {{PATH}}
+```
+
+# Cookbook
+
+## Publish a package
 
 Use `np`
