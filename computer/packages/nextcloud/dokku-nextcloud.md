@@ -7,6 +7,9 @@ https://github.com/dionysio/dokku-nextcloud
 
 # Install
 
+* clone repo
+* add dokku remote
+
 # Update
 
 * Backup db + config

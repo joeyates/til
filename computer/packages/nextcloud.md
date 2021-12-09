@@ -33,8 +33,15 @@ https://docs.nextcloud.com/server/15/admin_manual/configuration_server/occ_comma
 
 # PHP Configuration
 
+Files: /usr/local/etc/php/conf.d/
+Main: /usr/local/etc/php/conf.d/nextcloud.ini
+
 https://docs.nextcloud.com/server/21/admin_manual/configuration_files/big_file_upload_configuration.html#configuring-your-web-server
 
+## memory_limit
+
+set via PHP_MEMORY_LIMIT environment variable
+Values: 2048M, etc
 
 # Manual Configuration
 
