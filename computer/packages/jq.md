@@ -34,17 +34,10 @@
 
 # Example queries
 
-## Given an array, select the 0th item
+## Given an array, select the nth item
 
 ```shell
 echo '["foo", "bar"]' | jq '.[0]'
-"foo"
-```
-
-## Select multiple results with ','
-
-```shell
-echo '["foo", "bar"]' | jq '.[0],.[1]'
 "foo"
 ```
 
@@ -55,7 +48,7 @@ $ echo '{"foo": true}' | jq '.foo'
 true
 ```
 
-## Given an array of objects, select the 0th item and select a single key
+## Given an array of objects, select the nth item and select a single key
 (i.e. chain the two examples above)
 
 ```shell
@@ -90,6 +83,14 @@ $ echo '[{"foo": "Hello World!"}, {"foo": "Not here"}]' | jq 'map(select(.foo ==
     "foo": "Hello World!"
   }
 ]
+```
+
+## Select multiple results with ','
+
+```shell
+echo '["foo", "bar"]' | jq '.[0],.[1]'
+"foo"
+"bar"
 ```
 
 ## Multiple filters
