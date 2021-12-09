@@ -2,6 +2,15 @@
 
 ## switch
 
+```
+switch (expr) {
+  case {{VALUE}}:
+    ...
+    break;
+  [default: ...]
+}
+```
+
 Can be replaced with an Object literal
 
 # Modules
