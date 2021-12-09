@@ -23,10 +23,21 @@ scale=x:y - resize. If x or y is -1, the aspect ratio is maintained.
 ffmpeg -i {{input}}.mpeg -c:v libx264 -c:a copy {{output}}.mpg
 ```
 
-# Copy a section of video by start and end time
+# Extract Audio
+
+Use `-vn`, meaning 'no video'.
+Use `-acodec copy` meaning 'copy audio track'
+
+```
+ffmpeg -i {{input filename}} -vn -acodec copy {{output filename}}
+```
+
+# Copy a section of video by start time and duration
 
 
 ffmpeg -ss [start] -i in.mp4 -t [duration] -c copy out.mp4
+
+# Unite a series of videos
 
 $ cat mylist.txt
 file '/path/to/file1'
