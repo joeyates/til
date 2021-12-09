@@ -1,3 +1,9 @@
+# List Streams
+
+```
+ffprobe -e {{filename}}
+```
+
 ```sh
 ffmpeg -i {{input filename}} -vf scale=-1:360 -c:v libx264 -crf 18 -preset veryslow -c:a copy {{output filename}}
 ```
