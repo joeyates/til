@@ -56,3 +56,8 @@ heroku run 'PGPASSWORD={{PASSWORD}} pg_dump --inserts --no-owner --clean -h {{HO
 Get API key from https://dashboard.heroku.com/account
 
 git remote add origin https://heroku:$HEROKU_API_KEY@git.heroku.com/{{project}}.git
+
+# Get the application's id
+
+curl -n https://api.heroku.com/apps/$APP_NAME \
+  -H "Accept: application/vnd.heroku+json; version=3"  | jq .id
