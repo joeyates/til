@@ -30,7 +30,17 @@ $ npm list -g
 npm install PATH
 ```
 
-# Cookbook
+## Use a package from a Bitbucket Repo, Gist, Github Repo or GitLab Repo
+
+```
+npm install <bitbucket|github|gist|gitlab>:USER/PROJECT[#COMMITTISH]
+```
+
+## Use a package from a GitHub Repo
+
+```
+npm install USER/PROJECT[#COMMITTISH]
+```
 
 ## Publish a package
 
