@@ -1,16 +1,16 @@
 # Global Packages
 
-Install
+## Install
 
 ```sh
-npm install -g {{package}}
+npm install -g PACKAGE
 ```
 
 ```sh
-npm uninstall -g {{package}}
+npm uninstall -g PACKAGE
 ```
 
-List
+## List
 
 Indicate installation path and libraries installed:
 
@@ -18,15 +18,16 @@ Indicate installation path and libraries installed:
 $ npm list -g
 ```
 
-Info:
+## Info
 
 * `npm root -g` - Path to global node_modules directory
 
-# Local Development
+# Cookbook
 
+## Local Development
 
 ```
-npm install {{PATH}}
+npm install PATH
 ```
 
 # Cookbook
