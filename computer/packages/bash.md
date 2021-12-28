@@ -34,6 +34,14 @@ Return first parameter if set, otherwise the supplied value:
 ${1:-foo};
 ```
 
+Access variable, and fail if unset
+
+${VARIABLE?ERROR_MESSAGE}
+
+Access variable, and fail if unset or empty
+
+${VARIABLE:?ERROR_MESSAGE}
+
 ## calculated default value
 
 # Commands
