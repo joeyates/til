@@ -168,3 +168,10 @@ set -e
 set -u
 set -o pipefail
 ```
+
+## Trap Exit
+
+finish() (
+  ...
+)
+trap finish EXIT
