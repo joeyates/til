@@ -18,8 +18,8 @@ client replies.
 Before trying to authenticate, get Base64 versions of username and password:
 
 ```
-ruby -rbase64 -e "puts Base64.encode64('my_username')"
-ruby -rbase64 -e "puts Base64.encode64('my_password')"
+ruby -rbase64 -e "puts Base64.strict_encode64('my_username')"
+ruby -rbase64 -e "puts Base64.strict_encode64('my_password')"
 ```
 
 Server prompts:
