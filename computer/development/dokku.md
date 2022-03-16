@@ -113,8 +113,9 @@ plugin
 proxy
 
     proxy:ports {{app}} - list configured ports
-    dokku proxy:ports-add $DOKKU_APP https:443:{{internal port}}
-    dokku proxy:ports-remove $DOKKU_APP https:443:{{internal port}}
+    proxy:ports-add $DOKKU_APP https:443:{{internal port}}
+    proxy:ports-remove $DOKKU_APP https:443:{{internal port}}
+    proxy:ports-set $DOKKU_APP https:443:{{internal port}} [SCHEME:EXTERNAL:INTERNAL]
 
 ps - container processes
 
