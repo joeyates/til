@@ -117,3 +117,8 @@ The logging for front_1 should show a letsencrypt confirmation
 ## If docker proxies keep running
 
 rm /var/lib/docker/network/files/local-kv.db
+
+## Trustworthiness
+
+* Create a DNS A record for the mail domain, pointing to the mail server's IP
+* Go to admin /admin/ui/domain/details/DOMAIN + click generate keys
