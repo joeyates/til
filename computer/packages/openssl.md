@@ -39,26 +39,27 @@ With a password (4-1023 chars):
 openssl genrsa -des3 -out encrypted.key number_of_bits
 ```
 
-Get Info
-```
+Get Info about a private key
+
+```sh
 openssl pkey -text -in {{key}}
 ```
 
-Remove Password
+Remove Password from a private key
 
-```
+```sh
 openssl rsa -in encrypted.key -out unencrypted.key
 ```
 
-Add Password
+Add Password to a private key
 
-```
+```sh
 openssl rsa -in unencrypted.key -des3 -out encrypted.key
 ```
 
-Get modulus
+Get private key modulus
 
-```
+```sh
 openssl rsa -noout -modulus -in {{key_file}} | openssl md5
 ```
 
@@ -72,12 +73,13 @@ man req
 
 ## Create Interactively
 
-```
+```sh
 openssl req -new -key server.key -out server.csr
 ```
 
 ## Directly
-```
+
+```sh
 openssl req -new \
   -subj '/type_code=value0/type1=value1/type2=...' \
   -key server.key \
@@ -88,7 +90,7 @@ openssl req -new \
 
 The config:
 
-```
+```toml
 [req]
 prompt = no
 distinguished_name = dn
@@ -109,7 +111,7 @@ subjectAltName = @alt_names
 DNS.1   = xxx.example.it
 ```
 
-```shell
+```sh
 $ openssl genrsa -out ./certificate.key 4096
 $ openssl \
   req \
@@ -152,7 +154,7 @@ $ openssl \
 
 ## Info
 
-All info:
+All CSR info:
 ```
 openssl req -text -in csr_file
 ```
@@ -183,7 +185,7 @@ Extract key:
 openssl pkcs12 -in input.pfx -nocerts -out output.key
 ```
 
-## Get info
+## Get info about a cerificate
 
 Formats:
 * x509
