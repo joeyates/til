@@ -38,6 +38,14 @@ Main: /usr/local/etc/php/conf.d/nextcloud.ini
 
 https://docs.nextcloud.com/server/21/admin_manual/configuration_files/big_file_upload_configuration.html#configuring-your-web-server
 
+##  upload_max_filesize
+
+ENV: PHP_UPLOAD_LIMIT
+
+##  post_max_size
+
+ENV: PHP_UPLOAD_LIMIT
+
 ## memory_limit
 
 set via PHP_MEMORY_LIMIT environment variable
