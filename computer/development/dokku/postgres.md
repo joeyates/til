@@ -1,3 +1,5 @@
+dokku plugin:install https://github.com/dokku/dokku-postgres.git postgres
+
 # Commands
 
 postgres:app-links <app>                                                        list all Postgres service links for a given app
