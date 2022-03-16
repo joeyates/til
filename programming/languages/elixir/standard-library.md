@@ -118,6 +118,7 @@ list |> Enum.with_index |> Enum.map(fn {item, index} ...)
 
 ```elixir
 reduce(enumerable, fn el, acc -> ...; acc end)
+reduce(enumerable, initial, fn el, acc -> ...; acc end)
 ```
 
 # ExUnit
