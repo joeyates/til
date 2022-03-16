@@ -46,7 +46,7 @@ git merge-base --is-ancestor {old-commit} {new-commit}
 git log -G{regexp}
 ```
 
-## grep on files involved in past commits
+## grep on contents of a file that is no longer present
 
 ```
 git grep {text} $(git rev-list --all -- path/to/file) -- path/to/file
