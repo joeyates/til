@@ -26,6 +26,12 @@ From an image:
 docker run user/name:latest
 ```
 
+Run bash only, and clean up afterwards:
+
+```
+docker run --rm -ti IMAGE:TAG /bin/bash
+```
+
 ## List images
 
 ```
@@ -66,6 +72,18 @@ $ docker ps
 $ docker ps --all
 ```
 
+## Start a named Container
+
+```
+docker container start NAME
+```
+
+## Stop a named Container
+
+```
+docker container stop NAME
+```
+
 ## Connect to a Running Container's std in/out/err:
 
 ```
@@ -77,7 +95,7 @@ Detach: CTRL-p CTRL-q
 ## Launch a process in a Running Container
 
 ```sh
-docker exec {{id}}
+docker exec -ti {{id}}
 ```
 
 Pass environment variables:
@@ -88,7 +106,9 @@ docker exec -e {{NAME}}={{VALUE}} {{CONTAINER}} {{COMMAND}}
 
 ## Remove Container
 
+```sh
 $ docker rm {{id}}
+```
 
 # Cookbook
 
