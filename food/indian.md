@@ -57,12 +57,11 @@ for 2 chicken breasts + 6 thighs
 * Marinade 24h
 * Cook 250c for 25/30'
 
-# Tarka dhal
+# Tarka Dall
 
-* 500g chana dhal (yellow dried split peas), rinsed until the water runs clear
+* 500g chana dall (yellow dried split lentils), rinsed until the water runs clear
 * 1.8l water
 * 6 tbsp ghee
-* 2 tbsp cumin seeds
 * 2 small onions, chopped
 * 6-8 whole green chilies, pricked with a knife
 * 4cm piece fresh ginger, peeled and cut into thin strips
@@ -88,8 +87,10 @@ for 2 chicken breasts + 6 thighs
 * Simmer 15-20'
 * Add lentils (and water if necessary)
 * Add salt and pepper
-* Not included:
+
+Not included:
 * handful chopped fresh coriander leaves
+* 2 tbsp cumin seeds
 
 # Bombay aloo
 
@@ -128,3 +129,18 @@ for 2 chicken breasts + 6 thighs
 ## Notes
 
 Don't use ghee - it makes the dish to sweet and gooey.
+
+# Cauliflower Curry
+
+* cauliflower florets
+
+* rinse florets
+* heat cooking oil
+* add a few cumin seeds and 1/2 tsp mustard seeds, wait til they pop
+* add a curry leaf
+* cook 1'
+* add largish chopped onion and 1 chopped green chili, simmer until golden
+* add 1tsp chopped fresh garlic and 1tsp chopped fresh ginger, simmer 1'
+* add 4 medium chopped tomatoes and 3/4tsp salt, cook until mushy,
+* 1tsp garam masala, 1/4tsp turmeric, 1/2tsp red chili powder
+* add cauliflower and some water, cook until firm
