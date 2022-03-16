@@ -89,6 +89,8 @@ mysqldump -u user database | gzip -9 > dump.sql.gz
 ```
 
 Options:
+
+* --password
 * --no-create-db - don't create database
 * --no-create-info - don't create tables
 
