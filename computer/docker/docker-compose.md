@@ -15,10 +15,12 @@ docker-compose.yml
   * context - path to a directory with a Dockerfile
   * dockerfile - the (non-standard) name of the dockerfile (default: Dockerfile)
 
-## Cookbook
+## Run commands
 
+```sh
+$ docker-compose run SERVICE COMMAND
 ## See Logs
 
 ```sh
-$ docker-compose logs -f
+$ docker-compose logs -f [SERVICE]
 ```
