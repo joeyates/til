@@ -52,6 +52,10 @@ git log -G{regexp}
 git grep {text} $(git rev-list --all -- path/to/file) -- path/to/file
 ```
 
+## Find Commits By File Extension
+
+git log --name-status -- '*.EXT'
+
 ### git grep - print lines matching a pattern
 
 --cached - search in index file
@@ -96,11 +100,6 @@ $ git rebase -i --autosquash
 
 # Remove a Directory from History
 
-git filter-branch --force --index-filter "git rm --cached --ignore-unmatch -r {{path}}" --prune-empty --tag-name-filter cat -- --all
-git push origin --force --all
+use https://github.com/newren/git-filter-repo
 
-Clean locally:
-
-git for-each-ref --format="delete %(refname)" refs/original | git update-ref --stdin
-git reflog expire --expire=now --all
-git gc --prune=now
+git-filter-repo --path PATH --invert-paths
