@@ -11,6 +11,30 @@ sw_vers -productVersion
 lipo -archs {{PATH}}
 lipo -detailed_info {{PATH}}
 
+# Installing Development Tools
+
+First pass:
+
+```sh
+softwareupdate --all --install --force
+```
+
+Second:
+
+Optionally:
+
+```sh
+sudo rm -rf /Library/Developer/CommandLineTools
+```
+
+Then
+
+```sh
+sudo xcode-select --install
+```
+
+1. Installs "command line developer tools"
+
 # Run a program using a specific architecture
 
 arch -arch arm64 ...
