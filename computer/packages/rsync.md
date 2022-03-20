@@ -34,7 +34,7 @@ Specify a remote user for SSH:
 Push:
 
 ```
-$ rsync -av -e "ssh -l {{username}} /path/to/directory/ {{host}}:/path/to/directory/
+$ rsync -av -e "ssh -l {{username}}" /path/to/directory/ {{host}}:/path/to/directory/
 ```
 
 Use SSH private key:
