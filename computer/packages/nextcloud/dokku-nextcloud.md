@@ -19,3 +19,7 @@ https://github.com/dionysio/dokku-nextcloud
 Shell access:
 
 /usr/bin/docker exec -u www-data -ti nextcloud.web.1 bash
+
+Database access:
+
+/usr/bin/docker exec -u postgres -ti dokku.postgres.nextcloud psql nextcloud
