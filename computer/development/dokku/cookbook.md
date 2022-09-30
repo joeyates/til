@@ -1,3 +1,11 @@
+# Set the Default Git Branch to 'main'
+
+dokku git:set --global deploy-branch main
+
+# Set a Single App's Default Git Branch
+
+dokku git:set $DOKKU_APP deploy-branch {{BRANCH NAME}}
+
 # Create a Static App
 
 dokku apps:create {{app}}
