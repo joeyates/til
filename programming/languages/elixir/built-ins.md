@@ -156,7 +156,10 @@ Keyword.keyword?(value) - is `value` a keyword list?
 * map["key"] # => value
 * map[:key] # => value
 * map.key # => value
+Update existing keys:
 * `%{%{a: 1, b: 2} | a: 42}` # => %{a: 42, b: 2}
+Merge:
+* Map.merge(m1, m2)
 
 # Regex
 
