@@ -88,4 +88,3 @@ A local source:
 * `:optional`
 * `:only` - which environments should include the dependency, indicated as a
   single environment or as a list
-
