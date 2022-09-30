@@ -34,3 +34,9 @@ docker run --publish 5432:5432 \
   postgres:10 \
   -c fsync=off
 ```
+
+# Restore to database
+
+First, get the container's ID.
+
+docker exec -ti {{ID}} psql -U postgres
