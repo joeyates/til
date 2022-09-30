@@ -29,13 +29,6 @@ Unset:
 dig DOMAIN NS
 ```
 
-## Management
-
-Copy to a remote host:
-```
-ssh-copy-id -i public_key_file user@hostname
-```
-
 # Email
 
 See file

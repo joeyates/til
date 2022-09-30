@@ -103,3 +103,10 @@ $ ssh -L local_port:remote_port remote_host
 ```sh
 ~.
 ```
+
+## Management
+
+Copy to a remote host:
+```
+ssh-copy-id -i public_key_file user@hostname
+```
