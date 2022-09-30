@@ -134,7 +134,6 @@ Don't use ghee - it makes the dish to sweet and gooey.
 
 * cauliflower florets
 
-* rinse florets
 * heat cooking oil
 * add a few cumin seeds and 1/2 tsp mustard seeds, wait til they pop
 * add a curry leaf
@@ -143,4 +142,5 @@ Don't use ghee - it makes the dish to sweet and gooey.
 * add 1tsp chopped fresh garlic and 1tsp chopped fresh ginger, simmer 1'
 * add 4 medium chopped tomatoes and 3/4tsp salt, cook until mushy,
 * 1tsp garam masala, 1/4tsp turmeric, 1/2tsp red chili powder
+* rinse florets
 * add cauliflower and some water, cook until firm
