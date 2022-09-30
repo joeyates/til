@@ -103,3 +103,9 @@ $ git rebase -i --autosquash
 use https://github.com/newren/git-filter-repo
 
 git-filter-repo --path PATH --invert-paths
+
+# Set the Current Branch in a Bare Checkout
+
+```
+git symbolic-ref HEAD refs/heads/{{BRANCH}}
+```
