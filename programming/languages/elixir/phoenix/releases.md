@@ -1,9 +1,11 @@
 https://hexdocs.pm/phoenix/releases.html
 
-* Minimum Elixir 1.9
-* Runtime config in config/releases.exs
+# Convert a Project to Use Releases
 
-* Rename config/prod.secret.exs to config/releases.exs
+* Minimum Elixir 1.9
+* Runtime config in config/runtime.exs
+
+* Rename config/prod.secret.exs to config/runtime.exs
 * Remove
 import_config "prod.secret.exs"
 from config/prod.exs

@@ -24,10 +24,39 @@ the load time associated with "interactive" mode.
 
 Provides compile-time configuration
 
-## `config/releases.exs`
+## `mix.exs`
 
-Provides run-time configuration - principally
-allows loading of environment variables, via
+Configuration is placed under `:releases` under `project`.
+
+```elixir
+def project() do
+  [
+    default_release: {{name}}, # optional
+    releases: [
+      {{release name}}: [
+        ...
+      ]
+    ]
+  ]
+end
+```
+
+This section is optional, and is used only to override defaults.
+
+* `:applications` - applications to start
+  * `{{app name}}`: `:permanent*|:transient|:temporary|:load|:none`
+* `:include_executables_for`: `[:unix,...]`
+* `:strip_beams`: `true*|false` - strip debug info?
+* `:runtime_config_path` - The path of the runtime configuration file
+  Default: `config/runtime.exs`
+
+## `config/runtime.exs`
+
+Provides run-time configuration.
+
+Supercedes `config/releases.exs`.
+
+Principally allows loading of environment variables, via
 
 ```elixir
 System.get_env("FOO")
@@ -55,32 +84,6 @@ database_url =
 config :my_app, MyApp.Repo,
   url: database_url
 ```
-
-## `mix.exs`
-
-Configuration is placed under `:releases` under `project`.
-
-```elixir
-def project() do
-  [
-    default_release: {{name}}, # optional
-    releases: [
-      {{release name}}: [
-        ...
-      ]
-    ]
-  ]
-end
-```
-
-This section is optional, and is used only to override defaults.
-
-* `:applications` - applications to start
-  * `{{app name}}`: `:permanent*|:transient|:temporary|:load|:none`
-* `:include_executables_for`: `[:unix,...]`
-* `:strip_beams`: `true*|false` - strip debug info?
-* `:runtime_config_path` - The path of the runtime configuration file
-  Default: `config/releases.exs`
 
 ## `rel` directory
 
