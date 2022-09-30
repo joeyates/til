@@ -25,7 +25,7 @@ Ignore difference is ownership:
 -a --no-owner
 ```
 
-Specify a remote user for SSH:
+Specify ssh options:
 
 ```
 ... -e "ssh -l username" ...
