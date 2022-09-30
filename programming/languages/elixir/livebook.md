@@ -10,15 +10,21 @@ With asdf installs:
 asdf reshim elixir
 ```
 
-Start
+# Create
+
+```sh
+livebook server new
+```
+
+# Start
 
 ```sh
 livebook server
 ```
 
-Click "New notebook"
-
 # Environment
+
+https://github.com/livebook-dev/livebook#environment-variables
 
 * LIVEBOOK_COOKIE
 * LIVEBOOK_DEFAULT_RUNTIME - standalone|mix|mix:PATH|attached:NODE:cookie|embedded
