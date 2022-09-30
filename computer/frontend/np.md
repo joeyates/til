@@ -1,6 +1,10 @@
 np "A better npm publish"
 
+# Install
+
+```
 yarn global add np
+```
 
 # Publish
 
