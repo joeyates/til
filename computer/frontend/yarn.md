@@ -40,7 +40,7 @@ yarn config get prefix
 
 # Cookbook
 
-## Install in a directory dofferent ot the current directory
+## Install in a directory different to the current directory
 
 ```sh
 yarn --cwd 'assets'
