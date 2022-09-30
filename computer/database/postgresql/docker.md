@@ -26,7 +26,7 @@ docker run --publish 5432:5432 \
   postgres:10
 ```
 
-Fatser testing with an in-memory database:
+Faster testing with an in-memory database:
 
 ```
 docker run --publish 5432:5432 \
