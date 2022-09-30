@@ -43,8 +43,7 @@ cleanup - TODO
 
 config
 
-    config {{app}} - list app environment variables
-    config:show {{app}} - same as `config`
+    config:show {{app}} - list app environment variables
     config:set [--no-restart] {{app}} {{NAME}}={{VALUE}} [{{NAME2}}={{VALUE2}}]
     config:set {{app}} {{NAME}}={{VALUE}} [{{NAME2}}={{VALUE2}} ...]
     config:unset {{app}} {{NAME}} [{{NAME2}} ...]
