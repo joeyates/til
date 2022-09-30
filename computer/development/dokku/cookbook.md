@@ -145,11 +145,11 @@ dokku postgres:app-links $DOKKU_APP
 
 Restore using pg_restore:
 
-dokku postgres:import {{db name}} < {{dump file}}
+dokku postgres:import {{db link name}} < {{dump file}}
 
 Restore a plain SQL dump:
 
-dokku postgres:enter {{db name}} psql -l -U postgres
+dokku postgres:connect {{db link name}} psql -l -U postgres
 
 
 Deploy From GitLab
