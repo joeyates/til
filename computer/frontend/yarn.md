@@ -63,3 +63,17 @@ yarn add webpack@2.7.0 --tilde --dev
 ## Publish a package
 
 Use `np`
+
+## Link to a Development version of a Package
+
+First, create the link in the root directory of the package to be used:
+
+```
+yarn link
+```
+
+Second, use the link in the client project:
+
+```
+yarn link [[NAME OF PROJECT]]
+```
