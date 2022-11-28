@@ -1,3 +1,6 @@
+* Source: https://github.com/bake-bake-bake/bakeware
+* Docs: https://hexdocs.pm/bakeware/readme.html
+
 # Set Up
 
 Blog: create an Elixir application.
@@ -48,4 +51,10 @@ Add release details to mix.exs:
       strip_beams: Mix.env() == :prod
     ]
   end
+```
+
+Create the release:
+
+```
+mix release
 ```
