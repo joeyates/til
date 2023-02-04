@@ -7,6 +7,7 @@ mix help
 ```
 
 # Elixir's builtin mix tasks
+
 ```
 mix                     # Run the default task (current: mix run)
 mix app.start           # Start all registered apps
@@ -36,9 +37,9 @@ mix test                # Run a project's tests
 iex -S mix              # Start IEx and run the default task
 ```
 
-# mix.exs
+# Mix.Project
 
-Includes a module that sets up the 'Mix.Project'.
+Declared in `mix.exs`
 
 ```
 defmodule Foo do
@@ -58,7 +59,7 @@ Mix.Project.project returns a keyword list defining:
 
 ## deps
 
-https://hexdocs.pm/mix/Mix.Tasks.Deps.html
+See also https://hexdocs.pm/mix/Mix.Tasks.Deps.html
 
 A list of dependencies specified as tuples:
 
@@ -88,3 +89,13 @@ A local source:
 * `:optional`
 * `:only` - which environments should include the dependency, indicated as a
   single environment or as a list
+* `:targets` - only include the dependency for the given targets.
+  The target is specified by MIX_TARGET
+
+Defines project configuration
+
+# Keys
+
+* archives - used by mix archive tasks
+* build_embedded - used by `mix compile` task, copies files from
+  `priv` and ?? to `_build`
