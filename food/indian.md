@@ -59,7 +59,7 @@ for 2 chicken breasts + 6 thighs
 
 # Tarka Dall
 
-* 500g chana dall (yellow dried split lentils), rinsed until the water runs clear
+* 500g chana dall (yellow dried split lentils)
 * 1.8l water
 * 6 tbsp ghee
 * 2 small onions, chopped
@@ -69,7 +69,7 @@ for 2 chicken breasts + 6 thighs
 * 6 tomatoes (or tomatoes and yellow pepper)
 * 1.5 tsp ground turmeric
 * 1.5 tsp garam masala
-* 3 tsp ground coriander
+* 3 tsp ground cumin
 * salt and freshly ground black pepper
 
 ## Instructions
@@ -81,7 +81,7 @@ for 2 chicken breasts + 6 thighs
 * Break down the lentils with a whisk
 * Fry cumin in ghee
 * Add onion, chillies and ginger, fry 4-5'
-* Liquidise garlic and tomatoes, add to pan
+* Liquidise garlic and tomatoes/peppers, add to pan
 * Add ground spices and 100ml water
 * Add salt
 * Simmer 15-20'
@@ -115,16 +115,25 @@ Not included:
 
 # Brinjal curry
 
-* cut aubergines into long slices
-* wash removing black water
-* salt and purge over kitchen paper
-* heat cooking oil, add 2 tsp turmeric, 1 tsp chili powder
-* add aubergines and fry till brown
-* add one tomato, salt and some water
+* 1 large aubergine
+* 2 tsp turmeric
+* 1 tsp chili powder
+* fresh tomato (or tomato puree, or tomato passata)
+* salt
 
 ## Preparation
 
+* heat cooking oil,
+* add turmeric and chili powder
 * fry for 10'
+* cut aubergine into long slices
+* wash removing black water
+* salt and purge over kitchen paper
+* add aubergines and fry till brown
+* add water, if necessary
+* salt
+* add tomato
+* simmer for 10'
 
 ## Notes
 
@@ -133,14 +142,29 @@ Don't use ghee - it makes the dish to sweet and gooey.
 # Cauliflower Curry
 
 * cauliflower florets
+* a few cumin seeds
+* 1/1 tsp mustard seeds
+* 1 curry leaf
+* largish onion
+* 1 green chili
+* 1tsp fresh garlic
+* 1tsp fresh ginger
+* 4 medium tomatoes
+* 3/4tsp salt
+* 1tsp garam masala
+* 1/4tsp turmeric
+* 1/2tsp red chili powder
 
 * heat cooking oil
-* add a few cumin seeds and 1/2 tsp mustard seeds, wait til they pop
+* cumin seeds and mustard seeds, wait til they pop
 * add a curry leaf
 * cook 1'
-* add largish chopped onion and 1 chopped green chili, simmer until golden
-* add 1tsp chopped fresh garlic and 1tsp chopped fresh ginger, simmer 1'
-* add 4 medium chopped tomatoes and 3/4tsp salt, cook until mushy,
-* 1tsp garam masala, 1/4tsp turmeric, 1/2tsp red chili powder
+* chop onion and green chili
+* add onion and chili, simmer until golden
+* chop garlic and ginger
+* add garlic and ginger, simmer 1'
+* chop tomatoes
+* add tomatoes and salt, cook until mushy,
 * rinse florets
+* add garam masala, turmeric, chili powder
 * add cauliflower and some water, cook until firm
