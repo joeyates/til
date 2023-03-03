@@ -72,7 +72,7 @@ for 2 chicken breasts + 6 thighs
 * 3 tsp ground cumin
 * salt and freshly ground black pepper
 
-## Instructions
+## Preparation
 
 * Wash lentils until water runs clear
 * Add water
@@ -97,21 +97,23 @@ Not included:
 ## Ingredients
 
 * potatoes
-* onions cut into big cubes
-* fresh tomatoes
-* 1/2 lemon
-* spices: curry mix
 * ghee
+* curry mix
+* 1 medium onion
+* a small, fresh tomato
+* 1/2 lemon
 
-## Instructions
+## Preparation
 
 * cut potatoes into big cubes
 * boil, drain when still very firm
 * warm ghee
 * fry spices
+* cut onion into big cubes
 * add onions
-* add potatoes, lemon
-* add sliced tomato
+* cook for 5'
+* slice tomato
+* add potatoes, lemon and tomato
 
 # Brinjal curry
 
