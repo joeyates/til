@@ -116,20 +116,6 @@ USING cte1 c
 WHERE c.id = t2.customer_id;
 ```
 
-# Builtin Functions
-
-## Time
-
-Today:
-```
-now()::date
-```
-
-Yesterday:
-```
-now()::date - 1
-```
-
 # psql
 
 Indicate cluster and version:
