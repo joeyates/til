@@ -26,6 +26,8 @@ From an image:
 docker run user/name:latest
 ```
 
+From a Dockerfile, first build, then run.
+
 Run bash only, and clean up afterwards:
 
 ```
@@ -160,27 +162,6 @@ docker run --rm -i -t -v $OLD:/from -v $NEW:/to alpine ash -c "cd /from ; cp -av
 ```sh
 docker cp {{file or directory}} {{container}}:{{destination path}}
 ```
-
-# Dockerfile
-
-## ARG
-
-## ENV
-
-* https://docs.docker.com/engine/reference/builder/#env
-
-```docker
-ENV <key> <value>
-ENV <key>=<value> <key2>=<value2>
-```
-
-## EXPOSE
-
-Manage ports
-
-## [FROM](https://docs.docker.com/engine/reference/builder/#from)
-
-## VOLUME
 
 # Logs
 

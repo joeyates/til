@@ -15,6 +15,20 @@ docker-compose.yml
   * context - path to a directory with a Dockerfile
   * dockerfile - the (non-standard) name of the dockerfile (default: Dockerfile)
 
+# Configuration
+
+* stdin_open: true|false - keep stdin open (equivalent to Docker's `--interactive` or `-i`)
+* tty: true|false - allocate a TTY (equivalent to Docker's '--tty' or '-t')
+
+## Volumes
+
+```yaml
+services:
+  [service]:
+    volumes:
+      - [host]:[container]
+```
+
 ## Run commands
 
 ```sh
