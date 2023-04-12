@@ -49,6 +49,12 @@
 [reference id]: URL "Optional title"
 ```
 
+# Images
+
+```markdown
+![Alternate text](/path/to/img.jpg "Title")
+```
+
 # Tables (GFM)
 
 ```
