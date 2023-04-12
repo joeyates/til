@@ -34,10 +34,13 @@ https://podman.io/getting-started/
 
 ## Create a VM
 
+```sh
 podman machine init
+```
 
+```sh
 podman machine start
-
+```
 
 ## Images
 
@@ -47,10 +50,38 @@ List all local images:
 podman images
 ```
 
+List tagged versions on Docker Hub
+
+```
+podman search --list-tags docker.io/USER/NAME
+```
+
+Get the image id of a Docker Hub image
+
+```
+podman inspect USER/NAME:TAG
+```
+
+Pull an image from docker.hub
+
+```
+podman pull USER/NAME
+```
+
+```
+podman pull USER/NAME:MANIFEST
+```
+
 Remove a local image:
 
 ```sh
 podman rmi {{NAME}}
+```
+
+Build
+
+```sh
+podman build
 ```
 
 ## Containers
@@ -102,7 +133,13 @@ podman inspect {{NAME}} | grep IPAddress
 Run an image from Docker Hub:
 
 ```
-podman run -ti docker.io/{{IMAGE}}[:{{TAG}}]
+podman run -ti docker.io/{{IMAGE}}[:{{TAG}}] COMMAND
+```
+
+Copy an image to another server:
+
+```
+podman image scp USER@HOST::IMAGE USER@HOST
 ```
 
 # Docker Compose
