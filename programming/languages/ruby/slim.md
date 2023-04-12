@@ -18,3 +18,7 @@
 javascript:
   const foo = '#{@foo}`
 ```
+
+# Elixir Slime
+
+http://slime-lang.com/
