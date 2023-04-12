@@ -66,6 +66,8 @@ Use `np`
 
 ## Link to a Development version of a Package
 
+### Yarn 1
+
 First, create the link in the root directory of the package to be used:
 
 ```
@@ -76,4 +78,10 @@ Second, use the link in the client project:
 
 ```
 yarn link [[NAME OF PROJECT]]
+```
+
+### Yarn 2
+
+```
+yarn link {{path}}
 ```
