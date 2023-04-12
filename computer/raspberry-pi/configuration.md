@@ -7,3 +7,9 @@ in /boot/config.txt
 ```
 dtoverlay=pi3-disable-bt
 ```
+
+# Run in 64-bit Mode
+
+```
+arm_64bit=1
+```
