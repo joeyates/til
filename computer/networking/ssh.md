@@ -1,3 +1,11 @@
+# Parameters
+
+-n - Disable stdin, allowing ssh to run in the background
+-N - Do not execute an remote command. Useful when doing port forwarding
+-t - Allocate a pseudo terminal
+-T - Do not allocate a pseudo terminal
+-R - Make a reverse tunnel. Forward connections on the remote side to the local side.
+
 # sshd config
 
 Block password auth
