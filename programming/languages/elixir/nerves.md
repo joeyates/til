@@ -1,3 +1,13 @@
+# Images
+
+Images are copied to the SD card using fwup
+
+# Networking
+
+VintageNetWiFi.quick_configure("ssid", "password")
+
+or use nerves_init_gadget
+
 # Modules
 
 Nerves.Runtime.KV.get_all

@@ -52,6 +52,14 @@ Param is type:
 * :imports - returns a keyword list of imported functions and their arity,
 * :functions - returns a keyword list of *all* functions and their arity.
 
+## :erlang.system_info(TYPE)
+
+* System Information
+  * :system_version - returns a string containing:
+    OTP version,
+    ERTS version,
+    processor architecture
+
 # ets - Erlang Term Storage
 
 Store data in the runtime system.

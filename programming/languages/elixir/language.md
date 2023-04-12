@@ -120,6 +120,24 @@ end
 for n <- [1, 2, 3, 4], do: n * n
 ```
 
+## Exceptions
+
+```
+try do
+  ...
+rescue e ->
+  ...
+end
+```
+
+```
+try do
+  ...
+rescue [ErrorClass] ->
+  ...
+end
+```
+
 # Sources
 
 * http://elixir-lang.org/crash-course.html

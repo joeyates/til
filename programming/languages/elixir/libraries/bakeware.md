@@ -58,3 +58,14 @@ Create the release:
 ```
 mix release
 ```
+
+# Problems
+
+Linux build needs to be run on older Linux. Otherwise,
+the build will not run on machines with older GLibC.
+
+Get glibc version
+
+```
+ldd --version
+```

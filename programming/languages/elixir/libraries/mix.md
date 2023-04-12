@@ -37,6 +37,14 @@ mix test                # Run a project's tests
 iex -S mix              # Start IEx and run the default task
 ```
 
+# Mix
+
+* install(list)
+
+  atom
+  {atom, "version"}
+  {atom, github: "user/repo"[, ref: "commit-ish"]}
+
 # Mix.Project
 
 Declared in `mix.exs`

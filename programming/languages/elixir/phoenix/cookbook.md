@@ -1,9 +1,23 @@
-# Phoenix
+# Project Generator
 
-Add a project generator command:
+Install the project generator command:
 
 ```
-mix archive.install hex phx_new 1.5.0-rc.0
+mix archive.install hex phx_new
+```
+
+# Create a Project
+
+```sh
+mix phx.new {{NAME}}
+```
+
+* NAME must be /[a-z_]+/
+
+## ...without a Database
+
+```sh
+--no-ecto
 ```
 
 # Project Structure

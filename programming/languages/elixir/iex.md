@@ -1,3 +1,7 @@
+# Running iex
+
+Parameters can be passed to the Erlang system with the `--erl` parameter
+
 # Modules
 
 Load a beam file:
