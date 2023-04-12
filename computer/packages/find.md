@@ -31,6 +31,12 @@ find -iname "*MATCH*"
 -not -wholename '*match*'
 ```
 
+Files modified on 20171002
+
+```bash
+find . -type f -newermt 2017-10-02 ! -newermt 2017-10-03 -exec ls '{}' ';'
+```
+
 # Tests
 
 ## Time
