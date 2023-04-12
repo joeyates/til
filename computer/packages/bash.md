@@ -24,6 +24,12 @@ $(...commands)
 ...
 DELIMITER
 
+# Expansion
+
+* `'...'` - literal value
+* `"..."` - do variable expansion
+* `...*...` - all matching substrings
+
 # Variables
 
 ## set default value
@@ -38,15 +44,23 @@ Access variable, and fail if unset
 
 ${VARIABLE?ERROR_MESSAGE}
 
-Access variable, and fail if unset or empty
+Access variable, and fail with an error message if unset or empty
 
+```
 ${VARIABLE:?ERROR_MESSAGE}
+```
+
+As above, but avoiding error as bash tries to execute the result of the expression
+```
+: ${VARIABLE:?ERROR_MESSAGE}
+```
 
 ## calculated default value
 
 # Commands
 
-Perform expansion, without other commands:
+Perform expansion, without invoking commands:
+
 ```
 : {command}
 ```
@@ -171,7 +185,15 @@ set -o pipefail
 
 ## Trap Exit
 
+```bash
 finish() (
   ...
 )
 trap finish EXIT
+```
+
+# Filenames
+
+## Strip extension
+
+basename
