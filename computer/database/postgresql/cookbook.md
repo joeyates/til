@@ -27,3 +27,9 @@ gzip -cd $DATABASE_DUMP | psql -U $DATABASE_USER $DATABASE
 ```sh
 $ pg_restore -U {{user name}} -d {db name} --clean --no-owner {filename}
 ```
+
+# Rename a Database
+
+```sql
+ALTER DATABASE {{current name}} RENAME TO {{new name}}
+```
