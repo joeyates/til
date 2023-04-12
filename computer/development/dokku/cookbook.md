@@ -8,12 +8,14 @@ dokku git:set $DOKKU_APP deploy-branch {{BRANCH NAME}}
 
 # Create a Static App
 
+```
 dokku apps:create {{app}}
 git remote add dokku dokku@$DOKKU_HOST:{{app}}
 touch .static
 dokku config:set --no-restart $DOKKU_APP BUILDPACK_URL=https://github.com/dokku/buildpack-nginx
 dokku config:set --no-restart $DOKKU_APP NGINX_ROOT=build
 git push dokku
+```
 
 # Password protection with http_auth module
 
@@ -25,7 +27,9 @@ Then: Set up HTTPS
 
 http://dokku.viewdocs.io/dokku/deployment/application-deployment/
 
-dokku apps:create {{app}}
+export DOKKU_HOST={{host}}
+export DOKKU_APP={{app}}
+dokku apps:create $DOKKU_APP
 
 dokku-root plugin:install https://github.com/dokku/dokku-postgres.git postgres
 
@@ -67,21 +71,31 @@ dokku run {app}} rails console
 
 # Create a Dockerfile App
 
-http://dokku.viewdocs.io/dokku/deployment/methods/dockerfiles/
+https://dokku.com/docs/deployment/builders/dockerfiles/
 
 Conditions for Dockerfile Deployments
 
-    There must be a Dockerfile at the root of the repo
-    There must not be a .buildpacks file at the root of the repo
-    The app must not have a BUILDPACK_URL environment variable
+* There must be a Dockerfile at the root of the repo
+* There must not be a .buildpacks file at the root of the repo
+* The app must not have a BUILDPACK_URL environment variable
 
+```sh
+dokku apps:create $DOKKU_APP
+# Set options
+dokku docker-options:add $DOKKU_APP run "-v /var/log/node-js-app:/app/logs"
+# Set ports
+dokku config:set node-js-app DOKKU_DOCKERFILE_PORTS="1234/tcp 80/tcp"
+```
 
 # Create an Elixir Phoenix App
 
 First, "Create an App with Postgres"
 
 Create a file .buildpacks:
+
+```
 https://github.com/HashNuke/heroku-buildpack-elixir
+```
 
 ## Run Phoenix Migrations
 
