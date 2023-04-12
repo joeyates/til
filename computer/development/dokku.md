@@ -92,8 +92,11 @@ help
 
 logs
 
-    logs $DOKKU_APP
-    logs:failed $DOKKU_APP
+    logs [-t|--tail] [-n|--num num] [-p|--ps process] $DOKKU_APP
+    logs:failed $DOKKU_APP - show latest failed deploy
+    logs:report [$DOKKU_APP] - show information about logging limits
+    logs:set [--global|$DOKKU_APP] KEY VALUE
+    logs:vector-logs - ???
 
 network - TODO
 nginx - TODO
