@@ -32,6 +32,17 @@ end
 foo1 = %Foo{bar: "Hello"}
 ```
 
+Required keys
+
+```elixir
+defmodule Foo do
+  @enforce_keys ~w(bar baz)a
+  defstruct ~w(bar baz)a
+end
+```
+
+# Access
+
 Access members via '.':
 
 ```

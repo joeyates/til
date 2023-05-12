@@ -15,7 +15,7 @@ Generates:
 * The context
 * Live index and show (including heex)
   * `lib/{{app}}_web/live/{{resource}}_live/`
-* Suggests adding routes in lib/devanagari_web/router.ex
+* Suggests adding routes in lib/{{application}}_web/router.ex
   * live `/{{endpoint}}`
 
 # View Lifecycle
