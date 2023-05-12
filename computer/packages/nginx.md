@@ -1,3 +1,11 @@
+# root
+
+```
+location / {
+  root SOME_PATH;
+}
+```
+
 # Cookbook
 
 ## Serve a specific file as default
