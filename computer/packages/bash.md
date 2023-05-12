@@ -30,6 +30,14 @@ DELIMITER
 * `"..."` - do variable expansion
 * `...*...` - all matching substrings
 
+# Parameters
+
+* $@ - all parameters
+* $0 - script name
+* $1, $2, ... - parameters
+
+* `shift [n]` - remove n (default 1) parameters from parameters
+
 # Variables
 
 ## set default value
@@ -37,7 +45,7 @@ DELIMITER
 Return first parameter if set, otherwise the supplied value:
 
 ```
-${1:-foo};
+${VARIABLE:-foo};
 ```
 
 Access variable, and fail if unset
@@ -160,6 +168,15 @@ done
 foo() {
 }
 ```
+
+# set
+
+https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+
+Options with '-' set the options
+Options with '+' unset the options
+
+* -x - trace output
 
 # Scripts
 
