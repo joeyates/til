@@ -1,3 +1,13 @@
+# Create Repo
+
+Create a repo with an initial empty commit to allow
+rebasing of avery successive commit.
+
+```sh
+git init
+g commit --allow-empty -m "Initial commit"
+```
+
 # Status
 
 * `git clean -dx` - remove all non-repo files, except other repos
