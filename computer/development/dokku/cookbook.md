@@ -89,12 +89,42 @@ dokku config:set node-js-app DOKKU_DOCKERFILE_PORTS="1234/tcp 80/tcp"
 
 # Create an Elixir Phoenix App
 
-First, "Create an App with Postgres"
-
 Create a file .buildpacks:
 
 ```
 https://github.com/HashNuke/heroku-buildpack-elixir
+```
+
+Set versions, etc, in `elixir_buildpack.config`:
+
+```
+erlang_version=...
+elixir_version=...
+hook_post_compile="mix assets.deploy"
+```
+
+```sh
+export APP_DOMAIN=
+export DOMAIN_EMAIL=
+export DOKKU_APP=...
+export DOKKU_HOST=...
+export LIVE_VIEW_SALT=...
+export SECRET_KEY_BASE=...
+```
+
+Use `mix phx.gen.secret` to create secrets.
+
+```sh
+git remote add dokku dokku@$DOKKU_HOST:$DOKKU_APP
+dokku apps:create $DOKKU_APP
+dokku config:set --no-restart $DOKKU_APP \
+  DOKKU_LETSENCRYPT_EMAIL=$DOMAIN_EMAIL \
+  LIVE_VIEW_SALT=$LIVE_VIEW_SALT \
+  SECRET_KEY_BASE=$SECRET_KEY_BASE \
+  PHX_HOST=$APP_DOMAIN \
+  PHX_SERVER=true
+dokku domains:set $DOKKU_APP $APP_DOMAIN
+git push dokku
 ```
 
 ## Run Phoenix Migrations
@@ -105,51 +135,42 @@ release: ./.platform_tools/elixir/bin/mix ecto.migrate
 # Deploy
 
 git remote add dokku dokku@$DOKKU_HOST:{{app}}
-git push dokku master
+git push dokku
 
-# Set up HTTPS
+# Set up HTTPS with Letsencrypt
 
 Configure DNS
 Via DNS nameserver
 
-Set up nginx with a self-signed certificate
-dokku certs:generate $DOKKU_APP {{domain}}
-
-Set up domains
-dokku domains:report $DOKKU_APP
-dokku domains:add $DOKKU_APP {{domain}}
-
-dokku domains:set $DOKKU_APP {{domain}}
-
-
-Set the PORT
-
-dokku proxy:ports $DOKKU_APP
-dokku proxy:ports-add $DOKKU_APP https:443:{{port}}
-
-
-# Configure Let's Encrypt
-
+```sh
 dokku config:set --no-restart $DOKKU_APP DOKKU_LETSENCRYPT_EMAIL=admin@{{domain}}
-
-## Dry Run
-
 dokku config:set --no-restart $DOKKU_APP DOKKU_LETSENCRYPT_SERVER=staging
-dokku letsencrypt $DOKKU_APP
-
-## Get Certificate
-
+dokku letsencrypt:enable $DOKKU_APP
 dokku config:unset --no-restart $DOKKU_APP DOKKU_LETSENCRYPT_SERVER
-dokku letsencrypt $DOKKU_APP
+dokku letsencrypt:enable $DOKKU_APP
+```
 
 ## Ensure the cron job is enabled
 
     dokku letsencrypt:cron-job --add
 
+# Docker Setup
+
+## Give App Access to a Directory
+
+By creating a docker volume
+
+If necessary, on host, create the directory.
+
+Add Docker volume
+
+```sh
+dokku storage:mount $DOKKU_APP {{host path}}:{{container path}}
+```
+
 # Database
 
 ## Dump
-
 
 ## Restore
 
@@ -182,24 +203,37 @@ add public key to user `dokku` on Dokku server /home/dokku/.ssh/authorized_keys
 
 Log into machine as root
 Create a cron task
+
+```sh
 $ crontab -e
+```
 
 Example:
 
+```cron
 23 02 * * * bundle exec foo bar
+```
 
 # Debugging
 
+```sh
 dokku logs {{app}}
+```
 
 Database
-dokku postgres:connect {{db name}}
 
-Application
+```sh
+dokku postgres:connect {{db name}}
+```
+
+Restart
+
+```sh
 dokku ps:restart {{app}}
+```
 
 # Use 'main' as the Git deploy Branch
 
-```shell
+```sh
 dokku git:set $DOKKU_APP deploy-branch main
 ```
