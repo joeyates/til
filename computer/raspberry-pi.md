@@ -91,16 +91,14 @@ Create a blank file named `ssh` on the boot partition.
 E.g.:
 
 ```sh
-touch /media/$(whoami)/boot/ssh
+sudo touch /media/$(whoami)/bootfs/ssh
 ```
 
 Log in with:
 
 ```sh
-$ ssh pi@raspberrypi.local
+$ ssh myuser@raspberrypi.local
 ```
-
-Password: raspberry
 
 # General configuration via Raspberry Pi Shell
 
