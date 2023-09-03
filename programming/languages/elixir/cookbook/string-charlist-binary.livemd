@@ -1,0 +1,464 @@
+# Working with Elixir Strings, charlists and binaries
+
+## Introduction
+
+This Livebook aims to clarify the relationship between the various types used in Elixir to represent sequences of characters, bytes and other types of numbers.
+
+These types are Strings, charlists, binaries, bitstrings.
+
+There are a few of definitions that are useful when talking about strings:
+
+A "code point" is and integer used by Unicode to indicate a certain character. These integer values range from 0 to many tens of thousands.
+
+An "ASCII character" is code point between 0 and 127.
+
+"Byte" is the basic unit of management of computer memory. It is a group of bits, ususally 8 bits. An 8-bit byte can hold numbers between 0 and 255.
+
+"UTF-8" is a system that was invented to solve the problem of using bytes to represent Unicode cose points that are larger than 255.
+
+## Bitstrings and Binaries
+
+These types deal with data as it is stored in memory.
+
+### Bitstring
+
+A bitstring is a contiguous series of **bits** in memory.
+
+The bitstring literal form specifies values and number of bits:
+
+```elixir
+<<6::4>>
+```
+
+There are [many options](https://hexdocs.pm/elixir/1.12/Kernel.SpecialForms.html#%3C%3C%3E%3E/1) for constructing bitstrings.
+
+<!-- livebook:{"break_markdown":true} -->
+
+If you supply integers that contain more bits than you indicate, the integers are truncated to the requested number of bits:
+
+```elixir
+<<15::3>>
+```
+
+### Inspecting Bitstrings
+
+You can split bitstrings into bits with a "for comprehension":
+
+```elixir
+for <<(x::1 <- <<6::4>>)>>, do: x
+```
+
+### Binary
+
+A binary is a bitstring whose length (in bits) is divisible by 8.
+
+So it is a series of bytes.
+
+8 is the default size for the bitstring literal:
+
+```elixir
+<<0, 1, 2>>
+```
+
+If you supply values that require more than 8 bits, they are truncated to fit in a byte:
+
+```elixir
+<<1 + 256>>
+```
+
+If you construct a bitstring with more that 8 bits, you occupy a number of bytes
+
+```elixir
+<<65535::32>>
+```
+
+## Strings
+
+Strings are sequences of UTF-8 encoded characters.
+
+They can be created in various ways:
+
+```elixir
+["a", ~s[a], ~S[a]]
+```
+
+Even as a binary
+
+```elixir
+<<97>>
+```
+
+### Strings and binaries
+
+Definition: A String is a binary that contains nothing but printable characters.
+
+```elixir
+is_binary("abc")
+```
+
+```elixir
+String.printable?("abc")
+```
+
+```elixir
+is_binary(<<97, 0>>)
+```
+
+```elixir
+String.printable?(<<97, 0>>)
+```
+
+You can also use an Erlang function `:unicode.bin_is_7bit/1` to check the same thing.
+
+<!-- livebook:{"break_markdown":true} -->
+
+Of course, as they are binaries, Strings are also bitstrings
+
+```elixir
+is_bitstring("a")
+```
+
+As Strings are **binaries**, we know that they are held as continguous portions of memory.
+
+They are **not** Lists
+
+```elixir
+is_list("a")
+```
+
+### Representing Strings
+
+`inspect/1` presents printable binaries as Strings
+
+```elixir
+IO.puts(inspect([<<97>>, "a"]))
+```
+
+So, that's how they appear in Livebooks
+
+```elixir
+[<<97>>, "a"]
+```
+
+## charlists
+
+charlists are lists of valid code points, i.e. integers.
+
+There are various ways of creating charlists.
+
+```elixir
+[~c"abc", ~c[abc], [97, 98, 99], [?a, ?b, ?c]]
+```
+
+charlists are Elixir **Lists**, not binaries.
+(Elixir Lists are linked lists.)
+
+```elixir
+is_list(~c"a")
+```
+
+```elixir
+is_binary(~c"a")
+```
+
+```elixir
+is_bitstring(~c"a")
+```
+
+## Non-ASCII Strings
+
+Strings with non-ASCII characters have more bytes than code points.
+
+```elixir
+String.length("à")
+```
+
+`byte_size` calculates bytes, not characters (code points):
+
+```elixir
+byte_size("à")
+```
+
+You can **see** the bytes, not the String representation, by converting to a List with `:binary.bin_to_list/1`
+
+```elixir
+:binary.bin_to_list("à")
+```
+
+Alternatively, you can use `inspect/2`
+
+```elixir
+inspect("à", binaries: :as_binaries)
+```
+
+As Strings can be created as binaries, we can create Strings with non-ASCII characters by supplying the UTF-8 encoded bytes
+
+```elixir
+<<195, 160>>
+```
+
+## Non-ASCII charlists
+
+When using Livebook and IEX, results are the output of `inspect/1`.
+
+When a charlist contains only ASCII characters, the output is as expected
+
+```elixir
+~c"abc"
+```
+
+But, inspecting a charlist with **non ASCII** characters
+results in a list of the codepoints
+
+```elixir
+~c"àç"
+```
+
+## Converting
+
+### From Strings to charlists
+
+charlists are Lists of integers of any size.
+
+So when we convert a **non-ASCII** String to a charlist, we get to see its underlying Unicode codepoints
+
+```elixir
+to_charlist("à")
+```
+
+But, ASCII strings will just be printed as normal charlists
+
+<!-- livebook:{"break_markdown":true} -->
+
+To guarantee you actually **see** the integer values,
+you need actually convert the single code points to Strings
+
+```elixir
+"abc" |> to_charlist() |> Enum.map(&"#{&1}") |> Enum.join(", ") |> then(&"[#{&1}]")
+```
+
+### From charlists to Strings
+
+```elixir
+[
+  to_string(~c"àbc"),
+  to_string([224, 98, 99]),
+  Kernel.to_string([224, 98, 99]),
+  List.to_string([224, 98, 99])
+]
+```
+
+## Interpolation and Concatenation
+
+### Interpolation in Strings
+
+Use `#{ .. }` to interpolate in "" and ~s[] Strings.
+
+```elixir
+answer = "42"
+"The answer is #{answer}"
+```
+
+```elixir
+~s[The answer is #{answer}]
+```
+
+`~S[]` Strings do not interpolate.
+
+```elixir
+~S[The answer is #{answer}]
+```
+
+### Concatenation with Strings
+
+`<>` takes two **binary** arguments
+
+```elixir
+"a" <> "b"
+```
+
+```elixir
+"abc" <> <<0>>
+```
+
+### Concatenation with charlists
+
+Use the List concatenation operator `++`
+
+```elixir
+~c"a" ++ ~c"b"
+```
+
+## Binary Pattern Matching
+
+By default, single bytes are matched
+
+```elixir
+<<first, second>> = "ab"
+{first, second}
+```
+
+`::binary` matches any number of bytes:
+
+```elixir
+<<head, tail::binary>> = "Prefix"
+{head, tail}
+```
+
+So, `::binary` can only used on the last field:
+
+```elixir
+<<head::binary, tail::binary>> = "Prefix"
+```
+
+`::binary-size/1` can be used to match a specific number of bytes
+
+```elixir
+<<head::binary-size(3), tail::binary>> = "Prefix"
+{head, tail}
+```
+
+Strings can be used in biary pattern matching
+
+```elixir
+<<"Pre", rest::binary>> = "Prefix"
+rest
+```
+
+As can nested binaries
+
+```elixir
+<<(<<80, 114, 101>>), rest::binary>> = "Prefix"
+rest
+```
+
+## Ho UTF-8 Works
+
+https://en.wikipedia.org/wiki/UTF-8
+
+```elixir
+defmodule Utf8 do
+  @moduledoc """
+  This module implements conversion between UTF-8 Bytes and codepoints.
+  """
+
+  import Bitwise
+
+  @doc """
+  This is the same as `:binary.bin_to_list/1`
+  """
+  def encode([]), do: []
+
+  def encode(codepoints) do
+    [codepoint | rest] = codepoints
+
+    bytes =
+      cond do
+        codepoint < 0x80 ->
+          # One byte
+          [codepoint]
+
+        codepoint < 0x0800 ->
+          # Two bytes
+          [
+            0b11000000 ||| codepoint >>> 6,
+            0b10000000 ||| (codepoint &&& 0b00111111)
+          ]
+
+        codepoint < 0x010000 ->
+          # Three bytes
+          [
+            0b11100000 ||| codepoint >>> 12,
+            0b10000000 ||| (codepoint >>> 6 &&& 0b00111111),
+            0b10000000 ||| (codepoint &&& 0b00111111)
+          ]
+
+        true ->
+          # Four bytes
+          [
+            0b11110000 ||| codepoint >>> 18,
+            0b10000000 ||| (codepoint >>> 12 &&& 0b00111111),
+            0b10000000 ||| (codepoint >>> 6 &&& 0b00111111),
+            0b10000000 ||| (codepoint &&& 0b00111111)
+          ]
+      end
+
+    bytes ++ encode(rest)
+  end
+
+  @doc """
+  This is the same as `to_charlist/1`
+  """
+  def decode([]), do: []
+
+  def decode(bytes) do
+    [first | rest] = bytes
+
+    cond do
+      (first &&& 0b11110000) == 0b11110000 ->
+        # Four bytes
+        [second | [third | [fourth | rest]]] = rest
+
+        codepoint =
+          ((first &&& 0b00001111) <<< 18) +
+            ((second &&& 0b00011111) <<< 12) +
+            ((third &&& 0b00111111) <<< 6) +
+            (fourth &&& 0b00111111)
+
+        [codepoint] ++ decode(rest)
+
+      (first &&& 0b11100000) == 0b11100000 ->
+        # Three bytes
+        [second | [third | rest]] = rest
+
+        codepoint =
+          ((first &&& 0b00001111) <<< 12) +
+            ((second &&& 0b00011111) <<< 6) +
+            (third &&& 0b00111111)
+
+        [codepoint] ++ decode(rest)
+
+      (first &&& 0b11000000) == 0b11000000 ->
+        # Two bytes
+        [second | rest] = rest
+
+        codepoint =
+          ((first &&& 0b00011111) <<< 6) +
+            (second &&& 0b00111111)
+
+        [codepoint] ++ decode(rest)
+
+      true ->
+        # One byte
+        [first] ++ decode(rest)
+    end
+  end
+end
+```
+
+We will use the following [Unicode code points](https://en.wikipedia.org/wiki/List_of_Unicode_characters):
+
+* A - U+0041, 65 decimal
+* à - U+00E0, 224 decimal
+* € - U+20AC, 8364 decimal
+* 🌍 - U+1F30D, 127757 decimal
+
+```elixir
+encoded = Utf8.encode([0x41, 0xE0, 0x20AC, 0x1F30D])
+```
+
+We can check that by creating a binary with those values
+
+```elixir
+:binary.list_to_bin(encoded)
+```
+
+```elixir
+decoded = Utf8.decode(encoded)
+```
+
+Which were our original integers
+
+```elixir
+Enum.map(decoded, &Integer.to_string(&1, 16))
+```
