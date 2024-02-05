@@ -5,3 +5,8 @@ tar xf foo.tar.gz
 tar xf foo.tar.bz2
 ```
 
+# List contents
+
+```
+tar --list -f FILENAME
+```

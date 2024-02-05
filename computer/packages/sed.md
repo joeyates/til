@@ -1,7 +1,6 @@
 * `-e {{script}}` - script to run
 * `-i` - in-place substitution
-* `-r` - extended regexp
-* - E - extended regular expressions
+* `--regexp-extended`/`-r`/`-E` - extended regular expressions
 
 # Scripting
 
@@ -17,9 +16,13 @@ Replacing:
 
 * insert capture: `\1`
 
-# Matches
+## Extended Scripting
 
+Find and replace
 
+```
+sed -E -e "s/^(.)/\1/g" FILE
+```
 
 # Cookbook
 

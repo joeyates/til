@@ -1,12 +1,103 @@
-# TODO
+# Installation
 
-* plugin system
-* colour scheme: solarized
+Unstable:
 
-https://github.com/joeyates/vimrc
+```
+sudo add-apt-repository ppa:neovim-ppa/unstable
+```
+
+## Server
+
+```
+pip3 install neovim-remote
+```
+
+nvim always runs a server:
+
+```
+:echo v:servername
+```
+
+Open files with `nvr`
 
 # Configuration
 
-~/.config/nvim/init.vim
+~/.config/nvim/init.lua
 
-* " - comment line
+# Using Lua
+
+```
+:help lua
+```
+
+# Commands
+
+Run a lua command
+
+```
+:lua {{COMMAND}}
+```
+
+# Autocmd
+
+Events: https://neovim.io/doc/user/autocmd.html#autocmd-events
+
+# Introspection
+
+Print a variable
+
+```
+:lua print(vim.opt.autoindent:get())
+```
+
+Print table variables
+
+```
+:lua print(vim.inspect(vim.opt.formatoptions:get()))
+```
+
+# Vim
+
+## Variables
+
+https://neovim.io/doc/user/lua.html#lua-vim-variables
+
+* vim.g - global editor variables
+* vim.b - buffer-scoped variables
+  * vim.b - the current buffer
+  * vim.b[n] - buffer `n`
+* vim.w - window-scoped variables
+* vim.t - tabpage-scoped variables
+
+## Options
+
+* vim.o - works like Vim's `set`
+* vim.opt - works like `set`, but can be assigned table values
+  `vim.opt.NAME = { ... }`
+  `vim.opt.NAME:prepend = { ... }`
+  `vim.opt.NAME:append = { ... }`
+  `vim.opt.NAME:remove = { ... }`
+  `vim.opt.NAME:get()` - access an option
+* vim.go - "accesses the global value of a global-local option" (?!)
+* vim.bo
+* vim.wo
+
+# Lua
+
+# Output
+
+print(string.format('event fired: %s', vim.inspect(ev)))
+
+# Get Information
+
+NeoVim version
+
+```
+:version
+```
+
+Lua version:
+
+```
+:lua print(_VERSION)
+```

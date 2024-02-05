@@ -20,9 +20,11 @@ $(...commands)
 
 ## HEREDOC
 
+```
 <<DELIMITER
 ...
 DELIMITER
+```
 
 # Expansion
 
@@ -50,7 +52,9 @@ ${VARIABLE:-foo};
 
 Access variable, and fail if unset
 
+```
 ${VARIABLE?ERROR_MESSAGE}
+```
 
 Access variable, and fail with an error message if unset or empty
 
@@ -63,7 +67,13 @@ As above, but avoiding error as bash tries to execute the result of the expressi
 : ${VARIABLE:?ERROR_MESSAGE}
 ```
 
-## calculated default value
+## Use a variable as a variable name
+
+```
+local foo="Hi"
+local name=foo
+echo ${!name}
+```
 
 # Commands
 
@@ -78,6 +88,61 @@ Perform expansion, without invoking commands:
 
 # `[[...]]`
 
+# Structures
+
+## if
+
+```sh
+if ... ; then
+  ...
+fi
+```
+
+```sh
+if ... ; then
+  ...
+else
+  ...
+fi
+```
+
+## case
+
+```
+case "$foo" in
+  bar)
+     ...
+     ;;
+  *)
+     ...
+esac
+```
+
+## for
+
+## numerical loop over range
+
+```
+for i in {1..20}; do echo $i; done
+```
+
+## loop over files
+
+```
+for file in {{GLOB PATTERN}}; do COMMAND; done
+```
+
+Use "${file}" to avoid problems with spaces in file names.
+
+## while
+
+```
+while true
+do
+  echo "Hi"
+  sleep 1
+done
+```
 
 # Conditions ("Tests")
 
@@ -120,46 +185,6 @@ if [ ! -f "$FILENAME" ]
 then
   ...
 fi
-```
-
-# Structures
-
-## case
-
-```
-case "$foo" in
-  bar)
-     ...
-     ;;
-  *)
-     ...
-esac
-```
-
-## for
-
-## numerical loop over range
-
-```
-for i in {1..20}; do echo $i; done
-```
-
-## loop over files
-
-```
-for file in {{GLOB PATTERN}}; do COMMAND; done
-```
-
-Use "${file}" to avoid problems with spaces in file names.
-
-## while
-
-```
-while true
-do
-  echo "Hi"
-  sleep 1
-done
 ```
 
 # functions
@@ -208,9 +233,3 @@ finish() (
 )
 trap finish EXIT
 ```
-
-# Filenames
-
-## Strip extension
-
-basename

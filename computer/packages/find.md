@@ -113,7 +113,7 @@ find -name NAME -print0 | xargs -0 ...
 Files modified in the last 10 minutes, ordered by modification time:
 
 ```
-find -mmin -10 -print0 | xargs -0 ls -ldtr
+find -mmin -10 -exec ls -ldtr '{}' ';'
 ```
 
 ## Chaining alternatives

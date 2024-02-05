@@ -8,3 +8,24 @@ Sign in with a GitHub account
 
 Install 'C/C++' Extension
 C/C++ Extension Pack
+
+# Snippets
+
+## Tabstops
+
+$0 - final position
+$1 - first
+
+Each repeat will have the same value
+
+## Placeholders
+
+${1:name}
+
+Replace
+
+{$1${TM_FILENAME_BASE/I(.*)Repository/$1/}
+
+# Extensions
+
+Require a dev.azure.com organization account and a marketplace.visualstudio.com publisher account.

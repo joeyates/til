@@ -1,3 +1,9 @@
+# Prepare Thumb Drive
+
+```sh
+$ sudo dd if=$IMAGE of=$DEVICE bs=4M status=progress conv=fsync && sync
+```
+
 # Distribution Upgrade
 
 ```
@@ -26,4 +32,6 @@ This disables entries under `/eta/apt/sources.list.d`
 
 or, for pre-release:
 
+```
 do-release-upgrade -d
+```

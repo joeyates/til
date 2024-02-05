@@ -1,5 +1,7 @@
 # General Info
 
+libvirt is "a toolkit to manage virtualization platforms"
+
 Images: /var/lib/libvirt/images
 
 # Installation
@@ -80,4 +82,3 @@ https://unix.stackexchange.com/questions/222427/how-to-create-custom-vagrant-box
 * `virsh net-list`
 
 https://github.com/nest/anubis-puppet/blob/master/manifests/files/common/network-restart
-

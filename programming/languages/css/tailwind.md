@@ -93,3 +93,13 @@ https://tailwindcss.com/docs/responsive-design
 * lg: - large screens and above
 * xl:
 * 2xl:
+
+# Cookbook
+
+## Center a Single Item Horizontally
+
+```html
+<div class="flex justify-center">
+  <div>Content</div>
+</div>
+```

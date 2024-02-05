@@ -106,10 +106,43 @@ Pass environment variables:
 docker exec -e {{NAME}}={{VALUE}} {{CONTAINER}} {{COMMAND}}
 ```
 
+Run as a user:
+
+```
+... -u {{user}} ...
+```
+
 ## Remove Container
 
 ```sh
 $ docker rm {{id}}
+```
+
+# docker network
+
+List networks:
+
+docker network ls
+
+Get info about a network:
+
+docker network inspect NETWORK
+
+# Volumes
+
+Run an image and attach a host directory as a volume
+
+```sh
+docker run -ti -v {{HOST PATH}}:{{CONTAINER PATH}} {{IMAGE}} bash
+```
+
+## Network
+
+1. Create the network
+2. Launch containers indicating the network
+
+```sh
+docker run -ti --network {{NETWORK}} {{IMAGE}} bash
 ```
 
 # Cookbook
@@ -168,13 +201,3 @@ docker cp {{file or directory}} {{container}}:{{destination path}}
 ```sh
 docker logs {{container}}
 ```
-
-# docker network
-
-List networks:
-
-docker network ls
-
-Get info about a network:
-
-docker network inspect NETWORK

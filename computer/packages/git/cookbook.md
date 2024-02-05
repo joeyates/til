@@ -5,7 +5,7 @@ rebasing of avery successive commit.
 
 ```sh
 git init
-g commit --allow-empty -m "Initial commit"
+git commit --allow-empty -m "Initial commit"
 ```
 
 # Status
