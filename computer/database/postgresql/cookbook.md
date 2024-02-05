@@ -16,7 +16,7 @@ pg_dump -U {{PUSER}} {{DATABASE}} --no-owner --clean --inserts | gzip -c > {{DAT
 $ psql -U {user-name} -d {desintation_db} -f {dumpfilename.sql}
 ```
 
-# Restore from a compressed SQL dump
+# Restore from a gzip compressed SQL dump
 
 ```sh
 gzip -cd $DATABASE_DUMP | psql -U $DATABASE_USER $DATABASE
