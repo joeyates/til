@@ -23,4 +23,13 @@ To start with an empty image:
 FROM scratch
 ```
 
+# RUN
+
+Install an apt package
+
+```
+RUN apt-get update -y && apt-get install -y {{package(s)}} \
+    && apt-get clean && rm -f /var/lib/apt/lists/*_*
+```
+
 # VOLUME

@@ -1,0 +1,13 @@
+* Setup
+
+  - Install nix
+  - Configure direnv to work with nix
+    - https://github.com/direnv/direnv/wiki/Nix
+    - Which integration should I use?
+  - Create default.nix or shell.nix for each project
+
+* Ideas
+
+  - Use nix-flakes?
+  - Manage home: https://github.com/nix-community/home-manager
+

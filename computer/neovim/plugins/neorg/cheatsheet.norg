@@ -1,0 +1,130 @@
+* Information
+
+  `:h neorg`
+  [the specification]{https://github.com/nvim-neorg/norg-specs/blob/main/1.0-specification.norg}
+
+* Installation
+
+  - a 'nerd font'
+  - treesetter
+  - colorscheme with treesitter support
+
+* Visualization
+
+  Neorg files are presented in a formatted way.
+  The unformatted version can be seen by using the following:
+
+  `:set conceallevel=0|1|2`
+  `:Neorg toggle-concealer`
+
+* Files
+
+  - extension: .norg
+  - location: depends on 'workspace' setting
+
+* Workspaces
+
+  A 'default' workspace - the startup directory -
+  is always added to the configured workspaces
+
+  Select workspace: `:Neorg workspace WORKSPACE`
+
+* Commands
+
+  @code
+  :Neorg <COMMAND>
+  @end
+
+  - `export`
+  - `index`
+  - `inject-metadata`
+  - `journal`
+  - `keybind`
+  - `mode`
+  - `modules` - list modules
+  - `return`
+  - `sync-parsers`
+  - `tangle`
+  - `toc`
+  - `toggle-concealer`
+  - `update-metadata`
+  - `upgrade`
+  - `workspace` - print current, or change
+
+* Formatting
+
+  - Bold: `*text*` -> *text*
+  - Italic: `/text/` -> /text/
+  - Headers: `* HEADER`
+  - Unordered lists: `-`
+  - Ordered lists: `~`
+  - Inline code: `\`var a = 1\`` -> `var a = 1`
+  - Multiline code:
+    @code
+    ...
+    @end
+  - Multiline code with syntax highlighting:
+    @code LANGUAGE
+    ...
+    @end
+  - Inline maths: `$...$`
+  - Inline Latex: `$|...|$`
+  - Multiline maths and Latex:
+    @math
+    ...
+    @end
+
+* Links
+
+  - Basic `{}`
+  - With link text `[text]{destination}`
+  - ...the text can be before or after `{destination}[text]`
+  - To heading: `{* Visualization}` -> {* Visualization}
+  - To `.norg` file: `{:name:}` -> {:index:}
+  - To `.norg` file relative to the root of the current namespace: `{:$/path/name:}` -> {:$/index:}
+  - Link to a non-norg file `{/ path/to/file}`: {/ /home/user/.bashrc}
+  - Open a non-norg file outside nvim `{file:///path/to/file}`: {file:///home/user/.bashrc}
+  - Create a an anchor - ??? Haven't found out how to do this
+  - Link to an anchor - ??? Haven't found out how to do this
+
+* Navigation
+
+  - Follow link: <Enter> when on link
+  - Return from a link: <C-o>
+
+* Keybindings
+
+  [Keybinds documentation]{https://github.com/nvim-neorg/neorg/wiki/User-Keybinds}
+
+* Tasks
+
+  [Todo_items documentation]{https://github.com/nvim-neorg/neorg/wiki/Todo-Items}
+
+  - (x) *d*:one `\(x\)`
+  - ( ) *u*:ndone `\( \)`
+  - (-) *p*:ending `\(-\)`
+  - (=) on *h*:old `\(=\)`
+  - (_) *c*:ancelled `\(_\)`
+  - (+) *r*:ecurring `\(+\)` - add sub tasks
+  - (!) *i*:mportant `\(!\)`
+  - (?) doubt `\(?\)`
+
+  The **bold** letter is used in keybindings: `<LocalLeader>t` + letter
+
+  - `<C-Space>` cycles between done -> undone -> pending
+  - Using any keybinding on a non-task transforms it into a task
+
+* Configuration
+
+  See config
+
+  @code lua
+  :lua print(vim.inspect(require('neorg').config))
+  @end
+
+  - modules: https://github.com/nvim-neorg/neorg/wiki#default-modules
+  - keybindings: https://github.com/nvim-neorg/neorg/blob/main/lua/neorg/modules/core/keybinds/keybinds.lua
+
+* Troubleshooting
+
+  If highlighting breaks, try `:Neorg sync-parsers`

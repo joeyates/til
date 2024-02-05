@@ -33,6 +33,13 @@ command | meaning
 `:bnext`         | next buffer
 `:bd`            | close the current buffer
 
+# Output
+
+command | meaning
+--------|--------
+`:messages`   | show previous output
+
+
 ## Tabs
 
 command | meaning

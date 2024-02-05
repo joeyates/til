@@ -33,7 +33,27 @@ mysqld --init-file=/path/to/init.txt &
 killall mysqld
 ```
 
-## Users
+# Connect
+
+Locally via default socket:
+
+```
+mysql
+```
+
+Specify user:
+
+```
+mysql -u {{user}}
+```
+
+Remotely:
+
+```
+mysql -h {{host}}
+```
+
+# Users
 
 Create:
 

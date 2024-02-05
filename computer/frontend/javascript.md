@@ -32,7 +32,7 @@ function foo(args) {
 }
 ```
 
-Function expression:
+Anonymous function:
 
 ```
 var foo = function(args) {
@@ -63,6 +63,14 @@ arg => expression;
 
 ```
 arg => ({foo: "bar"})
+```
+
+# Statements
+
+## for...in
+
+```
+for (const property in object) { }
 ```
 
 # Array
@@ -123,7 +131,22 @@ Foo.prototype.bar = function() {
 Attributes:
   * caller
 
+# class
+
+```
+class Name {
+  constructor(ARGS) {
+  }
+}
+```
+
 # Cookbook
+
+## Create an Array with n Items
+
+```
+Array.from({length: 10}, (_, i) => '')
+```
 
 ## Wrap a method
 

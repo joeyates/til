@@ -24,6 +24,18 @@ Create a user with a home directory:
 # useradd --groups other,groups ...
 ```
 
+Force the user's id (uid)
+
+```
+# useradd --uid NUMBER USERNAME
+```
+
+Create a user who cannot log in
+
+```
+# useradd --system --shell /usr/sbin/nologin USERNAME
+```
+
 ## Query
 
 List users' shells (Mac OS X):
@@ -51,18 +63,29 @@ Add a group to an existing user:
 ```
 
 Remove a group from a user:
+
 ```
 # gpasswd -d user group
 ```
+
 ### Home Directory
+
 Change home directory:
+
 ```
 # usermod -d /home/user user
 ```
+
 ### Password
+
 Set:
+
+```
 # passwd username
+```
+
 Enable an account which is locked:
+
 ```
 # passwd username
 ```

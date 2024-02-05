@@ -16,10 +16,10 @@
 Make a local copy of a directory:
 
 ```
-$ rsync -av remote.host:/path/to/directory/ /path/to/directory/
+$ rsync -av USER@PATH:REMOTE_PATH/ LOCAL_PATH/
 ```
 
-Ignore difference is ownership:
+Ignore difference in ownership:
 
 ```
 -a --no-owner
@@ -28,7 +28,7 @@ Ignore difference is ownership:
 Specify ssh options:
 
 ```
-... -e "ssh -l username" ...
+... -e "ssh '-o StrictHostKeyChecking no'" ...
 ```
 
 Push:
