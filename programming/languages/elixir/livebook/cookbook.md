@@ -1,22 +1,31 @@
 # Download a file
 
 ```elixir
-:inets.start()
-:ssl.start()
+Mix.install([
+  {:req, ">= 0.0.0"},
+])
+ 
+{:ok, %Req.Response{status: 200} = response} =
+  Req.new(url: encoded)
+  |> Req.get()
 
-{:ok, {{_, 200, _}, _headers, body}} = :httpc.request(url)
+response.body
 ```
 
-...with headers
+# Unzip
 
 ```
-headers = [
-  {'Key', Value},
-  ...
-]
+unzipped = :zlib.gunzip(compressed_binary)
+```
 
-_result = :httpc.request(
-  :get,
-  {String.to_charlist(url), headers}, [], []
-)
+# Access an environment variable
+
+First, set up the environment variable, either
+as one of your 'Hub secrets' or as live
+secrets (that only last as long as the session)
+
+Prefix with `LB_`
+
+```
+api_key = System.fetch_env!("LB_API_KEY")
 ```

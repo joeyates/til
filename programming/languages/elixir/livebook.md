@@ -37,19 +37,21 @@ LivebookCLI.Server.call(["input-tests.livemd"])
 
 https://github.com/livebook-dev/livebook#environment-variables
 
-* LIVEBOOK_COOKIE
-* LIVEBOOK_DEFAULT_RUNTIME - standalone|mix|mix:PATH|attached:NODE:cookie|embedded
-* LIVEBOOK_DISTRIBUTION - sname*|name - set the type of distributed node
-* LIVEBOOK_IP
-* LIVEBOOK_NODE - set the distributed node name
-* LIVEBOOK_PASSWORD - {{min 12 chars}}
-* LIVEBOOK_PORT
-* LIVEBOOK_ROOT_PATH
-* LIVEBOOK_SECRET_KEY_BASE
+* `LIVEBOOK_COOKIE`
+* `LIVEBOOK_DEFAULT_RUNTIME` - standalone|mix|mix:PATH|attached:NODE:cookie|embedded
+* `LIVEBOOK_DISTRIBUTION` - `sname*|name` - set the type of distributed node
+* `LIVEBOOK_IP`
+* `LIVEBOOK_NODE` - set the distributed node name
+* `LIVEBOOK_PASSWORD` - {{min 12 chars}}
+* `LIVEBOOK_PORT`
+* `LIVEBOOK_HOME` - base directory for file selection
+* `LIVEBOOK_SECRET_KEY_BASE`
 
 ## Secrets
 
 Secrets added to a Livebook are available with an "LB_" prefix.
+
+Persistent secrets can be managed via `/hub/personal-hub`
 
 # Project Integration
 
@@ -61,4 +63,6 @@ Use `IO.puts/1` and `IO.inspect/1` - the output is printed in a box before the r
 
 Specify line colour choices:
 
+```elixir
 |> Vl.encode_field(:color, "label", type: :nominal, scale: %{range: ["green", "blue"]})
+```

@@ -39,11 +39,17 @@ iex -S mix              # Start IEx and run the default task
 
 # Mix
 
-* install(list)
+* install(list, opts)
+
+Dependency specification:
 
   atom
   {atom, "version"}
   {atom, github: "user/repo"[, ref: "commit-ish"]}
+
+Options:
+
+* :verbose
 
 # Mix.Project
 
@@ -107,3 +113,10 @@ Defines project configuration
 * archives - used by mix archive tasks
 * build_embedded - used by `mix compile` task, copies files from
   `priv` and ?? to `_build`
+
+# mix.lock
+
+https://hexdocs.pm/elixir/1.13/library-guidelines.html#dependency-handling
+
+    When your library is published and used as a dependency,
+    its lockfile (usually named mix.lock) is ignored by the host project.
