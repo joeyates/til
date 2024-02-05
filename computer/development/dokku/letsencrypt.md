@@ -17,3 +17,10 @@ Commands:
     letsencrypt:help                        Display letsencrypt help
     letsencrypt:list                        List letsencrypt-secured apps with certificate expiry times
     letsencrypt:revoke <app>                Revoke letsencrypt certificate for app
+
+# Configuration
+
+```
+dokku letsencrypt:set APP email EMAIL
+dokku letsencrypt:set APP server staging|default
+```
