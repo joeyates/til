@@ -115,3 +115,21 @@ https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html#attr/3
   </:my_slot>
 </.foo>
 ```
+
+# Cookbook
+
+## Comment out blocks
+
+Define a component
+
+```elixir
+def ignore(assigns), do: ~H""
+```
+
+Use
+
+```heex
+<.ignore>
+...
+</.ignore>
+```

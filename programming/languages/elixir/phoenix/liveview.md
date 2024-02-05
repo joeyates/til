@@ -43,3 +43,5 @@ Called whenever params change, including on mount.
 * on_mount
 * attach_hook(socket, name, stage, fun)
   * stage: `:handle_params|:handle_event|:handle_info|:after_render`
+
+# 

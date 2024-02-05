@@ -25,3 +25,11 @@ IO.puts "foo: #{inspect(foo)}"
 :int.break({{module}}, {{line}})
 
 http://erlang.org/doc/apps/debugger/debugger_chapter.html
+
+# See Process State
+
+Used with GenServer, gen_statem, gen_event
+
+```
+:sys.get_state({{module}})
+```

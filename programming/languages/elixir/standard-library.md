@@ -217,8 +217,7 @@ Function defined with &() do *not* receive numbered captures.
 
 # String
 
-* length/1
-* upcase/1
+(see file)
 
 # System
 

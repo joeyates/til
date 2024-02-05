@@ -12,13 +12,13 @@
 * keyword list: (list of 2-ples with atom keys)
    `[{:a, 1}, {:b, 2}]`
    `[a: 1, b: 2]`
-* Map: `%{a: 1}`
+* Map: `%{a: 1}` (see separate file)
 * PID
 * Port
 * Reference
 * String: `"text"`
 * struct: (see separate file)
-* tuple: `{1, 2, 3}`
+* tuple: `{1, 2, 3}` (see separate file)
 
 # Sigils
 
@@ -147,19 +147,11 @@ Keyword.keyword?(value) - is `value` a keyword list?
 * `Keyword.keys({{keyword list}})` - get keys
 * update: Keyword.put(list, key, value)
 * Keyword.has_key?(list, key)
-* Keywords.merge(kw1, kw2)
+* Keyword.merge(kw1, kw2)
 
 # Map
 
-* `is_map/1`
-* `has_key?/2`
-* map["key"] # => value
-* map[:key] # => value
-* map.key # => value
-Update existing keys:
-* `%{%{a: 1, b: 2} | a: 42}` # => %{a: 42, b: 2}
-Merge:
-* Map.merge(m1, m2)
+See separate file.
 
 # Regex
 
@@ -193,13 +185,7 @@ See separate file.
 
 # Tuple
 
-* is_tuple/1
-
-* `Tuple.insert_at/3` (tuple, index, item)
-  * return a copy of tuple with the nth item replaced.
-* `Tuple.to_list/1`
-* `elem(`tuple`, `index`)`
-  * get nth item
+See separate file.
 
 # Pattern Matching
 
