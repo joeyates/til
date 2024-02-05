@@ -36,6 +36,13 @@ postgres:upgrade <service> [--upgrade-flags...]                                 
 
 # Cookbook
 
+Add a database to an app
+
+```sh
+dokku postgres:create {{db name}}
+dokku postgres:link {{db name}} {{app}} # sets DATABASE_URL
+```
+
 Get an app's postgresql service:
 
 ```sh

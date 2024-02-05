@@ -1,10 +1,50 @@
 # Install
 
+Debian [10, 11, 12], Ubuntu [18.04, 20.04, 22.04]
+
 Choose a tag: https://github.com/dokku/dokku/tags
 
 export DOKKU_TAG={{vn.nn.nn}}
 wget https://raw.githubusercontent.com/dokku/dokku/$DOKKU_TAG/bootstrap.sh
+
+or
+
+curl -O https://raw.githubusercontent.com/dokku/dokku/$DOKKU_TAG/bootstrap.sh
+
 bash bootstrap.sh
+
+## ArchLinux
+
+sudo pacman -S core/fakeroot extra/bash-completion extra/bind extra/cpio extra/docker extra/docker-compose extra/dos2unix extra/git extra/go extra/jq extra/nginx extra/openbsd-netcat extra/parallel extra/rsync extra/unzip
+
+As user arch, manually install the following packages (!):
+docker-image-labeler
+gliderlabs-sigil
+herokuish
+man-db - no
+netrc
+net-tools - no
+plugn
+procfile-util
+rsyslog
+sshcommand
+postgresql-libs>=8.4.1
+libmariadbclient
+net-snmp
+python-docutils
+libestr
+liblogging
+librelp
+libfastjson
+bison
+flex
+dokku
+
+curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/PACKAGE.tar.gz
+tar xf PACKAGE.tar.gz
+cd PACKAGE
+makepkg
+sudo pacman -U *.pkg.tar.zst
 
 # Create Apps
 
@@ -142,12 +182,13 @@ scheduler-docker-local - TODO
 
 shell
 
-    dokku shell[:COMMAND] - Spawn a dokku shell
+    shell[:COMMAND] - Spawn a shell which accepts dokku commands
 
 ssh-keys - TODO
 
 storage
 
+    storage:ensure-directory {{app}} - ensure the app's directory under '/var/lib/dokku/data/storage' exists
     storage:list {{app}
     storage:mount {{app}} {{host path}}:{{container path}}  - map host directories to app directories
     storage:report [{{app}}]
