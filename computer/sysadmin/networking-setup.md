@@ -90,23 +90,6 @@ named
 Config:
     /etc/named.conf
 
-## dig
-Get name service info (in verbose form):
-$ dig domain
-usage:
-$ dig options [@server] domain [type]
-options:
-+[no]cmd - print/don't print version and global options
-types:
-Root nameservers:
-+nssearch
-Just get the IP:
-+short
-Reverse (from IP to hostname):
--x IP
-Trace resolution (skips intermediate DNS caches):
-    +trace
-
 # Block domains
 Edit /etc/resolvconf/resolv.conf.d/tail
     127.0.0.1 domain
