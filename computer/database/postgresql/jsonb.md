@@ -8,51 +8,12 @@ CREATE TABLE foo (
 
 # Operators
 
-## Access
-
-NB: operators end in `>` and obtain JSON results.
-
-* `->{{number}}` - nth Array item
-* `->'{{string}}'` - dereference Object by key
-* `#>[`{{key list}}`]` - dig into nested Objects and Arrays
-
-NB: doubling the `>>` and obtains text results.
-
-Examples:
-
-```psql
-# select '[99, 42]'::json->1 as answer;
- answer
---------
- 42
-
-# select '{"hi": "ciao"}'::json->'hi' as translation;
- translation
--------------
- "ciao"
-
-# select '[{"hi": "ciao"}]'::json->0->'hi' as translation;
- translation
--------------
- "ciao"
-
-# select '{"hi": {"italian": "ciao"}}'::json->'hi' as translation;
-     translation
----------------------
- {"italian": "ciao"}
-
-# select '{"hi": {"italian": "ciao"}}'::json#>'{hi,italian}' as translation;
- translation
--------------
- "ciao"
-```
-
 ## Conditions
 
 * `?`
 
 ```sql
-SELECT address FROM places p where p.address->'city' ? 'London;
+SELECT address FROM places p where p.address->'city' ? 'London';
 ```
 
 * `@>`
@@ -61,6 +22,51 @@ SELECT address FROM places p where p.address->'city' ? 'London;
 * `?`
 * `?|`
 * `?&`
+* `@?` - does json path return any value?
+
+## Access
+
+NB: operators end in `>` and obtain JSON results.
+
+* `->{{number}}` - nth Array item
+* `->'{{string}}'` - dereference Object by key
+* `#>`{{key1[,key2...]}}`` - dig into nested Objects and Arrays
+
+NB: doubling the `>>` and obtains text results.
+
+Examples:
+
+```psql
+# select '[99, 42]'::json->1;
+ ?column?
+--------
+ 42
+
+# select '{"hi": "ciao"}'::json->'hi';
+ ?column?
+-------------
+ "ciao"
+
+# select '{"hi": "ciao"}'::json->>'hi';
+ ?column?
+-------------
+ ciao
+
+# select '[{"hi": "ciao"}]'::json->0->'hi';
+ ?column?
+-------------
+ "ciao"
+
+# select '{"hi": {"italian": "ciao"}}'::json->'hi';
+     ?column?
+---------------------
+ {"italian": "ciao"}
+
+# select '{"hi": {"italian": "ciao"}}'::json#>'{hi,italian}';
+ ?column?
+-------------
+ "ciao"
+```
 
 ## Modification
 
