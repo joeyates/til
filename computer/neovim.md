@@ -69,6 +69,11 @@ https://neovim.io/doc/user/lua.html#lua-vim-variables
 * vim.w - window-scoped variables
 * vim.t - tabpage-scoped variables
 
+Current file path
+
+    filename = vim.api.nvim_buf_get_name(0)
+
+
 ## Options
 
 * vim.o - works like Vim's `set`
@@ -79,7 +84,8 @@ https://neovim.io/doc/user/lua.html#lua-vim-variables
   `vim.opt.NAME:remove = { ... }`
   `vim.opt.NAME:get()` - access an option
 * vim.go - "accesses the global value of a global-local option" (?!)
-* vim.bo
+* vim.bo - buffer options
+  * filetype
 * vim.wo
 
 # Lua
@@ -87,6 +93,12 @@ https://neovim.io/doc/user/lua.html#lua-vim-variables
 # Output
 
 print(string.format('event fired: %s', vim.inspect(ev)))
+
+# Run a Shell Command
+
+```lua
+os.execute('COMMAND')
+```
 
 # Get Information
 

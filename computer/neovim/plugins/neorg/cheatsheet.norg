@@ -87,10 +87,20 @@
   - Create a an anchor - ??? Haven't found out how to do this
   - Link to an anchor - ??? Haven't found out how to do this
 
-* Navigation
+** Navigation
 
   - Follow link: <Enter> when on link
   - Return from a link: <C-o>
+
+* Headers
+
+** Folding
+
+   - `za` toggles fold
+   - `zc` closes fold
+   - `zo` opens fold
+   - `zr` opens all folds of the current level
+   - `zm` closes all folds of the current level
 
 * Keybindings
 
