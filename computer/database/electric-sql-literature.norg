@@ -1,0 +1,228 @@
+[Link]{https://electric-sql.com/docs/reference/literature}
+
+* Conflict-free Replicated Data Types
+
+  [doc 20110825]{https://pages.lip6.fr/Marc.Shapiro/papers/RR-7687.pdf} OK
+  [doc 2014]{https://inria.hal.science/hal-00932836} OK
+
+  - Claims to have a solution for the CAP problem
+  - Defines SECs
+  - Defines CRDTs
+  - Proposes two sufficient conditions for SEC
+
+* Don’t Settle for Eventual
+
+  [doc]{https://www.cs.cmu.edu/~dga/papers/cops-sosp2011.pdf} OK
+
+  - Defines ALPS systems
+  - Defines 'causal+ consistency'
+
+* Making Geo-Replicated Systems Fast as Possible, Consistent when Necessary
+
+  [doc]{https://www.usenix.org/system/files/conference/osdi12/osdi12-final-162.pdf} OK, ESQL site link is broken
+
+  - Proposes RedBlue consistency:
+  -- Blue: faster + eventually consistent
+  -- Red: slower + strongly consistent
+
+* Calvin: Fast Distributed Transactions for Partitioned Database Systems
+
+  [doc]{http://cs.yale.edu/homes/thomson/publications/calvin-sigmod12.pdf} OK. ESQL is ACM
+
+* Spanner: Google’s Globally-Distributed Database
+
+  [doc]{https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf} OK, ESQL link is ACM
+
+* Highly Available Transactions: Virtues and Limitations
+
+  [doc]{https://www.vldb.org/pvldb/vol7/p181-bailis.pdf} OK. ESQL is ACM
+
+* SwiftCloud: Fault-Tolerant Geo-Replication Integrated all the Way to the Client Machine
+
+  [doc]{https://arxiv.org/pdf/1310.3107.pdf} OK
+
+* Coordination Avoidance in Database Systems
+
+  [doc]{https://arxiv.org/pdf/1402.2237.pdf} OK
+
+* Scalable Atomic Visibility with RAMP Transactions
+
+  [doc]{http://www.bailis.org/papers/ramp-sigmod2014.pdf} OK, ESQL link is ACM
+
+* Extending Eventually Consistent Cloud Databases for Enforcing Numeric Invariants
+
+  [doc]{https://arxiv.org/pdf/1503.09052.pdf} OK, ESQL link is IEEE
+
+  - "how to extend an eventually consistent cloud database for enforcing numeric invariants"
+
+* Feral Concurrency Control: An Empirical Investigation of Modern Application Integrity
+
+  [doc]{http://www.bailis.org/papers/feral-sigmod2015.pdf} OK, ESQL link is ACM
+
+  - Study of RoR applications
+  - Application-level data validation is preferred over database-level guarantees
+
+* Cause I’m Strong Enough: Reasoning about Consistency Choices in Distributed Systems
+
+  [doc]{https://software.imdea.org/~gotsman/papers/logic-popl16.pdf} OK, ESQL link is ACM
+
+  - Proposes rules about choices of consistency guarantees
+
+* The CISE Tool: Proving Weakly-Consistent Applications Correct
+
+  [doc]{https://software.imdea.org/~gotsman/papers/cise-tool.pdf} OK, ESQL link is ACM
+
+* Cure: strong semantics meets high availability and low latency
+
+  [doc]{https://pages.lip6.fr/Marc.Shapiro/papers/Cure-final-ICDCS16.pdf} OK, ESQL link is IEEE
+
+* Antidote: the highly-available geo-replicated database with strongest guarantees
+
+  [doc]{https://pages.lip6.fr/syncfree/attachments/article/59/antidote-white-paper.pdf} OK
+
+* BigSets: Scaling CRDTs to large sizes in Riak
+
+  [doc]{https://pages.lip6.fr/syncfree/index.php/2-uncategorised/53-big-sets.html} OK
+
+* Bringing Hybrid Consistency Closer to Programmers
+
+  [doc]{https://www.researchgate.net/publication/316347348_Bringing_Hybrid_Consistency_Closer_to_Programmers} downloadable, ESQL has ACM
+
+* Pure Operation-Based Replicated Data Types
+
+  [doc]{https://arxiv.org/pdf/1710.04469.pdf} OK
+
+* Just-Right Consistency: reconciling availability and safety
+
+  [doc]{https://arxiv.org/pdf/1801.06340.pdf} OK
+
+* IPA: invariant-preserving applications for weakly consistent replicated databases
+
+  [doc]{https://www.vldb.org/pvldb/vol12/p404-balegas.pdf} OK, ESQL has ACM
+
+* Delta State Replicated Data Types
+
+  [doc]{https://arxiv.org/pdf/1603.01529.pdf} OK, ESQL has Sciencedirect
+
+* Anna: A KVS For Any Scale
+
+  [doc]{https://dsf.berkeley.edu/jmh/papers/anna_ieee18.pdf} OK, ESQL has ACM
+
+* Interactive Checks for Coordination Avoidance
+
+  [doc]{https://mwhittaker.github.io/publications/iconfluence_VLDB19.pdf} OK, ESQL has ACM
+
+* ACGreGate: A Framework for Practical Access Control for Applications using Weakly Consistent Databases
+
+  [doc]{https://arxiv.org/pdf/1801.07005.pdf} OK
+
+* CAnDoR: Consistency Aware Dynamic data Replication
+
+  [doc]{https://hal.inria.fr/hal-02274165} OK
+
+* A Generic Replicated Data Type for Strong Eventual Consistency
+
+  [doc]{https://doi.org/10.1145/3301419.3323974} ACM
+
+* Keeping CALM: When Distributed Consistency is Easy
+
+  [doc]{https://arxiv.org/pdf/1901.01930.pdf} OK
+
+* Invariant Safety for Distributed Applications
+
+  [doc]{https://doi.org/10.1145/3301419.3323970} ACM
+
+* LightKone Reference Architecture (LiRA)
+
+  [doc]{https://www.lightkone.eu/} OK
+
+* CDB: Geo-Replicated, Conflict-Free Document Database with Session Guarantees
+
+  [doc]{https://www.macrometa.com/global-data-network} OK
+
+* A Tour of Gallifrey, a Language for Geodistributed Programming
+
+  [doc]{https://drops.dagstuhl.de/storage/00lipics/lipics-vol136-snapl2019/LIPIcs.SNAPL.2019.11/LIPIcs.SNAPL.2019.11.pdf} OK
+
+* Local-First Software: You Own Your Data, in spite of the Cloud
+
+  [doc]{https://www.inkandswitch.com/local-first/static/local-first.pdf} OK
+
+* Specification of a Transactionally and Causally-Consistent (TCC) database
+
+  [doc]{https://hal.inria.fr/hal-02902474v1} OK
+
+* CScript: A distributed programming language for building mixed-consistency applications
+
+  [doc]{http://soft.vub.ac.be/Publications/2020/vub-tr-soft-20-04.pdf} OK. ESQL link is wrong
+
+* Cloudburst: Stateful Functions-as-a-Service
+
+  [doc]{https://doi.org/10.14778/3407790.3407836} ACM
+
+* Transactional Causal Consistency for Serverless Computing
+
+  [doc]{https://doi.org/10.1145/3318464.3389710} ACM
+
+* Conflict-Free Replicated Relations for Multi-Synchronous Database Management at Edge
+
+  [doc]{https://hal.inria.fr/hal-02983557} OK
+
+* Advanced Domain-Driven Design for Consistency in Distributed Data-Intensive Systems
+
+  [doc]{https://doi.org/10.1145/3447865.3457969} ACM
+
+* Tackling Consistency-related Design Challenges of Distributed Data-Intensive Systems - An Action Research Study
+
+  [doc]{https://doi.org/10.1145/3475716.3475771} ACM
+
+* ECROs: Building Global Scale Systems from Sequential Code
+
+  [doc]{https://dl.acm.org/doi/pdf/10.1145/3485484} OK
+
+* It’s about Thyme: On the design and implementation of a time-aware reactive storage system for pervasive edge computing
+
+  [doc]{https://doi.org/10.1016/j.future.2020.12.008} ???
+
+* Thespis: Causally-consistent OLTP
+
+  [doc]{https://doi.org/0.15439/2021F34} ESQL link is broken
+
+* AUTOGR: automated geo-replication with fast system performance and preserved application semantics
+
+  [doc]{https://doi.org/10.14778/3461535.3461541} ACM
+
+* New Directions in Cloud Programming
+
+  [doc]{https://arxiv.org/pdf/2101.01159.pdf} OK
+
+* Highly-Available and Consistent Group Collaboration at the Edge with Colony
+
+  [doc]{https://dl.acm.org/doi/abs/10.1145/3464298.3493405} ACM
+
+* Towards a General Database Management System of Conflict-Free Repli- cated Relations
+
+  [doc]{https://munin.uit.no/bitstream/handle/10037/22344/thesis.pdf} OK
+
+* Building data-centric apps with a reactive relational database
+
+  [doc]{https://riffle.systems/essays/prelude} OK
+
+* VeriFx: Correct Replicated Data Types for the Masses
+
+  [doc]{https://arxiv.org/pdf/2207.02502.pdf} OK
+
+* Glossary
+
+  - ALPS - Availability, low Latency, Partition-tolerance, and high
+    Scalability - Modern Web systems that sacrifice strong consistency,
+    in the name of availability
+  - Byzantine process - a process that behaves arbitrarily
+  - Conflict-free Replicated Data Type (CRDT) - type that gives convergence
+    guarantees under SEC
+  - Conflict Freedom - Avoid the need for conflict resolution
+  - Eventual Consistency (EC)
+  - Linearizability - requires coordination of ordering of events
+  - Strong Consistency - non formal synonym for 'linearizability' ('C' in CAP)
+  - Strong Eventual Consistency (SEC)
+

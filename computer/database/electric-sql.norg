@@ -1,0 +1,81 @@
+* Refs
+
+  [Home]{https://electric-sql.com/}
+  [Literature]{:electric-sql-literature:}
+
+* What is it?
+
+"Sync for modern apps"
+
+* Hello World
+
+  Postgres + React/Typescript
+
+** Run Postgres
+
+   With logical replication
+
+   `DATABASE_REQUIRE_SSL: false` does not work,
+   needs quotes
+
+** Run Electric
+
+   Ports: 
+   - 5133 - service (HTTP)
+   - 5433 - db access - not normally exposed
+   - 65432 - migrations proxy
+
+** Example connections
+
+  To main database:
+
+   The default password is set in the Docker compose file as `db_password`
+
+   @code sh
+   psql postgresql://postgres:db_password@localhost:5432
+   @end
+
+   To Electric db (if exposed):
+
+   psql postgresql://postgres:PG_PROXY_PASSWORD@localhost:5433?replication=database
+
+  To proxy:
+
+   psql postgresql://postgres:proxy_password@0.0.0.0:65432
+
+* Diagnostics
+
+  How do I know the setup is healthy?
+
+* Official Examples
+
+  Requires docker compose v2, but `extends` with `depends_on` is in a state of flux.
+  Fix: Install latest docker compose plugin release manually (distribution's version doesn't work)
+
+* Source
+
+  Set up typescript client for local use
+
+  @code sh
+  cd clients/typescript
+  pnpm i
+  @end
+
+* Contribution Ideas
+
+  - Improve getting started docs
+  - Fix vulnerabilities
+  - [Work on shapes]{https://electric-sql.com/docs/reference/roadmap#shapes}
+  - Make setup independent of `npx electric-sql start`
+  -- Allow podman use
+  - Roll back migrations?
+  - Make deno compatible. Deno does not seem to support npm dependencies with `semver:` requirements
+  @code sh
+    error: Error in electric-sql@0.9.6 parsing version requirement for dependency: wa-sqlite@rhashimoto/wa-sqlite#semver:^0.9.8
+  @end
+  - Add option to use yarn
+
+
+* Doubts
+
+  - I was unable to create a field called 'user'. Why?

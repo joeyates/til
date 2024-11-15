@@ -1,0 +1,55 @@
+* Definition
+
+  Conflict-free replicated data type
+
+  [wikipedia]{https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type}
+
+* Examples
+
+- A Set is, by definition a CRDT.
+- A database table with UUID keys without updates or deletes.
+
+* Resolution Mechanisms
+
+** Last Write Wins
+
+   - Requires a timestamp
+   - Not updating the timestamp is a bug - it would introduce inconsistency
+   - How to tie-break when two timestamps are identical?
+   -- We can use an arbitrary rule, like alphabetical ordering of node id's or
+      even the values supplied
+
+* Syncing
+
+  Syncing requires requesting partial updates from other nodes.
+  To do so, we need to provide a timestamp for when we last received updates.
+
+** "Clock Pushing"
+
+   But, if another node is proxing changes happening elsewhere,
+   there is a kind of "race condition".
+   We can solve this by recording a separate timestamp - a reception time.
+   When syncing, we ask for updates after the reception time, not after the
+   item's basic timestamp.
+
+* System Time
+
+  You can't trust it!
+
+  CRDTs do not require a concept of time.
+  They require an indication of cause.
+
+* Logical Clock
+
+  For a single machine, just increment a counter on each event:
+
+  @code
+  my_clock = my_clock + 1
+  @end
+
+  For distributed systems, at each interaction depend on both nodes' clock
+  at each interaction:
+
+  @code
+  my_clock = max(my_clock, peer_clock) + 1
+  @end
