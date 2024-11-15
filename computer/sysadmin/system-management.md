@@ -13,6 +13,12 @@
 aptitude install package=version
 ```
 
+Installed version
+
+```
+aptitude versions ~iPACKAGE
+```
+
 List files contained in a package:
 
 ```

@@ -30,6 +30,18 @@ $ npm list -g
 npm install PATH
 ```
 
+In package.json, this produces:
+
+```json
+"PACKAGE_NAME": "file:PATH",
+```
+
+Force a package name:
+
+```sh
+npm install PACKAGE_NAME@PATH
+```
+
 ## Use a package from a Bitbucket Repo, Gist, Github Repo or GitLab Repo
 
 ```

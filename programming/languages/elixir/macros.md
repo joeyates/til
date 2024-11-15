@@ -361,3 +361,5 @@ array.
 ```
 
 ## `Macro.var`
+
+Create an AST node representing a variable.

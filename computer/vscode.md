@@ -28,4 +28,10 @@ Replace
 
 # Extensions
 
-Require a dev.azure.com organization account and a marketplace.visualstudio.com publisher account.
+Requires a dev.azure.com organization account and a marketplace.visualstudio.com publisher account.
+
+Generate an extension
+
+```sh
+npx --package yo --package generator-code -- yo code
+```

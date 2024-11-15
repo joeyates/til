@@ -1,3 +1,9 @@
+# Run With Password
+
+```sh
+LIVEBOOK_PASSWORD=pizza123pizza livebook server 
+```
+
 # Download a file
 
 ```elixir

@@ -17,13 +17,19 @@ edit config/config.exs
 config :my_app, ecto_repos: [{{App}}.Repo]
 ```
 
-# Run
+# Invocations
 
-```
+```sh
 mix phx.gen.auth Accounts User users
 ```
 
-# Setup SMTP
+LiveView authentication views
+
+```sh
+mix phx.gen.auth Accounts User users --live
+```
+
+## Setup SMTP
 
 See Elixir library Swoosh
 

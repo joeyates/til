@@ -8,6 +8,17 @@ git init
 git commit --allow-empty -m "Initial commit"
 ```
 
+# Checkout
+
+Partial checkout
+
+```sh
+git clone -n --depth=1 --filter=tree:0 REPO_URL
+cd DIRECTORY
+git sparse-checkout set --no-clone DESIRED_DIRECTORY
+git checkout
+```
+
 # Status
 
 * `git clean -dx` - remove all non-repo files, except other repos
@@ -38,7 +49,7 @@ git checkout {commit}:{path}
 
 ## Copy file from another branch
 
-```shell
+```sh
 git checkout {branch} -- {files}
 ```
 
@@ -52,7 +63,7 @@ git merge-base --is-ancestor {old-commit} {new-commit}
 
 ## Find commits matching text
 
-```shell
+```sh
 git log -G{regexp}
 ```
 
