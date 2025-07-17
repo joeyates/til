@@ -3,10 +3,6 @@
 * direnv is used locally
 * asdf is used locally
 
-# Create App
-
-...
-
 # Secrets
 
 ```
@@ -61,25 +57,6 @@ dokku apps:create $DOKKU_APP
 dokku domains:set $DOKKU_APP $APP_DOMAIN
 ```
 
-# Set Up TLS/https
-
-Set up DNS for app domain on nameserver.
-
-Obtain a staging certificate
-
-```
-dokku letsencrypt:set $DOKKU_APP email $DOMAIN_EMAIL
-dokku config:set --no-restart $DOKKU_APP DOKKU_LETSENCRYPT_SERVER=staging
-dokku letsencrypt:enable $DOKKU_APP
-```
-
-Obtain real certificate
-
-```
-dokku config:unset --no-restart $DOKKU_APP DOKKU_LETSENCRYPT_SERVER
-dokku letsencrypt:enable $DOKKU_APP
-```
-
 # Prepare Database
 
 dokku-root plugin:install https://github.com/dokku/dokku-postgres.git postgres
@@ -124,6 +101,25 @@ dokku config:set --no-restart $DOKKU_APP \
   PHX_HOST=$APP_DOMAIN \
   PHX_SERVER=true
 git push dokku
+```
+
+# Set Up TLS/https
+
+Set up DNS for app domain on nameserver.
+
+Obtain a staging certificate
+
+```
+dokku letsencrypt:set $DOKKU_APP email $DOMAIN_EMAIL
+dokku letsencrypt:set $DOKKU_APP server staging
+dokku letsencrypt:enable $DOKKU_APP
+```
+
+Obtain real certificate
+
+```
+dokku letsencrypt:set $DOKKU_APP server
+dokku letsencrypt:enable $DOKKU_APP
 ```
 
 # Run Phoenix Migrations when Deploying
