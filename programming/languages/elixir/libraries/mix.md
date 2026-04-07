@@ -99,12 +99,19 @@ A local source:
 
 ### `options`
 
-* `:tag`
-* `:optional`
+* `:optional` - don't force this dependency to be used by 'client' projects,
 * `:only` - which environments should include the dependency, indicated as a
-  single environment or as a list
+  single environment or as a list, e.g. `:prod` or `[:dev, :test]`,
+* `:runtime` - whether the dependency is a runtime application, defaults to `false`.
+  If `true`, and the Mix project has no `:applications` key, the dependency
+  will be added to the generated `:applications` key automatically.
 * `:targets` - only include the dependency for the given targets.
   The target is specified by MIX_TARGET
+
+### Git-specific `options`
+
+* `:tag` - specify the tag to use,
+* `:ref` - specify the commit-ish (branch, commit or tag) to use.
 
 Defines project configuration
 

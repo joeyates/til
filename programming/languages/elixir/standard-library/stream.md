@@ -1,4 +1,4 @@
-# resource/3
+# Stream.resource/3
 
 ```elixir
 Stream.resource(
