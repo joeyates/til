@@ -22,35 +22,25 @@ See other file.
 CREATE DATABASE name WITH OWNER owner TEMPLATE template ENCODING 'UTF8';
 ```
 
-## Dump/Backup
-
-`pg_dump`
-
-No changeowner:
-`--no-owner`
-
-Exclude a table:
-`--exclude-table='foo*'`
-
-Include a table:
-`--table=table_match`
-
-Drop tables first:
-`--clean`
-
-Use INSERT not COPY (slow but more transportable):
-`--inserts`
-
-No data:
-`--schema-only`
-
 # Tables
 
 ```
 CREATE TABLE {{name}} ({{field}} {{type}}[, ...]);
 ```
 
+Check existence:
+
+```sql
+CREATE TABLE IF NOT EXISTS {{name}} ({{field}} {{type}}[, ...]);
+```
+
 ## Data Manipulation
+
+### INSERT
+
+```sql
+INSERT INTO {{table}} ({{field1}}, {{field2}}, ...) VALUES ({{value1}}, {{value2}}, ...);
+```
 
 Update based on a 'join':
 
@@ -61,16 +51,7 @@ FROM table2 t2
 WHERE t1.id = t2.table1_id
 ```
 
-Delete based on a 'join':
-
-```
-WITH cte1 AS (
-  SELECT * FROM table1 WHERE a_field = 123
-)
-DELETE FROM table2 t2
-USING cte1 c
-WHERE c.id = t2.customer_id;
-```
+Delete based on a 'join' - see 'with-cte'
 
 # psql
 

@@ -33,3 +33,9 @@ $ pg_restore -U {{user name}} -d {db name} --clean --no-owner {filename}
 ```sql
 ALTER DATABASE {{current name}} RENAME TO {{new name}}
 ```
+
+# Extract JSON
+
+```bash
+psql -qAtX -c 'SELECT json_agg(results) FROM (SELECT field1 FROM foos WHERE ...) results' my_database
+```
