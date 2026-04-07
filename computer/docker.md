@@ -12,13 +12,22 @@ $ docker build {{url}}
 docker build .
 ```
 
-## Build from local Dockerfile with tag
+## Build from local Dockerfile and apply tag
 
 ```sh
 docker build --tag {{user}}/{{name}}:{{tag}} .
 ```
 
-## Run Docker
+Pass build arguments
+
+```sh
+docker build --build-arg FOO=bar .
+```
+
+Passing in build arguments does **not** change builder's output
+for `ARG` lines in Dockerfiles.
+
+## Run
 
 From an image:
 

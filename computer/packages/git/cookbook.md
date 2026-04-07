@@ -41,16 +41,10 @@ git ls-tree -r --name-only {branch}
 
 # Copying
 
-## Update file contents from a certain revision
-
-```
-git checkout {commit}:{path}
-```
-
-## Copy file from another branch
+## Copy file from a branch/commit/etc
 
 ```sh
-git checkout {branch} -- {files}
+git checkout {ref} -- {files}
 ```
 
 ## Is one commit an ancestor of another?
@@ -119,14 +113,34 @@ $ git commit --fixup={{SHA1}}
 $ git rebase -i --autosquash
 ```
 
+# Create a Repository based on a Subdirectory (with History)
+
+First, do a fresh checkout of the repository, then run:
+
+```sh
+wget https://raw.githubusercontent.com/newren/git-filter-repo/main/git-filter-repo -O ~/bin/git-filter-repo
+chmod +x ~/bin/git-filter-repo
+git-filter-repo --subdirectory-filter {{PATH_TO_SUBDIRECTORY}}
+```
+
+The subdirectory's commit history will be preserved, with relative paths adjusted.
+
 # Remove a Directory from History
 
-use https://github.com/newren/git-filter-repo
+use https://github.com/newren/git-filter-repo (as above)
 
+```sh
 git-filter-repo --path PATH --invert-paths
+```
 
 # Set the Current Branch in a Bare Checkout
 
 ```
 git symbolic-ref HEAD refs/heads/{{BRANCH}}
+```
+
+# Remove Author from a Commit
+
+```sh
+git commit --amend --reset-author --no-edit
 ```

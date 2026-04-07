@@ -1,5 +1,14 @@
 # Command line options
 
+* -H, --header - pass custom header(s) to server
+* -d, --data - send specified data in POST request
+* -G, --get - put the post data in the URL and use GET
+* -i, --include - include response headers in output
+* -I, --head - fetch headers only (using HEAD request)
+* -k, --insecure - allow insecure server connections when using SSL
+* -o, --output - write output to file instead of stdout
+* -X, --request - specify the verb to use, e.g. GET, POST
+* -A, --user-agent - specify User-Agent string
 * -n, --netrc - use values from ~/.netrc for login and password.
 * -T, --upload-file - supply the file name of the file to upload
 

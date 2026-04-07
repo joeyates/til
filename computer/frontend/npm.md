@@ -57,3 +57,10 @@ npm install USER/PROJECT[#COMMITTISH]
 ## Publish a package
 
 Use `np`
+
+## View All of a Package's Exports
+
+```sh
+import * as foo from 'some-package'
+console.log('foo', foo)
+```

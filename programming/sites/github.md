@@ -13,3 +13,7 @@ curl -u {{username}}:{{token}} https://api.github.com/{{path}}
 # Accept invitations
 
 https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#list-repository-invitations-for-the-authenticated-user
+
+# List a User's Open Issues
+
+https://github.com/issues/assigned

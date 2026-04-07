@@ -155,6 +155,7 @@ $ openssl \
 ## Info
 
 All CSR info:
+
 ```
 openssl req -text -in csr_file
 ```
@@ -250,7 +251,7 @@ openssl x509 -noout -modulus -in {{certificate}} | openssl md5
 
 Discover the CA
 
-$ echo | openssl s_client -connect www.ilgrandemuseodelduomo.it:443 -servername www.ilgrandemuseodelduomo.it 2>/dev/null | openssl x509 -text
+$ echo | openssl s_client -connect DOMAIN:443 -servername DOMAIN 2>/dev/null | openssl x509 -text
 
 Check online for the issuer certificate
 
@@ -281,46 +282,94 @@ DOMAIN=
 openssl req -nodes -new -newkey rsa:$KEY_BITS -subj "/C=$COUNTRY/ST=$STATE/O=$ORGANISATION/CN=$DOMAIN" -x509 -keyout server.key -out server.cert
 ```
 
-## Create a CA for self-signed certificates
+## Create a Certificate Authority for self-signed certificates
 
-...
+### Generate Certificate Authority Private Key
 
-#####################
+```
+openssl genrsa -aes256 -passout pass:changeme -out ca.key.with-password 2048
+```
 
-Create a client certificate via a CA...
+Optionally, Remove pwd:
 
-Generate pkey
-
-openssl genrsa -aes256 -passout pass:changeme -out ca.pass.key 2048
-
-Remove pwd:
-
+```
 openssl rsa -in ca.pass.key -out ca.key
+```
 
-Create CA cert:
+Create Certificate Authority Root Certificate
 
-openssl req -new -subj "/C=IT/ST=Toscana/O=MyOrg/CN=MyOrgTestDomain" -x509 -days 3650 -key ca.key -out ca.pem
+With inline subject info:
+
+```
+openssl req -new -subj "/C=IT/O=MyOrg/CN=DOMAIN" -x509 -days 3650 -key ca.key -out ca.pem
+```
+
+Via a config file:
+
+Create a config file `ca.csr.conf` with the content:
+
+```toml
+[req]
+prompt = no
+distinguished_name = dn
+x509_extensions = v3_ca
+
+[dn]
+CN = MyOrg Root CA
+O = MyOrg
+C = IT
+
+[v3_ca]
+basicConstraints = CA:TRUE
+keyUsage = cRLSign, keyCertSign
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid,issuer
+```
+
+Then run:
+
+```
+openssl req -new -x509 -days 3650 -key ca.key -config ca.csr.conf -extensions v3_ca -out ca.pem
+```
 
 Generate client key:
 
+```
 openssl genrsa -aes256 -passout pass:changeme -out client.pass.key 2048
+```
 
-Remove client key password:
+Optionally, remove client key password:
 
+```
 openssl rsa -in client.pass.key -out client.key
+```
 
-Generate client CSR:
+Generate client CSR for a single domain:
 
-openssl req -new -subj "/C=IT/ST=Toscana/O=MyOrg/CN=MyOrgTestDomain" -key client.key -out client.csr
+```
+openssl req -new -subj "/C=IT/O=MyOrg/CN=MyOrgTestDomain" -key client.key -out client.csr
+```
+
+Generate a wildcard client CSR:
+
+```
+openssl req -new -subj "/C=IT/O=MyOrg/CN=*.example.com" -addext "subjectAltName = DNS:example.com, DNS:*.example.com" -key client.key -out client.csr
+```
 
 Generate client certificate
 
+```
 openssl x509 -req -days 3650 -in client.csr -CA ca.pem -CAkey ca.key -set_serial 01 -out client.pem
+```
 
 Create a full chain certificate
 
-cat client.key client.pem ca.pem > client.full.pem
+```
+cat client.pem ca.pem > fullchain.pem
+```
 
-Generate pfx
+# Generate pfx
 
+```
 openssl pkcs12 -export -out client.full.pfx -inkey client.key -in client.full.pem -certfile ca.pem
+```

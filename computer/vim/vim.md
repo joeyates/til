@@ -199,6 +199,7 @@ Replace:
 * text - itself
 * \n - nth capture
 * \=command - result of a command
+* \r - newline
 
 ## Useful commands:
 
@@ -270,3 +271,7 @@ Open in new vertical split: `^v`
 ## Replace all tabs with two spaces
 
 `:%s/\t/  /g`
+
+## Type Unicode hex codes
+
+`^vu` + numeric code
