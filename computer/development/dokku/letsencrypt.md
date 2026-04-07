@@ -1,10 +1,14 @@
-Install
+# Install
 
+```sh
 sudo dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
+```
 
 Activate autorenewal
 
+```sh
 dokku letsencrypt:cron-job --add
+```
 
 Commands:
 
@@ -18,9 +22,28 @@ Commands:
     letsencrypt:list                        List letsencrypt-secured apps with certificate expiry times
     letsencrypt:revoke <app>                Revoke letsencrypt certificate for app
 
-# Configuration
+# Debugging
+
+Error
 
 ```
-dokku letsencrypt:set APP email EMAIL
-dokku letsencrypt:set APP server staging|default
+[DOMAIN] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: [IP]: Invalid response from https://DOMAIN:443/.well-known/acme-challenge/NNN: 404
+```
+
+Cause:
+
+The port mapping for HTTP (80) is not set up correctly.
+
+Info:
+
+```
+dokku ports:report APP
+```
+
+Notice that there is no `http:80->5000` mapping.
+
+Fix:
+
+```
+dokku ports:add APP http:80:5000
 ```

@@ -34,6 +34,10 @@ postgres:unexpose <service>                                                     
 postgres:unlink <service> <app>                                                 unlink the Postgres service from the app
 postgres:upgrade <service> [--upgrade-flags...]                                 upgrade service <service> to the specified versions
 
+# Storage
+
+The postgres data directory is mapped to /var/lib/dokku/services/postgres/{{service name}}/data on the host machine.
+
 # Cookbook
 
 Add a database to an app
@@ -55,6 +59,12 @@ Connect via psql
 $ dokku postgres:connect {{SERVICE}}
 ```
 
-Backup to a file
+Backup to a file on the host machine:
 
-???
+```sh
+TIMESTAMP_FORMAT=%Y%m%d%H%M%S
+docker exec -u postgres -t dokku.postgres.{{NAME}} pg_dump --clean --no-owner {{NAME}} | \
+  gzip -c9 > {{TARGET_PATH}}/{{NAME}}-database-backup-`date +$TIMESTAMP_FORMAT`.dump.gz
+```
+
+(See `dokku postgres:info {{SERVICE}}` for the full information)
